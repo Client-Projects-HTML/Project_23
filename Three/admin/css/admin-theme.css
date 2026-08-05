@@ -1,0 +1,61 @@
+/* ==========================================================================
+   ApplianceHub Admin Portal — Light Mode + RTL overrides
+   The admin portal is built dark-by-default. When <html> carries the
+   "light" class, these rules flip the core surfaces to a light palette.
+   Combos with brand-colored backgrounds are re-asserted back to white text
+   so buttons/badges keep working in both themes.
+   ========================================================================== */
+
+html.light body,
+html.light .bg-slate-950 { background-color: #f8fafc !important; }
+html.light .bg-slate-950\/80 { background-color: rgba(248,250,252,0.92) !important; }
+html.light .bg-slate-900,
+html.light .bg-slate-900\/80 { background-color: #ffffff !important; }
+html.light .bg-slate-800 { background-color: #f1f5f9 !important; }
+
+html.light .border-slate-800,
+html.light .border-slate-900 { border-color: #e2e8f0 !important; }
+html.light .border-slate-700 { border-color: #cbd5e1 !important; }
+html.light .divide-slate-800,
+html.light .divide-slate-800\/80,
+html.light .divide-slate-800\/60 { border-color: #e2e8f0 !important; }
+
+html.light .text-slate-100 { color: #0f172a !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .text-slate-400 { color: #64748b !important; }
+html.light .placeholder-slate-500::placeholder { color: #94a3b8 !important; }
+
+/* Generic white text on the dark shell -> dark text in light mode */
+html.light .text-white { color: #0f172a !important; }
+
+/* ...but keep it white where it sits on a brand-colored background */
+html.light .bg-hub-blue.text-white,
+html.light .bg-hub-orange.text-white,
+html.light .from-hub-blueDark.text-white,
+html.light .hover\:bg-hub-blueDark:hover.text-white { color: #ffffff !important; }
+
+/* Hover states that assumed a dark shell */
+html.light .hover\:bg-slate-800:hover { background-color: #f1f5f9 !important; }
+html.light .hover\:text-white:hover { color: #0f172a !important; }
+
+/* Active sidebar item keeps brand tint, just lighter */
+html.light .bg-hub-blue\/10 { background-color: rgba(2,132,199,0.08) !important; }
+
+/* Scrollbar / selection tweaks so nothing reads "dark on dark" */
+html.light ::selection { background-color: #0284C7; color: #fff; }
+
+/* ==========================================================================
+   RTL adjustments
+   ========================================================================== */
+html[dir="rtl"] #adminSidebar {
+  right: 0;
+  left: auto;
+  border-right: none;
+  border-left: 1px solid;
+}
+html[dir="rtl"] #adminSidebar.-translate-x-full { transform: translateX(100%); }
+html[dir="rtl"] .lg\:static#adminSidebar { right: 0; left: auto; }
+html[dir="rtl"] main,
+html[dir="rtl"] .flex-1.flex.flex-col.min-w-0 { direction: rtl; }
+html[dir="rtl"] table { direction: rtl; text-align: right; }
+html[dir="rtl"] .text-left { text-align: right !important; }

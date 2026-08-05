@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Repair Jobs Management | ApplianceHub Admin</title>
+  <script src="js/admin-auth.js"></script>
+
+  <!-- Google Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hub: {
+              blue: '#0284C7',
+              blueDark: '#0369A1',
+              orange: '#EA580C',
+              dark: '#0B132B'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/admin-theme.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white min-h-screen flex">
+
+  <!-- OVERLAY FOR MOBILE SIDEBAR -->
+  <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- SIDEBAR / SLIDER NAVIGATION -->
+  <aside id="adminSidebar" class="fixed lg:static top-0 left-0 bottom-0 w-64 bg-slate-900 border-r border-slate-800 z-50 flex flex-col justify-between -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shrink-0">
+    
+    <div>
+      <!-- SIDEBAR HEADER -->
+      <div class="h-16 px-6 border-b border-slate-800 flex items-center justify-between">
+        <a href="dashboard.html" class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg flex items-center justify-center font-bold shadow-md shadow-hub-blue/20">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+          <span class="font-extrabold text-base tracking-tight text-white">Appliance<span class="text-hub-blue">Hub</span></span>
+        </a>
+        <button onclick="toggleSidebar()" class="lg:hidden text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- SIDEBAR MENU ITEMS -->
+      <nav class="p-4 space-y-1.5 text-xs font-bold">
+        <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+          <span>Dashboard Overview</span>
+        </a>
+
+        <a href="inventory.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all">
+          <i data-lucide="package" class="w-4 h-4"></i>
+          <span>Inventory Management</span>
+        </a>
+
+        <a href="repair-jobs.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl bg-hub-blue/10 text-hub-blue border border-hub-blue/20 transition-all">
+          <i data-lucide="wrench" class="w-4 h-4"></i>
+          <span>Repair Jobs</span>
+        </a>
+
+        <a href="customers.html" class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-all">
+          <i data-lucide="users" class="w-4 h-4"></i>
+          <span>Customer Records</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- SIDEBAR FOOTER -->
+    <div class="p-4 border-t border-slate-800 space-y-3">
+      <div class="flex items-center gap-3 px-2">
+        <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-bold text-white">
+          A
+        </div>
+        <div class="overflow-hidden">
+          <span class="text-xs font-bold text-white block truncate">Admin User</span>
+          <span class="text-[10px] text-slate-400 block truncate">admin@appliancehub.com</span>
+        </div>
+      </div>
+
+      <a href="index.html" onclick="localStorage.removeItem('isAdminLoggedIn')" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-rose-500/10 hover:text-rose-400 border border-slate-700 text-slate-300 text-xs font-bold transition-all flex items-center justify-center gap-2">
+        <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Log Out
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <div class="flex-1 flex flex-col min-w-0">
+    
+    <!-- TOP HEADER -->
+    <header class="h-16 bg-slate-900 border-b border-slate-800 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white lg:hidden">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+        <h1 class="text-base sm:text-lg font-bold text-white">Repair Service Bookings</h1>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-2.5">
+        <!-- RTL TOGGLE (3-MINUS / 3-DASH SYMBOL) -->
+        <button id="rtlToggleBtn" onclick="toggleAdminRTL()" class="px-2.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] font-bold transition-all flex items-center gap-1.5" title="Toggle Direction (LTR/RTL)">
+          <span class="font-mono text-sm leading-none tracking-tighter">&#8801;</span>
+          <span id="adminRtlLabel" class="hidden sm:inline uppercase font-extrabold">RTL</span>
+        </button>
+
+        <!-- DARK / LIGHT TOGGLE -->
+        <button id="themeToggleBtn" onclick="toggleAdminDarkMode()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all" title="Toggle Dark/Light Mode">
+          <i data-lucide="moon" id="adminThemeIcon" class="w-4 h-4"></i>
+        </button>
+
+        <button onclick="openAddModal()" class="px-3.5 py-2 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-lg shadow-hub-blue/20">
+        <i data-lucide="plus" class="w-4 h-4"></i> New Repair Job
+      </button>
+      </div>
+    </header>
+
+    <!-- MAIN REPAIR JOBS CONTENT -->
+    <main class="p-4 sm:p-6 lg:p-8 flex-1 space-y-6">
+      
+      <!-- STAT METRICS -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-1">
+          <span class="text-xs font-bold text-slate-400">Total Booked</span>
+          <div class="text-xl font-extrabold text-white" id="statTotalJobs">0</div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-1">
+          <span class="text-xs font-bold text-slate-400">Pending Assignment</span>
+          <div class="text-xl font-extrabold text-amber-400" id="statPendingJobs">0</div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-1">
+          <span class="text-xs font-bold text-slate-400">In Progress</span>
+          <div class="text-xl font-extrabold text-hub-blue" id="statProgressJobs">0</div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl space-y-1">
+          <span class="text-xs font-bold text-slate-400">Completed</span>
+          <div class="text-xl font-extrabold text-emerald-400" id="statCompletedJobs">0</div>
+        </div>
+      </div>
+
+      <!-- CONTROLS & FILTERS -->
+      <div class="flex flex-col sm:flex-row justify-between gap-4">
+        <!-- SEARCH -->
+        <div class="relative flex-1 max-w-md">
+          <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </span>
+          <input type="text" id="searchInput" onkeyup="filterJobs()" placeholder="Search Job ID, customer name, or appliance..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-hub-blue">
+        </div>
+
+        <!-- STATUS FILTER -->
+        <div class="flex items-center gap-2">
+          <select id="statusFilter" onchange="filterJobs()" class="px-3 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-xs text-slate-300 focus:outline-none focus:ring-2 focus:ring-hub-blue">
+            <option value="ALL">All Statuses</option>
+            <option value="Pending">Pending Assignment</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- REPAIR JOBS TABLE -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-950 text-slate-400 border-b border-slate-800 uppercase tracking-wider text-[10px]">
+              <tr>
+                <th class="py-3.5 px-4 font-bold">Job ID</th>
+                <th class="py-3.5 px-4 font-bold">Customer Details</th>
+                <th class="py-3.5 px-4 font-bold">Appliance Service</th>
+                <th class="py-3.5 px-4 font-bold">Scheduled Date</th>
+                <th class="py-3.5 px-4 font-bold">Technician</th>
+                <th class="py-3.5 px-4 font-bold">Status</th>
+                <th class="py-3.5 px-4 font-bold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="jobsTableBody" class="divide-y divide-slate-800/80 text-slate-300">
+              <!-- Dynamically Populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- BOOK NEW REPAIR JOB MODAL -->
+  <div id="addJobModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-lg p-6 space-y-6 shadow-2xl">
+      <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+        <h3 class="font-extrabold text-base text-white">Create Service Booking</h3>
+        <button onclick="closeAddModal()" class="text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleAddJob(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Customer Name</label>
+          <input type="text" id="jobCustomer" required placeholder="e.g. David Miller" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Appliance Type</label>
+            <select id="jobAppliance" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
+              <option value="Refrigerator Cooling Fix">Refrigerator</option>
+              <option value="Washing Machine Drum Service">Washing Machine</option>
+              <option value="AC Jet Servicing">Air Conditioner</option>
+              <option value="Microwave Heating Issue">Microwave</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1">Schedule Date</label>
+            <input type="date" id="jobDate" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Assigned Technician</label>
+          <select id="jobTech" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
+            <option value="Unassigned">Unassigned (Pending)</option>
+            <option value="Alex Rivera">Alex Rivera</option>
+            <option value="Mark Stevens">Mark Stevens</option>
+            <option value="Chris Jordan">Chris Jordan</option>
+          </select>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-4 border-t border-slate-800">
+          <button type="button" onclick="closeAddModal()" class="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-bold">Cancel</button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold shadow-lg shadow-hub-blue/20">Book Job</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin-theme.js"></script>
+
+  <!-- SCRIPT -->
+  <script>
+    let repairJobs = [
+      { id: 'REP-8041', customer: 'David Miller', phone: '+1 555-0143', appliance: 'Refrigerator Cooling Fix', date: '2026-08-03', tech: 'Alex Rivera', status: 'In Progress' },
+      { id: 'REP-8040', customer: 'Sarah Jenkins', phone: '+1 555-0188', appliance: 'Washing Machine Drum Service', date: '2026-08-02', tech: 'Mark Stevens', status: 'Completed' },
+      { id: 'REP-8039', customer: 'Robert Chen', phone: '+1 555-0129', appliance: 'AC Jet Servicing', date: '2026-08-04', tech: 'Unassigned', status: 'Pending' },
+      { id: 'REP-8038', customer: 'Amanda Clark', phone: '+1 555-0176', appliance: 'Microwave Heating Issue', date: '2026-08-03', tech: 'Chris Jordan', status: 'In Progress' }
+    ];
+
+    function renderJobs(items) {
+      const tbody = document.getElementById('jobsTableBody');
+      tbody.innerHTML = '';
+
+      // Update Top Metrics
+      document.getElementById('statTotalJobs').innerText = repairJobs.length;
+      document.getElementById('statPendingJobs').innerText = repairJobs.filter(j => j.status === 'Pending').length;
+      document.getElementById('statProgressJobs').innerText = repairJobs.filter(j => j.status === 'In Progress').length;
+      document.getElementById('statCompletedJobs').innerText = repairJobs.filter(j => j.status === 'Completed').length;
+
+      if (items.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-slate-500 font-medium">No repair bookings matched your search.</td></tr>`;
+        return;
+      }
+
+      items.forEach((job, index) => {
+        let badge = '';
+        if (job.status === 'Pending') {
+          badge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">Pending</span>`;
+        } else if (job.status === 'In Progress') {
+          badge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-hub-blue/10 text-hub-blue border border-hub-blue/20">In Progress</span>`;
+        } else {
+          badge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Completed</span>`;
+        }
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-800/40 transition-colors';
+        tr.innerHTML = `
+          <td class="py-3.5 px-4 font-mono font-bold text-white">${job.id}</td>
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-white">${job.customer}</div>
+            <div class="text-[10px] text-slate-400">${job.phone}</div>
+          </td>
+          <td class="py-3.5 px-4 font-medium text-slate-300">${job.appliance}</td>
+          <td class="py-3.5 px-4 text-slate-400">${job.date}</td>
+          <td class="py-3.5 px-4 font-semibold ${job.tech === 'Unassigned' ? 'text-amber-400' : 'text-white'}">${job.tech}</td>
+          <td class="py-3.5 px-4">${badge}</td>
+          <td class="py-3.5 px-4 text-right space-x-2">
+            <button onclick="toggleStatus(${index})" class="text-hub-blue hover:underline font-bold">Advance Status</button>
+            <button onclick="deleteJob(${index})" class="text-rose-400 hover:underline font-bold">Cancel</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function toggleStatus(index) {
+      const current = repairJobs[index].status;
+      if (current === 'Pending') repairJobs[index].status = 'In Progress';
+      else if (current === 'In Progress') repairJobs[index].status = 'Completed';
+      else repairJobs[index].status = 'Pending';
+      
+      filterJobs();
+    }
+
+    function filterJobs() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const status = document.getElementById('statusFilter').value;
+
+      const filtered = repairJobs.filter(j => {
+        const matchesQuery = j.id.toLowerCase().includes(query) || 
+                             j.customer.toLowerCase().includes(query) || 
+                             j.appliance.toLowerCase().includes(query);
+        const matchesStatus = (status === 'ALL') || (j.status === status);
+        return matchesQuery && matchesStatus;
+      });
+
+      renderJobs(filtered);
+    }
+
+    function deleteJob(index) {
+      if (confirm('Are you sure you want to cancel this repair booking?')) {
+        repairJobs.splice(index, 1);
+        filterJobs();
+      }
+    }
+
+    function openAddModal() {
+      document.getElementById('addJobModal').classList.remove('hidden');
+    }
+
+    function closeAddModal() {
+      document.getElementById('addJobModal').classList.add('hidden');
+    }
+
+    function handleAddJob(e) {
+      e.preventDefault();
+      const techVal = document.getElementById('jobTech').value;
+      const newJob = {
+        id: 'REP-' + Math.floor(8042 + Math.random() * 50),
+        customer: document.getElementById('jobCustomer').value,
+        phone: '+1 555-0100',
+        appliance: document.getElementById('jobAppliance').value,
+        date: document.getElementById('jobDate').value,
+        tech: techVal,
+        status: techVal === 'Unassigned' ? 'Pending' : 'In Progress'
+      };
+
+      repairJobs.unshift(newJob);
+      closeAddModal();
+      filterJobs();
+      e.target.reset();
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('adminSidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      
+      if (sidebar.classList.contains('-translate-x-full')) {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      } else {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderJobs(repairJobs);
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
