@@ -1,18 +1,17 @@
 // Cart State Management
 let cart = JSON.parse(localStorage.getItem('applianceHubCart')) || [];
 
-// Update the cart badge in the header
 function updateCartBadge() {
-    const badge = document.getElementById('cartBadge');
-    if (badge) {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badges = document.querySelectorAll('#cartBadge, #cartBadgeMobile, .cart-badge-indicator');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badges.forEach(badge => {
         badge.textContent = totalItems;
         if (totalItems === 0) {
             badge.style.display = 'none';
         } else {
             badge.style.display = 'flex';
         }
-    }
+    });
 }
 
 // Add item to cart from product list

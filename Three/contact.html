@@ -6,10 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Contact Us | ApplianceHub - Premium Doorstep Care & Sales</title>
 
-  <!-- Google Fonts & Tailwind CSS -->
+  <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Load Tailwind CSS for the page body styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,23 +19,16 @@
       theme: {
         extend: {
           colors: {
-            hub: {
-              blue: '#0284C7',
-              blueDark: '#0369A1',
-              orange: '#EA580C',
-              darkNav: '#0F172A',
-              dark: '#0B132B',
-              light: '#F8FAFC',
-              border: '#E2E8F0'
-            }
+            hub: { blue: '#0284C7', blueDark: '#0369A1', orange: '#EA580C', dark: '#0F172A', light: '#F8FAFC', border: '#E2E8F0' }
           },
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif']
+            sans: ['Outfit', 'sans-serif']
           }
         }
       }
     }
   </script>
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/mobile-nav.js" defer></script>
@@ -291,9 +286,15 @@
         </span>
         <p class="leading-relaxed pr-4">ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.</p>
         <div class="flex space-x-3 pt-2">
-          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
         </div>
       </div>
 

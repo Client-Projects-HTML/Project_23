@@ -49,9 +49,9 @@
       <div class="h-16 px-6 border-b border-slate-800 flex items-center justify-between">
         <a href="dashboard.html" class="flex items-center gap-3">
           <div class="w-8 h-8 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg flex items-center justify-center font-bold shadow-md shadow-hub-blue/20">
-            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <i data-lucide="wrench" class="w-4 h-4"></i>
           </div>
-          <span class="font-extrabold text-base tracking-tight text-white">Store<span class="text-hub-blue">Logo</span></span>
+          <span class="font-extrabold text-base tracking-tight text-white">Appliance<span class="text-hub-blue">Hub</span></span>
         </a>
         <button onclick="toggleSidebar()" class="lg:hidden text-slate-400 hover:text-white">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -112,8 +112,8 @@
           <div class="w-8 h-8 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-sm shadow-md">
             <i data-lucide="shield-check" class="w-4 h-4"></i>
           </div>
+          <span class="font-extrabold text-lg tracking-tight text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
         </a>
-        <h1 class="text-base sm:text-lg font-bold text-white hidden sm:block">Inventory & Stock</h1>
       </div>
 
       <div class="flex items-center gap-1.5 sm:gap-2.5">
@@ -135,16 +135,23 @@
         <button onclick="toggleSidebar()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all lg:hidden">
           <i data-lucide="menu" class="w-4 h-4"></i>
         </button>
-
-        <button onclick="openAddModal()" class="px-3.5 py-2 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-lg shadow-hub-blue/20">
-          <i data-lucide="plus" class="w-4 h-4"></i> <span class="hidden sm:inline">Add New Product</span>
-        </button>
       </div>
     </header>
 
     <!-- INVENTORY MAIN CONTENT -->
     <main class="p-4 sm:p-6 lg:p-8 flex-1 space-y-6">
       
+      <!-- PAGE TITLE -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Inventory & Stock</h1>
+          <p class="text-xs text-slate-400 mt-1">Manage your product catalog and stock levels.</p>
+        </div>
+        <button onclick="openAddModal()" class="px-4 py-2.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all flex items-center gap-2 shadow-lg shadow-hub-blue/20">
+          <i data-lucide="plus" class="w-4 h-4"></i> <span>Add New Product</span>
+        </button>
+      </div>
+
       <!-- CONTROLS & FILTERS -->
       <div class="flex flex-col sm:flex-row justify-between gap-4">
         <!-- SEARCH -->
