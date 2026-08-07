@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Coming Soon | ApplianceHub</title>
+
+  <!-- Google Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hub: {
+              blue: '#0284C7',
+              blueDark: '#0369A1',
+              orange: '#EA580C',
+              dark: '#0B132B'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#111827] text-white font-sans antialiased selection:bg-green-600 selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- MAIN COMING SOON CONTENT -->
+  <main class="flex-1 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    
+    <div class="w-full max-w-2xl text-center flex flex-col items-center space-y-8">
+      
+      <!-- ICON CONTAINER -->
+      <div class="relative w-24 h-24 flex items-center justify-center">
+        <!-- Optional glow effect -->
+        <div class="absolute inset-0 bg-green-500/20 rounded-3xl blur-xl"></div>
+        <div class="relative w-20 h-20 bg-green-500/10 border border-green-500/20 rounded-3xl flex items-center justify-center shadow-lg shadow-green-500/10">
+          <i data-lucide="rocket" class="w-10 h-10 text-green-500"></i>
+        </div>
+      </div>
+
+      <!-- HEADING -->
+      <div class="space-y-4">
+        <span class="inline-block px-3 py-1 text-[10px] font-bold text-green-500 uppercase tracking-widest bg-green-500/10 rounded-full border border-green-500/20 mb-2">NEW FEATURE</span>
+        <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight">Coming Soon</h1>
+        <p class="text-sm sm:text-base text-slate-400 max-w-md mx-auto leading-relaxed">
+          Our team is building this new feature for your neighborhood supermarket.
+          Stay tuned for exciting updates!
+        </p>
+      </div>
+
+      <!-- TIMER BLOCKS -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 py-4 px-2">
+        
+        <!-- Days -->
+        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
+          <span class="text-xl sm:text-3xl font-black text-green-500">14</span>
+          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Days</span>
+        </div>
+
+        <!-- Hours -->
+        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
+          <span class="text-xl sm:text-3xl font-black text-green-500">08</span>
+          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hours</span>
+        </div>
+
+        <!-- Minutes -->
+        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
+          <span class="text-xl sm:text-3xl font-black text-green-500">45</span>
+          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mins</span>
+        </div>
+
+        <!-- Seconds -->
+        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
+          <span class="text-xl sm:text-3xl font-black text-green-500">12</span>
+          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Secs</span>
+        </div>
+
+      </div>
+
+      <!-- ACTION BUTTON -->
+      <div class="pt-4">
+        <a href="index.html" class="inline-flex px-8 py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-slate-900 text-sm font-bold shadow-md shadow-green-500/20 transition-all items-center justify-center text-center">
+          Back to Home
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -4,6 +4,6 @@
    screen before the page content is visible. */
 (function () {
   if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
-    window.location.replace('index.html');
+    window.location.replace('../login.html');
   }
 })();

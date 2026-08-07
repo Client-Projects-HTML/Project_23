@@ -6,10 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>ApplianceHub | Premium Sales & Express Repairs</title>
 
-  <!-- Google Fonts & Tailwind CSS -->
+  <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,40 +20,38 @@
         extend: {
           colors: {
             hub: {
-              blue: '#0284C7',        // Primary Trust Blueit 
-              blueDark: '#0369A1',    // Darker Blue hover
-              orange: '#EA580C',      // Urgent Service / Action Orange
-              dark: '#0F172A',        // Slate 900
-              light: '#F8FAFC',       // Clean background slate-50
+              blue: '#0284C7',
+              blueDark: '#0369A1',
+              orange: '#EA580C',
+              dark: '#0F172A',
+              light: '#F8FAFC',
               border: '#E2E8F0'
             }
-          },
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif']
           }
         }
       }
     }
   </script>
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/mobile-nav.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/theme.js?v=2"></script>
 </head>
-<body class="bg-hub-light dark:bg-slate-900 text-hub-dark dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
 
   <!-- TOP UTILITY BAR -->
   <div class="bg-slate-950 text-slate-400 text-xs py-2 px-4 border-b border-slate-800/80">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-6">
-        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Authorized Service Partner</span>
-        <span class="hidden md:flex items-center gap-1.5"><i data-lucide="truck" class="w-3.5 h-3.5 text-hub-blue"></i> Same-Day Delivery & Installation</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-hub-blue"></i> Delivering to: <strong class="text-white ml-1">Downtown 10001</strong></span>
+        <span class="hidden md:flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-hub-blue"></i> Express delivery in 24 hours available</span>
       </div>
       <div class="flex items-center gap-5 font-medium">
-        <a href="tel:18002775426" class="flex items-center gap-1.5 text-hub-orange hover:text-orange-400 transition-colors">
-          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> 24/7 Hotline: 1-800-APPLIANCE
+        <a href="tel:18002775426" class="flex items-center gap-1.5 hover:text-white transition-colors">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i> Support: 1-800-APPLIANCE
         </a>
-        <span class="text-slate-700">|</span>
-        <a href="track-service.html" class="hover:text-white transition-colors">Track Request</a>
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@
         
         <!-- HOME DROPDOWN -->
         <div class="relative group py-2">
-          <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-hub-blue hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+          <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-hub-blue font-extrabold transition-all">
             <i data-lucide="home" class="w-4 h-4"></i>
             <span>Home</span>
             <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200"></i>
@@ -84,7 +84,7 @@
 
           <!-- DROPDOWN CONTENT -->
           <div class="absolute top-full left-0 w-64 bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 rounded-2xl shadow-xl p-2 hidden group-hover:block transition-all duration-200 z-50">
-            <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">
+            <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
               <div class="w-8 h-8 rounded-lg bg-hub-blue/10 text-hub-blue flex items-center justify-center shrink-0 mt-0.5">
                 <i data-lucide="store" class="w-4 h-4"></i>
               </div>
@@ -93,7 +93,6 @@
                 <span class="text-[10px] text-slate-400 font-normal">Hybrid store, products & booking</span>
               </div>
             </a>
-
             <a href="home-v2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
               <div class="w-8 h-8 rounded-lg bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0 mt-0.5">
                 <i data-lucide="shield-alert" class="w-4 h-4"></i>
@@ -123,128 +122,125 @@
               <i data-lucide="wrench" class="w-4 h-4 text-hub-blue"></i>
               <span>Book Repair Service</span>
             </a>
-            <a href="#comparison" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
+            <a href="index.html#comparison" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
               <i data-lucide="sliders" class="w-4 h-4 text-emerald-500"></i>
               <span>Compare Brands</span>
             </a>
-            <a href="#warranty" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
+            <a href="index.html#warranty" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
               <i data-lucide="shield" class="w-4 h-4 text-amber-500"></i>
               <span>AMC Protection Plans</span>
             </a>
           </div>
         </div>
 
+        <!-- CONTACT LINK -->
         <a href="contact.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all">
           Contact
         </a>
-      </nav>
 
-      <!-- 3. COMPACT SEARCH BAR -->
-      <div class="hidden xl:flex items-center flex-1 max-w-xs mx-2">
-        <div class="flex w-full rounded-full border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 focus-within:border-hub-blue transition-all px-3 py-1.5 items-center gap-2">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
-          <input type="text" placeholder="Search appliances or repair..." class="w-full bg-transparent text-xs text-hub-dark dark:text-white focus:outline-none font-medium">
-        </div>
-      </div>
-
-      <!-- 4. RIGHT ACTION UTILITIES & TOGGLES AFTER BOOK SERVICE -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        
-        <!-- ADMIN PORTAL BUTTON -->
-        <a href="admin/dashboard.html" class="px-3 py-2 rounded-xl bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 text-slate-200 text-xs font-bold border border-slate-700 transition-all flex items-center gap-2" title="Admin Operations Portal">
-          <i data-lucide="lock" class="w-3.5 h-3.5 text-hub-blue"></i>
-          <span class="hidden sm:inline">Admin</span>
+        <!-- DEALS LINK -->
+        <a href="deals.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all">
+          Deals
         </a>
 
+        <!-- BLOG LINK -->
+        <a href="blog.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all">
+          Blog
+        </a>
+      </nav>
+
+      <!-- 3. RIGHT ACTION UTILITIES & TOGGLES -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
         <!-- CART BUTTON -->
         <a href="cart.html" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
           <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-          <span class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm">2</span>
+          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
         </a>
 
-        <!-- USER ACCOUNT -->
-        <a href="login.html" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="User Account">
-          <i data-lucide="user" class="w-4 h-4"></i>
-        </a>
-
-        <!-- BOOK REPAIR CTA -->
-        <a href="#booking-form" class="hidden sm:flex px-4 py-2.5 rounded-xl bg-hub-orange text-white text-xs font-bold shadow-md shadow-hub-orange/20 hover:bg-orange-600 transition-all items-center gap-1.5 shrink-0">
-          <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Book Service
-        </a>
-
-        <!-- === TOGGLES PLACED AFTER BOOK SERVICE === -->
-        <div class="flex items-center gap-1.5 pl-1 border-l border-slate-200 dark:border-slate-700">
-          <!-- RTL TOGGLE BUTTON (3-MINUS / 3-DASH SYMBOL) -->
-          <button id="rtlToggleBtn" onclick="toggleRTL()" class="px-2.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-all flex items-center gap-1.5" title="Toggle Direction (LTR/RTL)">
-            <span class="font-mono text-sm leading-none tracking-tighter">≡</span>
-            <span id="rtlLabel" class="text-[10px] uppercase font-extrabold">RTL</span>
+        <!-- === TOGGLES === -->
+        <div class="flex items-center gap-1.5 pl-1 pr-2 border-l border-r border-slate-200 dark:border-slate-700">
+          <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
+            <i data-lucide="globe" class="w-4 h-4"></i>
           </button>
 
-          <!-- DARK MODE TOGGLE BUTTON -->
           <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
             <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
           </button>
         </div>
 
+        <!-- LOGIN BUTTON -->
+        <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20">
+          <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
+        </a>
+
       </div>
+      
+      <!-- MOBILE MENU BUTTON -->
+      <button class="lg:hidden p-2 text-slate-500 hover:text-hub-blue" id="mobileMenuBtn">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
 
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="bg-gradient-to-br from-slate-900 via-hub-dark to-slate-800 text-white py-16 lg:py-24 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 bg-slate-900 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
       
-      <div class="space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hub-blue/20 border border-hub-blue/40 text-hub-blue text-xs font-bold">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Certified Sales & Express Home Repairs
+      <div class="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left space-y-8 z-10 relative animate-fade-in-up">
+        
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-hub-blue/50 bg-hub-blue/20 text-sky-400 text-xs font-bold tracking-wide animate-pulse">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Certified Sales & Express Home Repairs
+          </span>
         </div>
-        <h1 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
-          Smart Appliances. <br><span class="text-hub-blue">Expert Service.</span>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+          Premium Appliances.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-hub-blue">Delivered & Installed.</span>
         </h1>
-        <p class="text-slate-300 text-sm sm:text-base max-w-xl font-medium leading-relaxed">
-          Upgrade your home with energy-efficient appliances or get instant technician visits for fast, doorstep repairs backed by an official 1-year service warranty.
+        
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          Shop everyday home essentials, from refrigerators to washing machines. Fast delivery and reliable repair services right to your door.
         </p>
 
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="shop.html" class="px-6 py-3.5 rounded-2xl bg-hub-blue text-white text-xs font-bold shadow-lg shadow-hub-blue/30 hover:bg-hub-blueDark transition-all flex items-center gap-2">
-            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Browse Sales Store
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="shop.html" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 w-full sm:w-auto rounded-full bg-hub-blue hover:bg-hub-blueDark text-white font-bold transition-all shadow-lg shadow-hub-blue/30">
+            <i data-lucide="shopping-cart" class="w-4.5 h-4.5"></i> Shop Appliances
           </a>
-          <a href="#booking-form" class="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold transition-all flex items-center gap-2">
-            <i data-lucide="wrench" class="w-4 h-4"></i> Schedule Repair
+          <a href="services.html" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 w-full sm:w-auto rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold transition-all shadow-lg">
+            <i data-lucide="tag" class="w-4.5 h-4.5"></i> Book a Service
           </a>
         </div>
 
-        <!-- TRUST BADGES -->
-        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800 text-xs">
-          <div>
-            <span class="block font-bold text-lg text-white">24-Hour</span>
-            <span class="text-slate-400">Repair Turnaround</span>
+        <!-- SOCIAL PROOF -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 pt-8 mt-8 border-t border-slate-800">
+          <div class="flex -space-x-3">
+            <img src="https://i.pravatar.cc/100?img=3" alt="User" class="w-10 h-10 rounded-full border-2 border-slate-900">
+            <img src="https://i.pravatar.cc/100?img=11" alt="User" class="w-10 h-10 rounded-full border-2 border-slate-900">
+            <img src="https://i.pravatar.cc/100?img=12" alt="User" class="w-10 h-10 rounded-full border-2 border-slate-900">
           </div>
-          <div>
-            <span class="block font-bold text-lg text-white">100% Original</span>
-            <span class="text-slate-400">Brand Spare Parts</span>
-          </div>
-          <div>
-            <span class="block font-bold text-lg text-white">5-Star Rated</span>
-            <span class="text-slate-400">Certified Technicians</span>
+          <div class="text-xs text-slate-400 text-center sm:text-left flex flex-col">
+            <strong class="text-white font-bold">Over 10,000+ Happy Customers Served</strong>
+            <span>Servicing within 5 miles of your neighborhood</span>
           </div>
         </div>
+
       </div>
 
       <!-- HERO IMAGE / QUICK STAT CARD -->
-      <div class="relative">
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl relative z-10">
-          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Modern Home Appliances" class="rounded-2xl object-cover w-full h-80 shadow-md">
+      <div class="relative lg:h-[600px] flex items-center justify-center animate-fade-in-up animate-delay-1 -mt-8 lg:-mt-16">
+        <div class="relative w-full max-w-md lg:max-w-none">
+          <img src="https://plus.unsplash.com/premium_photo-1661342474567-f84bb6959d9f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Appliance Repair Service" class="w-full h-auto rounded-3xl shadow-2xl object-cover">
           
           <!-- OVERLAY CARD -->
-          <div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 text-hub-dark dark:text-white p-4 rounded-2xl shadow-2xl border border-hub-border dark:border-slate-700 flex items-center gap-3">
-            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-500 rounded-xl flex items-center justify-center shrink-0">
-              <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+          <div class="absolute -bottom-6 -left-6 sm:-left-12 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-100 dark:border-slate-700 max-w-[280px] animate-float">
+            <div class="w-12 h-12 rounded-xl bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-6 h-6"></i>
             </div>
-            <div>
-              <p class="font-bold text-xs">Emergency AC & Refrigerator Repair</p>
-              <p class="text-[11px] text-slate-400">Technician arrives in under 90 minutes</p>
+            <div class="flex flex-col text-sm">
+              <span class="text-xs text-slate-500 font-medium">Service Promise</span>
+              <strong class="text-hub-dark dark:text-white leading-tight">Technician arrives in under 90 minutes</strong>
             </div>
           </div>
         </div>
@@ -254,131 +250,123 @@
   </section>
 
   <!-- PRODUCT LAYOUT: APPLIANCE CATEGORIES -->
-  <section id="categories" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-    <div class="text-center max-w-2xl mx-auto space-y-2">
-      <span class="text-xs font-extrabold uppercase tracking-widest text-hub-blue">Explore Our Catalog</span>
-      <h2 class="font-extrabold text-3xl text-hub-dark dark:text-white">Featured Appliance Categories</h2>
-      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Top-rated home appliances with official brand warranties and free installation.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- PRODUCT LAYOUT: APPLIANCE CATEGORIES -->
+  <section id="categories" class="py-16 lg:py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- CATEGORY 1: REFRIGERATORS -->
-      <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-hub-border dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all space-y-4 group">
-        <div class="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80" alt="Refrigerators" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          <span class="absolute top-3 left-3 bg-hub-blue text-white text-[10px] font-bold px-2.5 py-1 rounded-full">Top Seller</span>
-        </div>
-        <div>
-          <h3 class="font-bold text-lg text-hub-dark dark:text-white">Smart Refrigerators</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">French Door, Side-by-Side, Single & Double Door Inverter models.</p>
-        </div>
-        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700/60 pt-4">
-          <span class="text-xs font-bold text-slate-400">Starts from $499</span>
-          <a href="shop.html?cat=refrigerators" class="text-xs font-bold text-hub-blue hover:underline flex items-center gap-1">
-            Shop Category <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-          </a>
-        </div>
+      <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">Explore Our Catalog</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Featured Appliance Categories</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Top-rated home appliances with official brand warranties and free installation.</p>
       </div>
 
-      <!-- CATEGORY 2: WASHING MACHINES -->
-      <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-hub-border dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all space-y-4 group">
-        <div class="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80" alt="Washing Machines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">Free Install</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CATEGORY 1: REFRIGERATORS -->
+        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-1">
+          <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1721613877687-c9099b698faa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Refrigerators" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1 text-xs font-extrabold rounded-full text-slate-900 dark:text-white border border-slate-200/50 dark:border-slate-700/50">Top Seller</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Refrigerators</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">French door, side-by-side, and bottom freezer models.</p>
+          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
+            <span class="text-sm font-bold text-hub-blue">Starts from $699</span>
+            <a href="shop.html?cat=refrigerators" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-sm hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          </div>
         </div>
-        <div>
-          <h3 class="font-bold text-lg text-hub-dark dark:text-white">Washing Machines & Dryers</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Front Load, Top Load, and Washer Dryer combos with Steam Care.</p>
-        </div>
-        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700/60 pt-4">
-          <span class="text-xs font-bold text-slate-400">Starts from $349</span>
-          <a href="shop.html?cat=washing-machines" class="text-xs font-bold text-hub-blue hover:underline flex items-center gap-1">
-            Shop Category <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- CATEGORY 3: AIR CONDITIONERS -->
-      <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-hub-border dark:border-slate-700/80 shadow-sm hover:shadow-xl transition-all space-y-4 group">
-        <div class="h-48 rounded-2xl bg-slate-100 dark:bg-slate-900 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Air Conditioners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          <span class="absolute top-3 left-3 bg-hub-orange text-white text-[10px] font-bold px-2.5 py-1 rounded-full">Energy Saving</span>
+        <!-- CATEGORY 2: WASHING MACHINES -->
+        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-2">
+          <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=600&auto=format&fit=crop" alt="Washing Machines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-hub-blue text-white px-3 py-1 text-xs font-extrabold rounded-full animate-pulse">New Arrival</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Washing Machines</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Front-load, top-load washers and smart dryers.</p>
+          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
+            <span class="text-sm font-bold text-hub-blue">Starts from $499</span>
+            <a href="shop.html?cat=washing-machines" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-sm hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          </div>
         </div>
-        <div>
-          <h3 class="font-bold text-lg text-hub-dark dark:text-white">Air Conditioners</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Inverter Split ACs, Window ACs, and Central Climate Systems.</p>
-        </div>
-        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-700/60 pt-4">
-          <span class="text-xs font-bold text-slate-400">Starts from $399</span>
-          <a href="shop.html?cat=air-conditioners" class="text-xs font-bold text-hub-blue hover:underline flex items-center gap-1">
-            Shop Category <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-          </a>
-        </div>
-      </div>
 
+        <!-- CATEGORY 3: AIR CONDITIONERS -->
+        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-3">
+          <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1762341123870-d706f257a12e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Air Conditioners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 text-xs font-extrabold rounded-full">Energy Saving</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Air Conditioners</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Inverter Split ACs, Window ACs, and Climate Systems.</p>
+          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
+            <span class="text-sm font-bold text-hub-blue">Starts from $399</span>
+            <a href="shop.html?cat=air-conditioners" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-sm hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- BRAND COMPARISON TABLE -->
-  <section id="comparison" class="bg-white dark:bg-slate-800 py-16 border-y border-hub-border dark:border-slate-700/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+  <!-- BRAND COMPARISON MATRIX -->
+  <section id="compare" class="py-16 lg:py-20 bg-slate-50 dark:bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <span class="text-xs font-extrabold uppercase tracking-widest text-hub-blue">Smart Buying Guide</span>
-          <h2 class="font-extrabold text-2xl sm:text-3xl text-hub-dark dark:text-white">Top Appliance Brand Comparison</h2>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">Smart Choices</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Top Brand Comparison</h2>
         </div>
-        <p class="text-xs text-slate-400 max-w-md">Compare efficiency, warranty terms, and service availability before making a purchase.</p>
+        <p class="text-slate-600 dark:text-slate-400 text-base md:text-right max-w-sm">Compare efficiency, warranty terms, and service availability before making a purchase.</p>
       </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs border-collapse">
+      <div class="w-full overflow-x-auto pb-4">
+        <table class="w-full min-w-[800px] border-collapse bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
           <thead>
-            <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-400 uppercase tracking-wider font-bold">
-              <th class="py-4 px-4">Brand / Feature</th>
-              <th class="py-4 px-4">Energy Efficiency</th>
-              <th class="py-4 px-4">Standard Warranty</th>
-              <th class="py-4 px-4">Compressor / Motor Warranty</th>
-              <th class="py-4 px-4">Repair Part Availability</th>
-              <th class="py-4 px-4 text-center">Action</th>
+            <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-700">
+              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Brand / Feature</th>
+              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Energy Efficiency</th>
+              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Standard Warranty</th>
+              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Compressor / Motor</th>
+              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Repair Part Availability</th>
+              <th class="py-5 px-6 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-medium text-slate-600 dark:text-slate-300">
-            <tr>
-              <td class="py-4 px-4 font-bold text-hub-dark dark:text-white flex items-center gap-2">
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50 text-sm">
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
                 <span class="w-3 h-3 rounded-full bg-blue-500"></span> Samsung Smart Series
               </td>
-              <td class="py-4 px-4 text-emerald-600 font-bold">5-Star Inverter</td>
-              <td class="py-4 px-4">2 Years Comprehensive</td>
-              <td class="py-4 px-4">10 Years</td>
-              <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-[10px] font-bold">Same-Day Availability</span></td>
-              <td class="py-4 px-4 text-center">
-                <a href="shop.html?brand=samsung" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-hub-dark dark:text-white font-bold hover:bg-hub-blue hover:text-white transition-all">View Models</a>
+              <td class="py-5 px-6 text-hub-blue font-bold">5-Star Inverter</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Comprehensive</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years</td>
+              <td class="py-5 px-6"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Same-Day Availability</span></td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=samsung" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
               </td>
             </tr>
-            <tr>
-              <td class="py-4 px-4 font-bold text-hub-dark dark:text-white flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span> LG ThinQ Eco
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span> LG ThinQ Eco
               </td>
-              <td class="py-4 px-4 text-emerald-600 font-bold">5-Star Dual Inverter</td>
-              <td class="py-4 px-4">2 Years Comprehensive</td>
-              <td class="py-4 px-4">10 Years</td>
-              <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-emerald-100 text-emerald-700 text-[10px] font-bold">Same-Day Availability</span></td>
-              <td class="py-4 px-4 text-center">
-                <a href="shop.html?brand=lg" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-hub-dark dark:text-white font-bold hover:bg-hub-blue hover:text-white transition-all">View Models</a>
+              <td class="py-5 px-6 text-hub-blue font-bold">5-Star Dual Inverter</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Comprehensive</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years</td>
+              <td class="py-5 px-6"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Same-Day Availability</span></td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=lg" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
               </td>
             </tr>
-            <tr>
-              <td class="py-4 px-4 font-bold text-hub-dark dark:text-white flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-slate-700"></span> Whirlpool Pro
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-slate-500"></span> Whirlpool Pro
               </td>
-              <td class="py-4 px-4 text-slate-500 font-bold">4-Star Energy Saver</td>
-              <td class="py-4 px-4">1 Year Comprehensive</td>
-              <td class="py-4 px-4">5 Years</td>
-              <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-amber-100 text-amber-700 text-[10px] font-bold">24-48 Hours</span></td>
-              <td class="py-4 px-4 text-center">
-                <a href="shop.html?brand=whirlpool" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-hub-dark dark:text-white font-bold hover:bg-hub-blue hover:text-white transition-all">View Models</a>
+              <td class="py-5 px-6 text-slate-500 dark:text-slate-400 font-bold">4-Star Energy Saver</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">1 Year Comprehensive</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">5 Years</td>
+              <td class="py-5 px-6"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">24-48 Hours</span></td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=whirlpool" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
               </td>
             </tr>
           </tbody>
@@ -389,100 +377,106 @@
   </section>
 
   <!-- WARRANTY & SERVICE PROTECTION PLANS -->
-  <section id="warranty" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-    <div class="text-center max-w-2xl mx-auto space-y-2">
-      <span class="text-xs font-extrabold uppercase tracking-widest text-hub-blue">Peace of Mind</span>
-      <h2 class="font-extrabold text-3xl text-hub-dark dark:text-white">Appliance Protection & Warranty Plans</h2>
-      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Protect your investments against unexpected breakdowns with our Annual Maintenance Contracts (AMC).</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <section id="warranty" class="py-16 lg:py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- PLAN 1 -->
-      <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-hub-border dark:border-slate-700 shadow-sm space-y-6 relative">
-        <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Basic Shield</span>
-          <h3 class="font-extrabold text-2xl text-hub-dark dark:text-white mt-1">$49 <span class="text-xs font-medium text-slate-400">/year</span></h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Essential protection for single appliances.</p>
-        </div>
-        <ul class="space-y-3 text-xs font-medium text-slate-600 dark:text-slate-300">
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 2 Free Preventive Maintenance Visits</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Free Breakdown Labor</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 15% Discount on Spare Parts</li>
-        </ul>
-        <button class="w-full py-3 rounded-2xl bg-slate-100 dark:bg-slate-700 text-hub-dark dark:text-white font-bold text-xs hover:bg-hub-blue hover:text-white transition-all">Select Basic Plan</button>
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">Peace of Mind</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Appliance Protection & Warranty Plans</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Protect your investments against unexpected breakdowns with our Annual Maintenance Contracts (AMC).</p>
       </div>
 
-      <!-- PLAN 2 (FEATURED) -->
-      <div class="bg-hub-dark text-white rounded-3xl p-6 border-2 border-hub-blue shadow-2xl space-y-6 relative transform md:-translate-y-2">
-        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-hub-blue text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
-        <div>
-          <span class="text-xs font-bold text-hub-blue uppercase tracking-wider">Full Home Care</span>
-          <h3 class="font-extrabold text-3xl text-white mt-1">$129 <span class="text-xs font-medium text-slate-400">/year</span></h3>
-          <p class="text-xs text-slate-300 mt-2">Covers up to 3 major appliances (AC, Fridge, Washer).</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+        
+        <!-- PLAN 1 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
+          <span class="text-slate-900 dark:text-white font-extrabold text-xl mb-2 block">Basic Shield</span>
+          <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">$49 <span class="text-lg text-slate-500 dark:text-slate-400 font-medium">/year</span></h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">Essential protection for single appliances.</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> 2 Free Maintenance Visits</div>
+            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Free Breakdown Labor</div>
+            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> 15% Discount on Parts</div>
+          </div>
+          
+          <button class="w-full py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Select Basic Plan</button>
         </div>
-        <ul class="space-y-3 text-xs font-medium text-slate-200">
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> Unlimited Breakdown Repair Visits</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> 100% Free Spare Parts Replacement</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> Priority 4-Hour Technician Dispatch</li>
-        </ul>
-        <button class="w-full py-3 rounded-2xl bg-hub-blue text-white font-bold text-xs shadow-lg shadow-hub-blue/30 hover:bg-hub-blueDark transition-all">Get Premium Care</button>
-      </div>
 
-      <!-- PLAN 3 -->
-      <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-hub-border dark:border-slate-700 shadow-sm space-y-6 relative">
-        <div>
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Commercial / Multi-Unit</span>
-          <h3 class="font-extrabold text-2xl text-hub-dark dark:text-white mt-1">$299 <span class="text-xs font-medium text-slate-400">/year</span></h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Tailored protection for restaurants and rental properties.</p>
+        <!-- PLAN 2 (FEATURED) -->
+        <div class="bg-hub-dark rounded-3xl p-8 border border-slate-700 shadow-2xl relative transform md:-translate-y-4">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-hub-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Most Popular</span>
+          <span class="text-white font-extrabold text-xl mb-2 block">Full Home Care</span>
+          <h3 class="text-4xl font-extrabold text-white mb-4">$129 <span class="text-lg text-slate-400 font-medium">/year</span></h3>
+          <p class="text-slate-300 text-sm mb-8">Covers up to 3 major appliances (AC, Fridge, Washer).</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> Unlimited Repair Visits</div>
+            <div class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> 100% Free Parts Replacement</div>
+            <div class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> Priority 4-Hour Dispatch</div>
+          </div>
+          
+          <button class="w-full py-3.5 rounded-xl bg-hub-blue text-white font-bold hover:bg-hub-blueDark transition-colors shadow-lg shadow-hub-blue/30">Get Premium Care</button>
         </div>
-        <ul class="space-y-3 text-xs font-medium text-slate-600 dark:text-slate-300">
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Covers Unlimited Appliances</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Dedicated Technician Manager</li>
-          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Monthly Preventive Inspections</li>
-        </ul>
-        <button class="w-full py-3 rounded-2xl bg-slate-100 dark:bg-slate-700 text-hub-dark dark:text-white font-bold text-xs hover:bg-hub-blue hover:text-white transition-all">Contact Commercial Team</button>
-      </div>
 
+        <!-- PLAN 3 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
+          <span class="text-slate-900 dark:text-white font-extrabold text-xl mb-2 block">Commercial</span>
+          <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">$299 <span class="text-lg text-slate-500 dark:text-slate-400 font-medium">/year</span></h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">Tailored protection for restaurants and rental properties.</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Covers Unlimited Appliances</div>
+            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Dedicated Tech Manager</div>
+            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Monthly Inspections</div>
+          </div>
+          
+          <button class="w-full py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Contact Commercial</button>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- SERVICE BOOKING FORM FOR REPAIRS -->
-  <section id="booking-form" class="py-16 bg-slate-900 text-white relative">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+  <section id="booking-form" class="py-16 lg:py-20 bg-hub-dark relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-hub-blue/5 blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-hub-orange/5 blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="text-center space-y-2">
-        <span class="inline-block px-3 py-1 rounded-full bg-hub-orange/20 text-hub-orange text-xs font-bold uppercase tracking-wider">Fast Doorstep Service</span>
-        <h2 class="font-extrabold text-3xl sm:text-4xl text-white">Book an Express Appliance Repair</h2>
-        <p class="text-xs sm:text-sm text-slate-400">Fill out the details below. A certified technician will be assigned immediately.</p>
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-hub-blue font-bold tracking-wider uppercase text-sm mb-3 block">Fast Doorstep Service</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Book an Express Repair</h2>
+        <p class="text-slate-400 text-lg">Fill out the details below. A certified technician will be assigned immediately.</p>
       </div>
 
-      <!-- SUCCESS MESSAGE ALERT -->
-      <div id="bookingSuccess" class="hidden p-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
-          <span>Repair request received! Your Booking Reference ID is #REP-8821.</span>
-        </div>
-        <a href="track-service.html" class="underline hover:text-white">Track Progress</a>
-      </div>
-
-      <form onsubmit="handleRepairBooking(event)" class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-10 space-y-6 backdrop-blur-xl">
+      <form class="max-w-3xl mx-auto bg-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-700" onsubmit="handleRepairBooking(event)">
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Your Full Name</label>
-            <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-hub-blue font-medium">
+        <div id="bookingSuccess" class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 text-sm font-medium" style="display: none;">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+            <span>Repair request received! Booking ID: #REP-8821.</span>
           </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Phone Number (For Technician Call)</label>
-            <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-hub-blue font-medium">
+          <a href="track-service.html" class="underline hover:text-emerald-300 transition-colors">Track Progress</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-bold text-slate-300">Your Full Name</label>
+            <input type="text" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-bold text-slate-300">Phone Number</label>
+            <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Appliance Type</label>
-            <select required class="w-full px-4 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-hub-blue font-medium">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-bold text-slate-300">Appliance Type</label>
+            <select required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all appearance-none">
               <option value="">Select Appliance</option>
               <option>Refrigerator / Freezer</option>
               <option>Washing Machine / Dryer</option>
@@ -491,106 +485,316 @@
               <option>Dishwasher</option>
             </select>
           </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Appliance Brand</label>
-            <input type="text" required placeholder="e.g. Samsung, LG, Whirlpool" class="w-full px-4 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-hub-blue font-medium">
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-bold text-slate-300">Appliance Brand</label>
+            <input type="text" required placeholder="e.g. Samsung" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
           </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">Preferred Visit Date</label>
-            <input type="date" required class="w-full px-4 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-hub-blue font-medium">
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-bold text-slate-300">Preferred Date</label>
+            <input type="date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all [color-scheme:dark]">
           </div>
         </div>
 
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">Describe the Issue</label>
-          <textarea rows="3" placeholder="e.g., Refrigerator is not cooling properly, making buzzing noise..." class="w-full px-4 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-hub-blue font-medium resize-none"></textarea>
+        <div class="flex flex-col gap-2 mb-6">
+          <label class="text-sm font-bold text-slate-300">Describe the Issue</label>
+          <textarea rows="3" required placeholder="e.g., Refrigerator is not cooling properly..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all resize-none"></textarea>
         </div>
 
-        <button type="submit" class="w-full py-4 rounded-2xl bg-hub-orange text-white font-bold text-xs shadow-xl shadow-hub-orange/20 hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
-          <i data-lucide="wrench" class="w-4 h-4"></i> Confirm Repair Booking
+        <button type="submit" class="w-full bg-hub-blue hover:bg-hub-blueDark text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all mt-4">
+          <i data-lucide="wrench" class="w-5 h-5"></i> Confirm Repair Booking
         </button>
 
       </form>
-
     </div>
   </section>
 
+  <!-- TESTIMONIALS (CUSTOMER VOICE) -->
+  <section class="py-16 lg:py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">CUSTOMER VOICE</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">Trusted by 10,000+ Appliance Owners</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Testimonial 1 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-1 mb-6 text-amber-400">
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed italic mb-8">"ApplianceHub saved my weekend! The technician arrived within 90 minutes and had my refrigerator running perfectly again."</p>
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover">
+            <div class="flex flex-col">
+              <strong class="text-slate-900 dark:text-white font-bold text-sm">Sarah Jenkins</strong>
+              <span class="text-slate-500 text-xs">Verified Customer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-1 mb-6 text-amber-400">
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed italic mb-8">"The AMC warranty plan is brilliant. I get regular maintenance visits for my AC and washer, totally hassle-free."</p>
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/100?img=11" alt="David Chen" class="w-12 h-12 rounded-full object-cover">
+            <div class="flex flex-col">
+              <strong class="text-slate-900 dark:text-white font-bold text-sm">David Chen</strong>
+              <span class="text-slate-500 text-xs">Verified Customer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-1 mb-6 text-amber-400">
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed italic mb-8">"Prices for new appliances are very competitive, and the free installation service was top notch. Highly recommended!"</p>
+          <div class="flex items-center gap-4">
+            <img src="https://i.pravatar.cc/100?img=5" alt="Elena Rodriguez" class="w-12 h-12 rounded-full object-cover">
+            <div class="flex flex-col">
+              <strong class="text-slate-900 dark:text-white font-bold text-sm">Elena Rodriguez</strong>
+              <span class="text-slate-500 text-xs">Verified Customer</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES (NEIGHBORHOOD TRUST) -->
+  <section class="py-16 lg:py-20 bg-slate-50 dark:bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">APPLIANCE TRUST</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">Why Choose ApplianceHub?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-emerald-500/10 text-emerald-500">
+            <i data-lucide="truck" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Express Repairs</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Certified technicians arrive at your door within 90 minutes for emergencies.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-emerald-500/10 text-emerald-500">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">100% Genuine Parts</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">We only use OEM parts with official manufacturer warranties for all repairs.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-amber-500/10 text-amber-500">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Expert Technicians</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Our staff is fully trained, vetted, and certified by major appliance brands.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-indigo-500/10 text-indigo-500">
+            <i data-lucide="lock" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Secure Checkout</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">256-bit SSL encrypted digital checkout for your peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE MAP -->
+  <section class="py-16 lg:py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <div class="space-y-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase">COVERAGE MAP</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">Check Service Availability In Your Area</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Enter your zip code below to check instant express repair availability and estimated technician arrival times for your address.</p>
+          
+          <form class="flex flex-col sm:flex-row gap-3 pt-4" onsubmit="event.preventDefault(); alert('Coverage confirmed for your area!');">
+            <input type="text" placeholder="Enter ZIP code (e.g. 10001)" required class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+            <button type="submit" class="inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition-all shadow-lg shadow-emerald-500/30 whitespace-nowrap">Check Coverage</button>
+          </form>
+        </div>
+        
+        <div class="relative w-full h-[400px] lg:h-[500px]">
+          <!-- Google Maps Iframe -->
+          <div class="w-full h-full rounded-3xl overflow-hidden shadow-2xl relative border border-slate-100 dark:border-slate-800">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.2528001602!2d-74.1444874443194!3d40.69763123330691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+              width="100%" 
+              height="100%" 
+              style="border:0; filter: grayscale(0.5) contrast(1.1) brightness(0.9);" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            <div class="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row items-center gap-3 text-xs font-bold text-slate-700 dark:text-slate-200 max-w-[90%]">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> 
+              Serving Downtown, Midtown & Surrounding Neighborhoods
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded-md bg-rose-500/10 text-rose-500 text-[10px] uppercase tracking-wider">
+                <span class="w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
+                Live GPS
+              </span>
+            </div>
+            
+            <div class="absolute bottom-4 right-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-200">
+              <i data-lucide="navigation" class="w-4 h-4 text-emerald-500"></i> 
+              24 Technicians Live in Radius
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SUBSCRIPTION SECTION -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="bg-hub-blue rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl shadow-hub-blue/20">
+        <!-- Abstract Background -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white/10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-black/10 blur-3xl"></div>
+        
+        <div class="relative z-10">
+          <span class="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-xs font-bold tracking-wide uppercase mb-4 backdrop-blur-sm border border-white/20">Exclusive Offers</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Join The ApplianceHub Family</h2>
+          <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto">Subscribe to our newsletter for seasonal maintenance tips, early access to sales, and $50 off your first repair.</p>
+          
+          <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+            <input type="email" placeholder="Enter your email address" required class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:bg-white/20 transition-all backdrop-blur-sm">
+            <button type="submit" class="px-8 py-3 rounded-xl bg-white text-hub-blue hover:bg-slate-50 font-bold transition-all shadow-lg whitespace-nowrap">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- FOOTER -->
-  <footer class="bg-hub-dark text-slate-400 py-12 border-t border-slate-800 text-xs">
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer class="bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 py-12 border-t border-slate-200 dark:border-slate-800 text-xs mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
       
-      <div class="space-y-3">
-        <span class="font-extrabold text-lg text-white block">Appliance<span class="text-hub-blue">Hub</span></span>
-        <p class="leading-relaxed">Your one-stop destination for genuine appliance sales and 24/7 doorstep repair services.</p>
+      <div class="space-y-4">
+        <span class="font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <span class="w-8 h-8 rounded-full bg-hub-blue flex items-center justify-center text-white">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          </span>
+          Appliance<span class="text-hub-blue">Hub</span>
+        </span>
+        <p class="leading-relaxed pr-4">ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.</p>
+        <div class="flex space-x-3 pt-2">
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+        </div>
       </div>
 
       <div>
-        <h4 class="font-bold text-white mb-3 uppercase tracking-wider">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="shop.html" class="hover:text-white">Store Catalog</a></li>
-          <li><a href="services.html" class="hover:text-white">Book Repair Service</a></li>
-          <li><a href="#warranty" class="hover:text-white">AMC Warranty Plans</a></li>
-          <li><a href="track-service.html" class="hover:text-white">Track Order / Technician</a></li>
-          <li><a href="admin/dashboard.html" class="hover:text-white font-bold text-slate-300">Admin Portal</a></li>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html" class="hover:text-hub-blue transition-colors">Home</a></li>
+          <li><a href="shop.html" class="hover:text-hub-blue transition-colors">Shop</a></li>
+          <li><a href="services.html" class="hover:text-hub-blue transition-colors">Book Repair Service</a></li>
+          <li><a href="deals.html" class="hover:text-hub-blue transition-colors">Deals</a></li>
+          <li><a href="blog.html" class="hover:text-hub-blue transition-colors">Blog</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="font-bold text-white mb-3 uppercase tracking-wider">Appliance Categories</h4>
-        <ul class="space-y-2">
-          <li><a href="shop.html?cat=refrigerators" class="hover:text-white">Smart Refrigerators</a></li>
-          <li><a href="shop.html?cat=washing-machines" class="hover:text-white">Washing Machines</a></li>
-          <li><a href="shop.html?cat=air-conditioners" class="hover:text-white">Inverter Air Conditioners</a></li>
-          <li><a href="shop.html?cat=ovens" class="hover:text-white">Built-in Ovens</a></li>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Shop Categories</h4>
+        <ul class="space-y-2.5">
+          <li><a href="shop.html" class="hover:text-hub-blue transition-colors">All Products</a></li>
+          <li><a href="shop.html?cat=refrigerators" class="hover:text-hub-blue transition-colors">Refrigerators</a></li>
+          <li><a href="shop.html?cat=washing-machines" class="hover:text-hub-blue transition-colors">Washing Machines</a></li>
+          <li><a href="shop.html?cat=air-conditioners" class="hover:text-hub-blue transition-colors">Air Conditioners</a></li>
+          <li><a href="shop.html?cat=ovens" class="hover:text-hub-blue transition-colors">Built-in Ovens</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="font-bold text-white mb-3 uppercase tracking-wider">Emergency Contact</h4>
-        <p class="mb-2">Toll-Free: 1-800-APPLIANCE</p>
-        <p class="mb-2">Email: support@appliancehub.com</p>
-        <p>Mon - Sun: 7:00 AM - 10:00 PM</p>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Customer Support</h4>
+        <ul class="space-y-2.5">
+          <li><a href="contact.html" class="hover:text-hub-blue transition-colors">Help & FAQ Center</a></li>
+          <li><a href="track-service.html" class="hover:text-hub-blue transition-colors">Live Order Tracking</a></li>
+          <li><a href="login.html" class="hover:text-hub-blue transition-colors">Order History</a></li>
+          <li><a href="404.html" class="hover:text-hub-blue transition-colors">Returns & Refunds</a></li>
+          <li><a href="coming-soon.html" class="hover:text-hub-blue transition-colors">Terms of Service</a></li>
+        </ul>
       </div>
 
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800 text-center">
-      <p>© 2026 ApplianceHub Inc. All rights reserved.</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
+      <div class="text-right text-[10px] text-slate-500 flex items-center justify-center gap-1">
+        <span>Developed by</span>
+        <span class="font-bold text-hub-blue">Abhivorn Technologies Pvt.Ltd.</span>
+      </div>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC FOR REPAIRS, DARK MODE & RTL TOGGLES -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
     function handleRepairBooking(event) {
       event.preventDefault();
-      document.getElementById('bookingSuccess').classList.remove('hidden');
+      document.getElementById('bookingSuccess').style.display = 'flex';
       event.target.reset();
     }
 
     // TOGGLE RTL DIRECTION
     function toggleRTL() {
       const htmlElement = document.documentElement;
-      const rtlLabel = document.getElementById('rtlLabel');
-      
       if (htmlElement.getAttribute('dir') === 'rtl') {
         htmlElement.setAttribute('dir', 'ltr');
-        rtlLabel.innerText = 'RTL';
       } else {
         htmlElement.setAttribute('dir', 'rtl');
-        rtlLabel.innerText = 'LTR';
       }
     }
 
     // TOGGLE DARK / LIGHT MODE
     function toggleDarkMode() {
+      if (window.appThemeToggle) return window.appThemeToggle();
       const htmlElement = document.documentElement;
-      const themeIcon = document.getElementById('themeIcon');
+      const bodyElement = document.body;
+      const themeIcon = document.querySelector('button[title="Toggle Dark/Light Mode"] i');
       
-      if (htmlElement.classList.contains('dark')) {
-        htmlElement.classList.remove('dark');
-        themeIcon.setAttribute('data-lucide', 'moon');
-      } else {
-        htmlElement.classList.add('dark');
+      if (bodyElement.classList.contains('light-mode')) {
+        bodyElement.classList.remove('light-mode');
         themeIcon.setAttribute('data-lucide', 'sun');
+      } else {
+        bodyElement.classList.add('light-mode');
+        themeIcon.setAttribute('data-lucide', 'moon');
       }
       
       if (window.lucide) lucide.createIcons();
@@ -598,6 +802,15 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
+      
+      // Bind click for Mobile Menu
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', () => {
+          mobileDrawer.classList.toggle('is-open');
+        });
+      }
     });
   </script>
 </body>

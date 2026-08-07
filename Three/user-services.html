@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>My Service Bookings | ApplianceHub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hub: { blue: '#0284C7', blueDark: '#0369A1', orange: '#EA580C', dark: '#0F172A' }
+          },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/theme.js?v=2"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-orange selection:text-white transition-colors duration-200">
+
+  <div class="flex h-screen overflow-hidden">
+
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col hidden lg:flex shrink-0 h-full relative z-20">
+      <a href="index.html" class="p-6 flex items-center gap-3 shrink-0">
+        <div class="w-9 h-9 bg-hub-blue text-white rounded-xl flex items-center justify-center font-bold shadow-md shadow-hub-blue/20">
+          <i data-lucide="wrench" class="w-4 h-4"></i>
+        </div>
+        <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+      </a>
+      <div class="px-4 mb-4">
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 flex items-center gap-3 border border-slate-100 dark:border-slate-700/50">
+          <img src="https://i.pravatar.cc/150?img=47" class="w-10 h-10 rounded-xl object-cover border-2 border-white dark:border-slate-700 shadow-sm" alt="Sarah Jenkins">
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Sarah Jenkins</h4>
+            <div class="flex items-center gap-1 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 uppercase tracking-wider">
+              <i data-lucide="shield-check" class="w-3 h-3"></i> Pro Member
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 px-4 space-y-0.5 overflow-y-auto">
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-2 pb-1">Overview</p>
+        <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> <span>Dashboard</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Store</p>
+        <a href="user-orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> <span>My Orders</span>
+        </a>
+        <a href="user-wishlist.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="heart" class="w-4 h-4"></i> <span>Wishlist & Favorites</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Services</p>
+        <a href="user-services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-hub-orange text-white text-xs font-bold shadow-md shadow-hub-orange/20">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i> <span>My Service Bookings</span>
+        </a>
+        <a href="user-track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Live Technician Tracker</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Account</p>
+        <a href="user-addresses.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Delivery Addresses</span>
+        </a>
+        <a href="user-wallet.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="credit-card" class="w-4 h-4"></i> <span>Payment & Wallet</span>
+        </a>
+        <a href="user-alerts.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="bell" class="w-4 h-4"></i> <span>Alerts & Promotions</span>
+        </a>
+        <a href="user-settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="user-cog" class="w-4 h-4"></i> <span>Profile Settings</span>
+        </a>
+      </nav>
+      <div class="p-4 mt-auto shrink-0 border-t border-slate-100 dark:border-slate-800">
+        <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-all">
+          <i data-lucide="log-out" class="w-4 h-4"></i> <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MOBILE SIDEBAR -->
+    <div id="mobileSidebarBackdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity opacity-0"></div>
+    <aside id="mobileSidebar" class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col lg:hidden">
+      <div class="flex items-center justify-between p-6">
+        <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        <button id="closeSidebarBtn" class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="px-4 mb-4">
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 flex items-center gap-3">
+          <img src="https://i.pravatar.cc/150?img=47" class="w-10 h-10 rounded-xl" alt="Sarah Jenkins">
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Sarah Jenkins</h4>
+            <div class="flex items-center gap-1 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 uppercase tracking-wider">
+              <i data-lucide="shield-check" class="w-3 h-3"></i> Pro Member
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 px-4 space-y-0.5 overflow-y-auto">
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-2 pb-1">Overview</p>
+        <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> <span>Dashboard</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Store</p>
+        <a href="user-orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> <span>My Orders</span>
+        </a>
+        <a href="user-wishlist.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="heart" class="w-4 h-4"></i> <span>Wishlist & Favorites</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Services</p>
+        <a href="user-services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-hub-orange text-white text-xs font-bold shadow-md shadow-hub-orange/20">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i> <span>My Service Bookings</span>
+        </a>
+        <a href="user-track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Live Technician Tracker</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Account</p>
+        <a href="user-addresses.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Delivery Addresses</span>
+        </a>
+        <a href="user-wallet.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="credit-card" class="w-4 h-4"></i> <span>Payment & Wallet</span>
+        </a>
+        <a href="user-alerts.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="bell" class="w-4 h-4"></i> <span>Alerts & Promotions</span>
+        </a>
+        <a href="user-settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="user-cog" class="w-4 h-4"></i> <span>Profile Settings</span>
+        </a>
+      </nav>
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800">
+        <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 text-rose-600 text-xs font-bold">
+          <i data-lucide="log-out" class="w-4 h-4"></i> <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+
+      <!-- HEADER -->
+      <header class="h-16 lg:h-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 flex items-center justify-between px-4 sm:px-6 lg:px-8 shrink-0 z-10">
+        <!-- Logo on the left (mobile only) -->
+        <a href="index.html" class="flex lg:hidden items-center gap-2 shrink-0">
+          <div class="w-8 h-8 bg-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-sm shadow-md shadow-hub-blue/20">
+            <i data-lucide="wrench" class="w-4 h-4"></i>
+          </div>
+          <span class="font-extrabold text-lg tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        </a>
+        
+        <div class="flex-1 flex justify-end items-center gap-3">
+          <a href="services.html" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-hub-orange hover:bg-orange-700 text-white text-xs font-bold transition-all shadow-md shadow-hub-orange/20">
+            <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i> Book New Service
+          </a>
+          
+          <div class="flex items-center gap-1 border-l border-slate-200 dark:border-slate-700 pl-3">
+            <button onclick="toggleRTL()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </button>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+              <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+            </button>
+            <button id="openSidebarBtn" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all lg:hidden">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+        <div class="max-w-5xl mx-auto space-y-6">
+
+          <!-- PAGE HEADER -->
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">My Service Bookings</h1>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Track, manage, and rebook your appliance service appointments.</p>
+            </div>
+            <a href="services.html" id="bookServiceBtn" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-hub-orange hover:bg-orange-700 text-white text-xs font-bold transition-all shadow-md shadow-hub-orange/20">
+              <i data-lucide="calendar-plus" class="w-4 h-4"></i> Book New Service
+            </a>
+          </div>
+
+          <!-- UPCOMING SERVICE ALERT -->
+          <div class="bg-orange-50 dark:bg-orange-500/5 border border-orange-200 dark:border-orange-500/30 rounded-3xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-hub-orange text-white flex items-center justify-center shrink-0 shadow-md shadow-hub-orange/20">
+              <i data-lucide="clock" class="w-6 h-6"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-[11px] font-extrabold text-hub-orange uppercase tracking-widest mb-0.5">Technician Arriving Soon</p>
+              <h2 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">AC Repair — Booking #SRV-20415</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Ravi Kumar is ~14 minutes away • Today, 3:00 PM slot</p>
+            </div>
+            <div class="flex gap-2 shrink-0">
+              <a href="user-track.html" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-hub-orange text-white text-xs font-extrabold hover:bg-orange-700 transition-all shadow-sm">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Track Live
+              </a>
+              <button onclick="showCancelModal()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+                Reschedule
+              </button>
+            </div>
+          </div>
+
+          <!-- FILTER TABS -->
+          <div class="flex gap-2 flex-wrap">
+            <button onclick="filterBookings('all')" id="filterAll" class="filter-btn-active px-4 py-2 rounded-xl bg-hub-orange text-white text-xs font-bold transition-all shadow-sm">All Bookings</button>
+            <button onclick="filterBookings('upcoming')" id="filterUpcoming" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">Upcoming</button>
+            <button onclick="filterBookings('completed')" id="filterCompleted" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">Completed</button>
+            <button onclick="filterBookings('cancelled')" id="filterCancelled" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">Cancelled</button>
+          </div>
+
+          <!-- BOOKINGS LIST -->
+          <div class="space-y-4" id="bookingsList">
+
+            <!-- Booking 1: Upcoming/Active -->
+            <div class="booking-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-sm" data-status="upcoming">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0">
+                  <i data-lucide="wind" class="w-7 h-7"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                    <div>
+                      <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">AC Repair & Coolant Refill</h3>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Booking #SRV-20415 • Split AC Unit</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-hub-orange text-white text-[11px] font-extrabold shadow-sm shadow-hub-orange/20">
+                      <i data-lucide="clock" class="w-3 h-3"></i> Technician En Route
+                    </span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Date & Time</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Today, 3:00 PM</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Technician</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Ravi Kumar ⭐ 4.9</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Service Fee</p>
+                      <p class="text-xs font-bold text-hub-orange mt-0.5">₹850.00</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Location</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">742 Evergreen Terr.</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2 mt-4 flex-wrap">
+                    <a href="user-track.html" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-hub-orange text-white text-xs font-bold hover:bg-orange-700 transition-all shadow-sm shadow-hub-orange/20">
+                      <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Track Technician
+                    </a>
+                    <button onclick="showCancelModal()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                      <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Reschedule
+                    </button>
+                    <button onclick="showCancelModal()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-rose-200 dark:border-rose-500/30 text-rose-600 dark:text-rose-400 text-xs font-bold hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-all">
+                      <i data-lucide="x" class="w-3.5 h-3.5"></i> Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Booking 2: Completed -->
+            <div class="booking-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-sm" data-status="completed">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="refrigerator" class="w-7 h-7"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                    <div>
+                      <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Refrigerator Compressor Repair</h3>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Booking #SRV-18902 • Double Door Fridge</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-extrabold">
+                      <i data-lucide="check-circle-2" class="w-3 h-3"></i> Completed
+                    </span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Date & Time</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Jul 30, 2026, 10 AM</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Technician</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Amit Sharma ⭐ 4.8</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Service Fee</p>
+                      <p class="text-xs font-bold text-emerald-600 mt-0.5">₹1,200.00</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Rating Given</p>
+                      <p class="text-xs font-bold text-amber-500 mt-0.5">⭐⭐⭐⭐⭐ 5.0</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2 mt-4 flex-wrap">
+                    <button onclick="window.showToast('Service rebooked for next available slot!','calendar-check')" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold hover:bg-hub-blueDark transition-all shadow-sm shadow-hub-blue/20">
+                      <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i> Rebook Service
+                    </button>
+                    <button onclick="window.showToast('Invoice downloaded!','download')" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                      <i data-lucide="download" class="w-3.5 h-3.5"></i> Download Invoice
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Booking 3: Completed -->
+            <div class="booking-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-sm" data-status="completed">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="washing-machine" class="w-7 h-7"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                    <div>
+                      <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Washing Machine Annual Servicing</h3>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Booking #SRV-15340 • Front Load, 7kg</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-extrabold">
+                      <i data-lucide="check-circle-2" class="w-3 h-3"></i> Completed
+                    </span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Date & Time</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Jul 10, 2026, 11 AM</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Technician</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Suresh Nair ⭐ 4.7</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Service Fee</p>
+                      <p class="text-xs font-bold text-emerald-600 mt-0.5">₹600.00</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Rating Given</p>
+                      <p class="text-xs font-bold text-amber-500 mt-0.5">⭐⭐⭐⭐ 4.0</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2 mt-4 flex-wrap">
+                    <button onclick="window.showToast('Service rebooked!','calendar-check')" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold hover:bg-hub-blueDark transition-all shadow-sm shadow-hub-blue/20">
+                      <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i> Rebook Service
+                    </button>
+                    <button onclick="window.showToast('Invoice downloaded!','download')" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                      <i data-lucide="download" class="w-3.5 h-3.5"></i> Download Invoice
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Booking 4: Cancelled -->
+            <div class="booking-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-sm opacity-60" data-status="cancelled">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="tv" class="w-7 h-7"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                    <div>
+                      <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">TV Screen Repair</h3>
+                      <p class="text-[11px] text-slate-500 mt-0.5">Booking #SRV-12100 • 55" LED TV</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-rose-100 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[11px] font-extrabold">
+                      <i data-lucide="x-circle" class="w-3 h-3"></i> Cancelled
+                    </span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Booked Date</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Jun 15, 2026</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Reason</p>
+                      <p class="text-xs font-bold text-slate-900 dark:text-white mt-0.5">Cancelled by user</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Refund</p>
+                      <p class="text-xs font-bold text-emerald-600 mt-0.5">₹200 to Wallet</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2 mt-4">
+                    <button onclick="window.showToast('Service rebooked!','calendar-check')" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                      <i data-lucide="calendar-plus" class="w-3.5 h-3.5"></i> Rebook
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end bookings list -->
+        </div>
+      </main>
+  
+
+    </div>
+
+  </div>
+
+  <!-- RESCHEDULE / CANCEL MODAL -->
+  <div id="cancelModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="showCancelModal(false)"></div>
+    <div class="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-sm p-6 z-10">
+      <button onclick="showCancelModal(false)" class="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div class="w-12 h-12 rounded-2xl bg-hub-orange/10 text-hub-orange flex items-center justify-center mb-4">
+        <i data-lucide="calendar" class="w-6 h-6"></i>
+      </div>
+      <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Reschedule Service</h3>
+      <p class="text-xs text-slate-500 mb-5">Choose a new date and time for your AC Repair service.</p>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">Preferred Date</label>
+          <input type="date" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-orange">
+        </div>
+        <div>
+          <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">Preferred Time Slot</label>
+          <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-orange">
+            <option>Morning: 9:00 AM – 12:00 PM</option>
+            <option>Afternoon: 12:00 PM – 3:00 PM</option>
+            <option>Evening: 3:00 PM – 6:00 PM</option>
+          </select>
+        </div>
+        <div class="flex gap-3 pt-2">
+          <button onclick="showCancelModal(false)" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">Cancel</button>
+          <button onclick="showCancelModal(false); window.showToast('Service rescheduled successfully!','calendar-check')" class="flex-1 py-3 rounded-xl bg-hub-orange hover:bg-orange-700 text-white text-xs font-bold transition-all shadow-md shadow-hub-orange/20">Confirm Reschedule</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('openSidebarBtn');
+    const closeBtn = document.getElementById('closeSidebarBtn');
+    const sidebar = document.getElementById('mobileSidebar');
+    const backdrop = document.getElementById('mobileSidebarBackdrop');
+    function toggleMobileMenu(show) {
+      if (show) { sidebar.classList.remove('-translate-x-full'); backdrop.classList.remove('hidden'); setTimeout(() => backdrop.classList.remove('opacity-0'), 10); }
+      else { sidebar.classList.add('-translate-x-full'); backdrop.classList.add('opacity-0'); setTimeout(() => backdrop.classList.add('hidden'), 300); }
+    }
+    if(openBtn) openBtn.addEventListener('click', () => toggleMobileMenu(true));
+    if(closeBtn) closeBtn.addEventListener('click', () => toggleMobileMenu(false));
+    if(backdrop) backdrop.addEventListener('click', () => toggleMobileMenu(false));
+
+    function handleLogout() { localStorage.removeItem('isCustomerLoggedIn'); window.location.href = 'login.html'; }
+    function toggleRTL() { const h = document.documentElement; h.setAttribute('dir', h.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'); }
+    function toggleDarkMode() { if(window.appThemeToggle) return window.appThemeToggle(); }
+
+    function showCancelModal(show = true) {
+      const modal = document.getElementById('cancelModal');
+      if (show) { modal.classList.remove('hidden'); if (window.lucide) lucide.createIcons(); }
+      else modal.classList.add('hidden');
+    }
+
+    function filterBookings(status) {
+      const cards = document.querySelectorAll('.booking-card');
+      cards.forEach(card => {
+        if (status === 'all' || card.dataset.status === status) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      // Update button styles
+      const btns = ['filterAll', 'filterUpcoming', 'filterCompleted', 'filterCancelled'];
+      const statusMap = { all: 'filterAll', upcoming: 'filterUpcoming', completed: 'filterCompleted', cancelled: 'filterCancelled' };
+      btns.forEach(id => {
+        const btn = document.getElementById(id);
+        if (id === statusMap[status]) {
+          btn.className = 'px-4 py-2 rounded-xl bg-hub-orange text-white text-xs font-bold transition-all shadow-sm';
+        } else {
+          btn.className = 'px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
