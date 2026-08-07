@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Live Tech Tracker | ApplianceHub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hub: {
+              blue: '#0284C7',
+              blueDark: '#0369A1',
+              orange: '#EA580C',
+              dark: '#0F172A',
+              light: '#F8FAFC',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/theme.js?v=2"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
+
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="w-64 bg-white dark:bg-slate-900 border-e border-slate-200 dark:border-slate-800 flex-col hidden lg:flex shrink-0 h-full relative z-20">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="p-6 flex items-center gap-3 shrink-0">
+        <div class="w-9 h-9 bg-hub-blue text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
+          <i data-lucide="wrench" class="w-4 h-4"></i>
+        </div>
+        <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+      </a>
+
+      <!-- Profile Card -->
+      <div class="px-4 mb-4">
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 flex items-center gap-3 border border-slate-100 dark:border-slate-700/50">
+          <img src="https://i.pravatar.cc/150?img=47" class="w-10 h-10 rounded-xl object-cover border-2 border-white dark:border-slate-700 shadow-sm" alt="Sarah Jenkins">
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Sarah Jenkins</h4>
+            <div class="flex items-center gap-1 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 uppercase tracking-wider">
+              <i data-lucide="shield-check" class="w-3 h-3"></i> Pro Member
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="flex-1 px-4 space-y-0.5 overflow-y-auto">
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-2 pb-1">Overview</p>
+        <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> <span>Dashboard</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Store</p>
+        <a href="user-orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> <span>My Orders</span>
+        </a>
+        <a href="user-wishlist.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="heart" class="w-4 h-4"></i> <span>Wishlist & Favorites</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Services</p>
+        <a href="user-services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i> <span>My Service Bookings</span>
+        </a>
+        <a href="user-track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-hub-blue text-white text-xs font-bold shadow-md shadow-hub-blue/20">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Live Technician Tracker</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Account</p>
+        <a href="user-addresses.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Delivery Addresses</span>
+        </a>
+        <a href="user-wallet.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="credit-card" class="w-4 h-4"></i> <span>Payment & Wallet</span>
+        </a>
+        <a href="user-alerts.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="bell" class="w-4 h-4"></i> <span>Alerts & Promotions</span>
+        </a>
+        <a href="user-settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
+          <i data-lucide="user-cog" class="w-4 h-4"></i> <span>Profile Settings</span>
+        </a>
+      </nav>
+
+      <!-- Logout -->
+      <div class="p-4 mt-auto shrink-0 border-t border-slate-100 dark:border-slate-800">
+        <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-all">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MOBILE SIDEBAR BACKDROP & DRAWER -->
+    <div id="mobileSidebarBackdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity opacity-0"></div>
+    <aside id="mobileSidebar" class="fixed inset-y-0 start-0 w-64 bg-white dark:bg-slate-900 shadow-2xl z-50 transform ltr:-translate-x-full rtl:translate-x-full transition-transform duration-300 flex flex-col lg:hidden">
+      <div class="flex items-center justify-between p-6">
+        <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        <button id="closeSidebarBtn" class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="px-4 mb-4">
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 flex items-center gap-3">
+          <img src="https://i.pravatar.cc/150?img=47" class="w-10 h-10 rounded-xl" alt="Sarah Jenkins">
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Sarah Jenkins</h4>
+            <div class="flex items-center gap-1 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 uppercase tracking-wider">
+              <i data-lucide="shield-check" class="w-3 h-3"></i> Pro Member
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 px-4 space-y-0.5 overflow-y-auto">
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-2 pb-1">Overview</p>
+        <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> <span>Dashboard</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Store</p>
+        <a href="user-orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> <span>My Orders</span>
+        </a>
+        <a href="user-wishlist.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="heart" class="w-4 h-4"></i> <span>Wishlist & Favorites</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Services</p>
+        <a href="user-services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i> <span>My Service Bookings</span>
+        </a>
+        <a href="user-track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-hub-blue text-white text-xs font-bold shadow-md shadow-hub-blue/20">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Live Technician Tracker</span>
+        </a>
+        <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-3 pb-1">Account</p>
+        <a href="user-addresses.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> <span>Delivery Addresses</span>
+        </a>
+        <a href="user-wallet.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="credit-card" class="w-4 h-4"></i> <span>Payment & Wallet</span>
+        </a>
+        <a href="user-alerts.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="bell" class="w-4 h-4"></i> <span>Alerts & Promotions</span>
+        </a>
+        <a href="user-settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
+          <i data-lucide="user-cog" class="w-4 h-4"></i> <span>Profile Settings</span>
+        </a>
+      </nav>
+      <div class="p-4 border-t border-slate-100 dark:border-slate-800">
+        <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 text-rose-600 text-xs font-bold">
+          <i data-lucide="log-out" class="w-4 h-4"></i> <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+      
+      <!-- TOP HEADER -->
+      <header class="h-16 lg:h-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 flex items-center justify-between px-4 sm:px-6 lg:px-8 shrink-0 z-10">
+        <!-- Logo on the left (mobile only) -->
+        <a href="index.html" class="flex lg:hidden items-center gap-2 shrink-0">
+          <div class="w-8 h-8 bg-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-sm shadow-md shadow-hub-blue/20">
+            <i data-lucide="wrench" class="w-4 h-4"></i>
+          </div>
+          <span class="font-extrabold text-lg tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        </a>
+        
+        <div class="flex-1 flex justify-end items-center gap-3">
+          <a href="shop.html" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20">
+            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Shop Store
+          </a>
+          
+          <div class="flex items-center gap-1 border-s border-slate-200 dark:border-slate-700 ps-3">
+            <button onclick="toggleRTL()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </button>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+              <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+            </button>
+            <button id="openSidebarBtn" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all lg:hidden">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- SCROLLABLE DASHBOARD -->
+      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 relative">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+<!-- TRACKER UI BEGIN -->
+
+    <div class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm overflow-hidden flex flex-col relative">
+
+      <!-- Tracker Header -->
+      <div class="p-6 sm:p-8 flex flex-col md:flex-row md:items-start justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Active Service Order</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1">Order #AH-894210</h1>
+        </div>
+        <div class="text-left md:text-right">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Estimated Arrival</span>
+          <p class="text-2xl sm:text-3xl font-extrabold text-hub-blue tracking-tight mt-1">14 - 22 Mins</p>
+        </div>
+      </div>
+
+      <!-- PROGRESS TIMELINE -->
+      <div class="px-6 sm:px-8 pb-8">
+        <div class="relative max-w-3xl mx-auto flex justify-between">
+          <!-- Background Line -->
+          <div class="absolute top-1/2 left-0 w-full h-1 bg-slate-100 dark:bg-slate-800 -translate-y-1/2 z-0 rounded-full"></div>
+          <!-- Active Line -->
+          <div class="absolute top-1/2 left-0 w-[75%] h-1 bg-hub-orange -translate-y-1/2 z-0 rounded-full transition-all duration-1000"></div>
+          
+          <!-- Step 1: Placed -->
+          <div class="relative z-10 flex flex-col items-center gap-2 group w-20 text-center">
+            <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20 border-4 border-white dark:border-slate-900 transition-transform group-hover:scale-110">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] sm:text-xs font-extrabold text-slate-900 dark:text-white">Request Placed</span>
+              <span class="text-[9px] text-slate-400">10:42 AM</span>
+            </div>
+          </div>
+
+          <!-- Step 2: Assigned -->
+          <div class="relative z-10 flex flex-col items-center gap-2 group w-20 text-center">
+            <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20 border-4 border-white dark:border-slate-900 transition-transform group-hover:scale-110">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] sm:text-xs font-extrabold text-slate-900 dark:text-white">Tech Assigned</span>
+              <span class="text-[9px] text-slate-400">10:44 AM</span>
+            </div>
+          </div>
+
+          <!-- Step 3: Preparing -->
+          <div class="relative z-10 flex flex-col items-center gap-2 group w-20 text-center">
+            <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20 border-4 border-white dark:border-slate-900 transition-transform group-hover:scale-110">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] sm:text-xs font-extrabold text-slate-900 dark:text-white">Parts Ready</span>
+              <span class="text-[9px] text-slate-400">10:55 AM</span>
+            </div>
+          </div>
+
+          <!-- Step 4: En Route (Active) -->
+          <div class="relative z-10 flex flex-col items-center gap-2 group w-20 text-center transform -translate-y-1">
+            <div class="w-12 h-12 rounded-full bg-hub-orange text-white flex items-center justify-center shadow-lg shadow-hub-orange/30 border-4 border-white dark:border-slate-900 animate-pulse">
+              <i data-lucide="truck" class="w-5 h-5"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] sm:text-xs font-extrabold text-hub-orange">En Route</span>
+              <span class="text-[9px] font-bold text-hub-orange">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Step 5: Arrived -->
+          <div class="relative z-10 flex flex-col items-center gap-2 group w-20 text-center opacity-50">
+            <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-400 flex items-center justify-center border-4 border-white dark:border-slate-900">
+              <i data-lucide="home" class="w-4 h-4"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] sm:text-xs font-extrabold text-slate-500">Arrived</span>
+              <span class="text-[9px] text-slate-400">Pending</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MAP SECTION -->
+      <div class="relative w-full h-80 sm:h-96 bg-slate-200 dark:bg-slate-800 overflow-hidden px-6 sm:px-8">
+        <div class="w-full h-full rounded-3xl overflow-hidden relative shadow-inner">
+          <!-- Placeholder Map Image -->
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop" alt="Map" class="w-full h-full object-cover opacity-80 dark:opacity-50 blur-[1px]">
+          
+          <!-- Map Overlay Gradients -->
+          <div class="absolute inset-0 bg-gradient-to-t from-white/20 dark:from-slate-900/50 to-transparent"></div>
+
+          <!-- Floating Map Info Badge -->
+          <div class="absolute top-4 left-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow-lg rounded-xl p-3 flex items-center gap-3 border border-slate-100 dark:border-slate-700">
+            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+            <div>
+              <p class="text-xs font-bold text-slate-900 dark:text-white">Technician En Route <span class="ml-1 text-[9px] px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 uppercase">Live GPS</span></p>
+              <p class="text-[10px] text-slate-500">Updating location every 5 seconds • ETA ~14 mins</p>
+            </div>
+          </div>
+
+          <!-- Map Markers -->
+          <!-- House Marker -->
+          <div class="absolute bottom-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="w-12 h-12 bg-hub-blue/20 rounded-full flex items-center justify-center animate-ping absolute inset-0"></div>
+            <div class="w-10 h-10 bg-hub-blue text-white rounded-full flex items-center justify-center shadow-lg relative z-10 border-2 border-white dark:border-slate-800">
+              <i data-lucide="home" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+          <!-- Tech Marker -->
+          <div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="relative z-10 flex flex-col items-center">
+              <div class="w-10 h-10 bg-hub-orange text-white rounded-full flex items-center justify-center shadow-xl border-2 border-white dark:border-slate-800">
+               <i data-lucide="truck" class="w-5 h-5"></i>
+              </div>
+              <div class="w-2 h-2 bg-hub-orange rounded-full mt-1"></div>
+            </div>
+            
+            <!-- Route Line (SVG Simulation) -->
+            <svg class="absolute top-10 right-5 w-40 h-32 text-hub-orange opacity-50" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="6,4">
+              <path d="M 0,0 C 20,40 80,10 100,100"></path>
+            </svg>
+          </div>
+
+          <!-- Recenter Button -->
+          <button class="absolute bottom-4 right-4 bg-white dark:bg-slate-800 shadow-lg px-3 py-2 rounded-xl border border-slate-100 dark:border-slate-700 flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+            <i data-lucide="focus" class="w-4 h-4 text-hub-blue"></i> Recenter
+          </button>
+        </div>
+      </div>
+
+      <!-- TECHNICIAN INFO BLOCK -->
+      <div class="p-6 sm:p-8 mt-auto border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-4">
+          <img src="https://i.pravatar.cc/150?img=11" alt="David" class="w-14 h-14 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm">
+          <div>
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Your Assigned Technician</p>
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white">David (ApplianceTech)</h3>
+            <div class="flex items-center gap-1.5 mt-0.5 text-xs font-bold text-amber-500">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
+              4.98 <span class="text-slate-400 font-medium">• 1,240 Repairs Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="w-full sm:w-auto px-6 py-3 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-extrabold transition-all shadow-md shadow-hub-blue/20 flex items-center justify-center gap-2 shrink-0">
+          <i data-lucide="phone" class="w-4 h-4"></i> Call Technician
+        </button>
+
+      </div>
+
+    </div>
+
+<!-- TRACKER UI END -->
+
+        </div>
+      </main>
+  
+
+    </div>
+  </div>
+
+  <script>
+    // SIDEBAR MOBILE TOGGLE
+    const sidebar = document.getElementById('mobileSidebar');
+    const openBtn = document.getElementById('openSidebarBtn');
+    const closeBtn = document.getElementById('closeSidebarBtn');
+    const backdrop = document.getElementById('mobileSidebarBackdrop');
+
+    function toggleMobileMenu(show) {
+      const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      if (show) {
+        sidebar.classList.remove('-translate-x-full', 'translate-x-full', 'ltr:-translate-x-full', 'rtl:translate-x-full');
+        backdrop.classList.remove('hidden');
+        setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+      } else {
+        sidebar.classList.add(isRTL ? 'translate-x-full' : '-translate-x-full');
+        backdrop.classList.add('opacity-0');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    if(openBtn) openBtn.addEventListener('click', () => toggleMobileMenu(true));
+    if(closeBtn) closeBtn.addEventListener('click', () => toggleMobileMenu(false));
+    if(backdrop) backdrop.addEventListener('click', () => toggleMobileMenu(false));
+
+    function handleLogout() {
+      localStorage.removeItem('isCustomerLoggedIn');
+      window.location.href = 'login.html';
+    }
+
+    function toggleRTL() {
+      const htmlElement = document.documentElement;
+      if (htmlElement.getAttribute('dir') === 'rtl') {
+        htmlElement.setAttribute('dir', 'ltr');
+      } else {
+        htmlElement.setAttribute('dir', 'rtl');
+      }
+    }
+    
+    function toggleDarkMode() {
+      if(window.appThemeToggle) return window.appThemeToggle();
+      const htmlElement = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        if(themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
+      } else {
+        htmlElement.classList.add('dark');
+        if(themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

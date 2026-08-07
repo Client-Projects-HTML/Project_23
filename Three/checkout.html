@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Checkout | ApplianceHub</title>
+
+  <!-- Google Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hub: {
+              blue: '#0284C7',
+              blueDark: '#0369A1',
+              orange: '#EA580C',
+              dark: '#0F172A',
+              light: '#F8FAFC',
+              border: '#E2E8F0',
+              success: '#10B981' // Green used in screenshots for active/success states
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/theme.js?v=2"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- MINIMAL HEADER FOR CHECKOUT -->
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-md">
+          <i data-lucide="wrench" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5 block">Secure Checkout</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+        <i data-lucide="lock" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">SSL Encrypted</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT AREA -->
+  <main class="flex-1 flex flex-col items-center py-10 px-4">
+    
+    <!-- PROGRESS STEPPER -->
+    <div class="w-full max-w-3xl mb-10">
+      <div class="flex justify-between items-center relative before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-full before:h-0.5 before:bg-slate-200 dark:before:bg-slate-800 before:-translate-y-1/2 before:z-0">
+        
+        <!-- Step 1 -->
+        <div class="relative z-10 flex flex-col items-center gap-2 cursor-pointer step-indicator" data-step="1">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-hub-blue text-white ring-4 ring-slate-50 dark:ring-slate-950">
+            <span class="step-num">1</span>
+            <i data-lucide="check" class="w-5 h-5 step-check hidden"></i>
+          </div>
+          <span class="text-xs font-bold text-slate-900 dark:text-white step-label">Address</span>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative z-10 flex flex-col items-center gap-2 cursor-pointer step-indicator" data-step="2">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-slate-200 dark:bg-slate-800 text-slate-500 ring-4 ring-slate-50 dark:ring-slate-950">
+            <span class="step-num">2</span>
+            <i data-lucide="check" class="w-5 h-5 step-check hidden"></i>
+          </div>
+          <span class="text-xs font-bold text-slate-400 step-label">Time Slot</span>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative z-10 flex flex-col items-center gap-2 cursor-pointer step-indicator" data-step="3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-slate-200 dark:bg-slate-800 text-slate-500 ring-4 ring-slate-50 dark:ring-slate-950">
+            <span class="step-num">3</span>
+            <i data-lucide="check" class="w-5 h-5 step-check hidden"></i>
+          </div>
+          <span class="text-xs font-bold text-slate-400 step-label">Payment</span>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative z-10 flex flex-col items-center gap-2 cursor-pointer step-indicator" data-step="4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-slate-200 dark:bg-slate-800 text-slate-500 ring-4 ring-slate-50 dark:ring-slate-950">
+            <span class="step-num">4</span>
+            <i data-lucide="check" class="w-5 h-5 step-check hidden"></i>
+          </div>
+          <span class="text-xs font-bold text-slate-400 step-label">Review</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAIN CARD CONTROLS STEPS -->
+    <div class="w-full max-w-3xl bg-white dark:bg-slate-900 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 p-6 sm:p-10 relative overflow-hidden">
+      
+      <!-- STEP 1: ADDRESS -->
+      <div id="step1" class="checkout-step block animate-fade-in-up">
+        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-6">Select Delivery Address</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <!-- Address Option 1 (Selected by default) -->
+          <label class="relative flex flex-col p-5 cursor-pointer rounded-2xl border-2 border-hub-blue bg-blue-50/30 dark:bg-slate-800/50 transition-all hover:border-hub-blue">
+            <input type="radio" name="address" value="home" class="peer sr-only" checked onchange="updateAddressSelection(this)">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-hub-blue/10 text-hub-blue text-[10px] font-extrabold rounded uppercase tracking-wide">Home Address</span>
+              <div class="w-5 h-5 rounded-full border-2 border-hub-blue flex items-center justify-center text-hub-blue check-icon">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+            <strong class="text-slate-900 dark:text-white mb-1">Geeth / Home</strong>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-2">
+              742 Evergreen Terrace, Apt 4B<br>
+              Downtown, NY 10001
+            </p>
+            <div class="flex items-center gap-1.5 text-xs text-slate-500">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i> (555) 234-5678
+            </div>
+          </label>
+
+          <!-- Address Option 2 -->
+          <label class="relative flex flex-col p-5 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+            <input type="radio" name="address" value="office" class="peer sr-only" onchange="updateAddressSelection(this)">
+            <div class="flex justify-between items-start mb-2">
+              <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-extrabold rounded uppercase tracking-wide label-badge">Office</span>
+              <div class="w-5 h-5 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center text-transparent check-icon">
+                <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+            <strong class="text-slate-900 dark:text-white mb-1">Work / Tech Hub</strong>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-2">
+              100 Innovation Way, Suite 300<br>
+              Midtown, NY 10018
+            </p>
+          </label>
+        </div>
+
+        <button onclick="goToStep(2)" class="w-full bg-hub-blue hover:bg-hub-blueDark text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-hub-blue/20 flex items-center justify-center gap-2">
+          Continue to Delivery Slot <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- STEP 2: TIME SLOT -->
+      <div id="step2" class="checkout-step hidden">
+        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-6">Choose Delivery Time Slot</h2>
+        
+        <div class="flex flex-col gap-3 mb-8">
+          <!-- Time Option 1 (Selected by default) -->
+          <label class="relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-hub-blue bg-blue-50/30 dark:bg-slate-800/50 transition-all hover:border-hub-blue">
+            <input type="radio" name="timeSlot" value="express" class="peer sr-only" checked onchange="updateTimeSelection(this)">
+            <div class="w-10 h-10 rounded-full bg-hub-blue text-white flex items-center justify-center shrink-0 mr-4 icon-bg">
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex justify-between items-center mb-0.5">
+                <strong class="text-slate-900 dark:text-white">Express ASAP (30-45 Mins)</strong>
+                <span class="text-hub-blue font-bold text-sm price-tag">+$19.99</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Fastest delivery option available right now</p>
+            </div>
+          </label>
+
+          <!-- Time Option 2 -->
+          <label class="relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+            <input type="radio" name="timeSlot" value="evening" class="peer sr-only" onchange="updateTimeSelection(this)">
+            <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center shrink-0 mr-4 icon-bg">
+              <i data-lucide="moon" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex justify-between items-center mb-0.5">
+                <strong class="text-slate-900 dark:text-white">Today Evening (6:00 PM - 8:00 PM)</strong>
+                <span class="text-slate-500 font-bold text-sm price-tag">Standard</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Scheduled evening delivery slot</p>
+            </div>
+          </label>
+
+          <!-- Time Option 3 -->
+          <label class="relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+            <input type="radio" name="timeSlot" value="morning" class="peer sr-only" onchange="updateTimeSelection(this)">
+            <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center shrink-0 mr-4 icon-bg">
+              <i data-lucide="sun" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex justify-between items-center mb-0.5">
+                <strong class="text-slate-900 dark:text-white">Tomorrow Morning (8:00 AM - 10:00 AM)</strong>
+                <span class="text-slate-500 font-bold text-sm price-tag">Standard</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Fresh morning delivery tomorrow</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="flex gap-4">
+          <button onclick="goToStep(1)" class="px-6 py-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold transition-colors flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
+          </button>
+          <button onclick="goToStep(3)" class="flex-1 bg-hub-blue hover:bg-hub-blueDark text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-hub-blue/20 flex items-center justify-center gap-2">
+            Continue to Payment <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: PAYMENT -->
+      <div id="step3" class="checkout-step hidden">
+        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-6">Select Payment Method</h2>
+        
+        <div class="flex flex-col gap-3 mb-6">
+          <!-- Payment Option 1 -->
+          <label class="relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-hub-blue bg-blue-50/30 dark:bg-slate-800/50 transition-all hover:border-hub-blue">
+            <input type="radio" name="payment" value="card" class="peer sr-only" checked onchange="updatePaymentSelection(this)">
+            <div class="w-4 h-4 rounded-full border-4 border-hub-blue bg-white dark:bg-slate-900 mr-4 shrink-0 radio-circle"></div>
+            <div class="flex-1 flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <i data-lucide="credit-card" class="w-5 h-5 text-slate-700 dark:text-slate-300"></i>
+                <strong class="text-slate-900 dark:text-white">Credit / Debit Card</strong>
+              </div>
+              <div class="flex gap-1">
+                <div class="w-8 h-5 bg-slate-200 dark:bg-slate-700 rounded flex items-center justify-center text-[8px] font-black tracking-wider">VISA</div>
+                <div class="w-8 h-5 bg-slate-200 dark:bg-slate-700 rounded flex items-center justify-center text-[8px] font-black tracking-wider">MC</div>
+              </div>
+            </div>
+          </label>
+
+          <!-- Payment Option 2 -->
+          <label class="relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all">
+            <input type="radio" name="payment" value="cod" class="peer sr-only" onchange="updatePaymentSelection(this)">
+            <div class="w-4 h-4 rounded-full border-2 border-slate-300 dark:border-slate-600 bg-transparent mr-4 shrink-0 radio-circle"></div>
+            <div class="flex-1 flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <i data-lucide="banknote" class="w-5 h-5 text-slate-500"></i>
+                <strong class="text-slate-900 dark:text-white">Cash / Card on Delivery</strong>
+              </div>
+              <span class="text-xs text-slate-400">Pay at Doorstep</span>
+            </div>
+          </label>
+        </div>
+
+        <!-- Card Input Fields (Visible when Card is selected) -->
+        <div id="cardDetailsForm" class="bg-slate-50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 mb-8 animate-fade-in-down">
+          <div class="mb-4">
+            <input type="text" placeholder="Card Number (4532 •••• •••• 8901)" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all" value="4532 1122 3344 8901">
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <input type="text" placeholder="MM/YY" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all" value="12/28">
+            <input type="text" placeholder="CVC" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all" value="***">
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <button onclick="goToStep(2)" class="px-6 py-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold transition-colors flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
+          </button>
+          <button onclick="goToStep(4)" class="flex-1 bg-hub-blue hover:bg-hub-blueDark text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-hub-blue/20 flex items-center justify-center gap-2">
+            Review Order <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 4: REVIEW -->
+      <div id="step4" class="checkout-step hidden">
+        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-6">Review & Complete Order</h2>
+        
+        <div class="flex flex-col gap-4 mb-8">
+          <!-- Summary Block 1 -->
+          <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl flex justify-between items-center group hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <div>
+              <span class="text-xs text-slate-500 block mb-1">Delivery Address</span>
+              <strong class="text-slate-900 dark:text-white text-sm" id="summaryAddress">742 Evergreen Terrace, Apt 4B, NY 10001</strong>
+            </div>
+            <button onclick="goToStep(1)" class="text-xs font-bold text-hub-blue hover:underline">Edit</button>
+          </div>
+
+          <!-- Summary Block 2 -->
+          <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl flex justify-between items-center group hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <div>
+              <span class="text-xs text-slate-500 block mb-1">Scheduled Slot</span>
+              <strong class="text-slate-900 dark:text-white text-sm" id="summaryTime">Express ASAP (30-45 Minutes)</strong>
+            </div>
+            <button onclick="goToStep(2)" class="text-xs font-bold text-hub-blue hover:underline">Edit</button>
+          </div>
+          
+          <!-- Guarantee Banner -->
+          <div class="bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-2xl p-4 flex gap-3 items-start mt-2">
+            <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0"></i>
+            <div>
+              <strong class="text-emerald-800 dark:text-emerald-400 text-sm block mb-0.5">100% Satisfaction Guarantee</strong>
+              <p class="text-emerald-600/80 dark:text-emerald-400/80 text-xs">If any appliance arrives with damage or defects, we provide an instant replacement.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Bill Summary -->
+        <div class="border-t border-slate-100 dark:border-slate-800 pt-6 mb-8">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-slate-500 text-sm">Subtotal</span>
+            <span class="text-slate-900 dark:text-white font-bold">$1,299.00</span>
+          </div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-slate-500 text-sm">Express Delivery</span>
+            <span class="text-slate-900 dark:text-white font-bold">$19.99</span>
+          </div>
+          <div class="flex justify-between items-center text-lg">
+            <strong class="text-slate-900 dark:text-white font-extrabold">Total to Pay</strong>
+            <strong class="text-hub-blue font-extrabold">$1,318.99</strong>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <button onclick="goToStep(3)" class="px-6 py-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold transition-colors flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
+          </button>
+          <button onclick="placeOrder()" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2">
+            <i data-lucide="check" class="w-5 h-5"></i> Place Order Now
+          </button>
+        </div>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div id="stepSuccess" class="checkout-step hidden text-center py-10 animate-fade-in-up">
+        <div class="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-xl shadow-emerald-500/30 animate-scale-in">
+          <i data-lucide="check" class="w-10 h-10"></i>
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-4">Order Placed Successfully!</h2>
+        <p class="text-slate-500 mb-8 max-w-sm mx-auto">Thank you for your purchase. Your order #ORD-88392 has been confirmed. You will receive an email confirmation shortly.</p>
+        <a href="user-orders.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white font-bold transition-all shadow-lg shadow-hub-blue/20">
+          Track My Order
+        </a>
+      </div>
+
+    </div>
+  </main>
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer class="bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 py-12 border-t border-slate-200 dark:border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <div class="space-y-4">
+        <span class="font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+          <span class="w-8 h-8 rounded-full bg-hub-blue flex items-center justify-center text-white">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          </span>
+          Appliance<span class="text-hub-blue">Hub</span>
+        </span>
+        <p class="leading-relaxed pr-4">ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.</p>
+        <div class="flex space-x-3 pt-2">
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html" class="hover:text-hub-blue transition-colors">Home</a></li>
+          <li><a href="shop.html" class="hover:text-hub-blue transition-colors">Shop</a></li>
+          <li><a href="services.html" class="hover:text-hub-blue transition-colors">Book Repair Service</a></li>
+          <li><a href="deals.html" class="hover:text-hub-blue transition-colors">Deals</a></li>
+          <li><a href="blog.html" class="hover:text-hub-blue transition-colors">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Shop Categories</h4>
+        <ul class="space-y-2.5">
+          <li><a href="shop.html" class="hover:text-hub-blue transition-colors">All Products</a></li>
+          <li><a href="shop.html?cat=refrigerators" class="hover:text-hub-blue transition-colors">Refrigerators</a></li>
+          <li><a href="shop.html?cat=washing-machines" class="hover:text-hub-blue transition-colors">Washing Machines</a></li>
+          <li><a href="shop.html?cat=air-conditioners" class="hover:text-hub-blue transition-colors">Air Conditioners</a></li>
+          <li><a href="shop.html?cat=ovens" class="hover:text-hub-blue transition-colors">Built-in Ovens</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Customer Support</h4>
+        <ul class="space-y-2.5">
+          <li><a href="contact.html" class="hover:text-hub-blue transition-colors">Help & FAQ Center</a></li>
+          <li><a href="track-service.html" class="hover:text-hub-blue transition-colors">Live Order Tracking</a></li>
+          <li><a href="login.html" class="hover:text-hub-blue transition-colors">Order History</a></li>
+          <li><a href="404.html" class="hover:text-hub-blue transition-colors">Returns & Refunds</a></li>
+          <li><a href="coming-soon.html" class="hover:text-hub-blue transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
+      <div class="text-right text-[10px] text-slate-500 flex items-center justify-center gap-1">
+        <span>Developed by</span>
+        <span class="font-bold text-hub-blue">Abhivorn Technologies Pvt.Ltd.</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    function goToStep(stepNumber) {
+      if(stepNumber < 1 || stepNumber > totalSteps) return;
+
+      // Hide all steps
+      document.querySelectorAll('.checkout-step').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('block', 'animate-fade-in-right', 'animate-fade-in-left');
+      });
+
+      // Show target step with animation
+      const targetEl = document.getElementById(`step${stepNumber}`);
+      targetEl.classList.remove('hidden');
+      targetEl.classList.add('block');
+      
+      // Determine animation direction based on step progression
+      if(stepNumber > currentStep) {
+        targetEl.classList.add('animate-fade-in-right');
+      } else {
+        targetEl.classList.add('animate-fade-in-left');
+      }
+
+      currentStep = stepNumber;
+      updateStepperUI();
+    }
+
+    function updateStepperUI() {
+      document.querySelectorAll('.step-indicator').forEach(indicator => {
+        const step = parseInt(indicator.getAttribute('data-step'));
+        const circle = indicator.querySelector('.step-circle');
+        const num = indicator.querySelector('.step-num');
+        const check = indicator.querySelector('.step-check');
+        const label = indicator.querySelector('.step-label');
+
+        if (step < currentStep) {
+          // Completed
+          circle.className = 'w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-emerald-500 text-white ring-4 ring-slate-50 dark:ring-slate-950';
+          num.classList.add('hidden');
+          check.classList.remove('hidden');
+          label.className = 'text-xs font-bold text-slate-900 dark:text-white step-label';
+        } else if (step === currentStep) {
+          // Current active
+          circle.className = 'w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-hub-blue text-white ring-4 ring-slate-50 dark:ring-slate-950';
+          num.classList.remove('hidden');
+          check.classList.add('hidden');
+          label.className = 'text-xs font-bold text-hub-blue step-label';
+        } else {
+          // Pending
+          circle.className = 'w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 step-circle bg-slate-200 dark:bg-slate-800 text-slate-500 ring-4 ring-slate-50 dark:ring-slate-950';
+          num.classList.remove('hidden');
+          check.classList.add('hidden');
+          label.className = 'text-xs font-bold text-slate-400 step-label';
+        }
+      });
+    }
+
+    function placeOrder() {
+      // Hide stepper
+      document.querySelector('.max-w-3xl.mb-10').classList.add('hidden');
+      
+      // Hide step 4
+      document.getElementById('step4').classList.add('hidden');
+      document.getElementById('step4').classList.remove('block');
+      
+      // Show success
+      document.getElementById('stepSuccess').classList.remove('hidden');
+      document.getElementById('stepSuccess').classList.add('block');
+      
+      // Fire confetti if you want, or just toast
+      if(window.showToast) window.showToast('Order confirmed!', 'check-circle');
+    }
+
+    // UI Helpers for Selection Styling
+    function updateAddressSelection(selectedInput) {
+      document.querySelectorAll('input[name="address"]').forEach(input => {
+        const label = input.closest('label');
+        const badge = label.querySelector('.label-badge, span[class*="text-[10px]"]');
+        const iconContainer = label.querySelector('.check-icon');
+        
+        if(input === selectedInput) {
+          label.className = 'relative flex flex-col p-5 cursor-pointer rounded-2xl border-2 border-hub-blue bg-blue-50/30 dark:bg-slate-800/50 transition-all hover:border-hub-blue';
+          if(badge) badge.className = 'px-2 py-1 bg-hub-blue/10 text-hub-blue text-[10px] font-extrabold rounded uppercase tracking-wide';
+          if(iconContainer) {
+            iconContainer.className = 'w-5 h-5 rounded-full border-2 border-hub-blue flex items-center justify-center text-hub-blue check-icon';
+          }
+        } else {
+          label.className = 'relative flex flex-col p-5 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all';
+          if(badge) badge.className = 'px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-extrabold rounded uppercase tracking-wide label-badge';
+          if(iconContainer) {
+            iconContainer.className = 'w-5 h-5 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center text-transparent check-icon';
+          }
+        }
+      });
+    }
+
+    function updateTimeSelection(selectedInput) {
+      document.querySelectorAll('input[name="timeSlot"]').forEach(input => {
+        const label = input.closest('label');
+        const iconBg = label.querySelector('.icon-bg');
+        const price = label.querySelector('.price-tag');
+        
+        if(input === selectedInput) {
+          label.className = 'relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-hub-blue bg-blue-50/30 dark:bg-slate-800/50 transition-all hover:border-hub-blue';
+          if(iconBg) iconBg.className = 'w-10 h-10 rounded-full bg-hub-blue text-white flex items-center justify-center shrink-0 mr-4 icon-bg';
+          if(price && price.innerText !== 'Standard') price.className = 'text-hub-blue font-bold text-sm price-tag';
+        } else {
+          label.className = 'relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all';
+          if(iconBg) iconBg.className = 'w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center shrink-0 mr-4 icon-bg';
+          if(price && price.innerText !== 'Standard') price.className = 'text-slate-500 font-bold text-sm price-tag';
+        }
+      });
+    }
+
+    function updatePaymentSelection(selectedInput) {
+      const cardForm = document.getElementById('cardDetailsForm');
+      
+      document.querySelectorAll('input[name="payment"]').forEach(input => {
+        const label = input.closest('label');
+        const circle = label.querySelector('.radio-circle');
+        
+        if(input === selectedInput) {
+          label.className = 'relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-hub-blue bg-blue-50/30 dark:bg-slate-800/50 transition-all hover:border-hub-blue';
+          if(circle) circle.className = 'w-4 h-4 rounded-full border-4 border-hub-blue bg-white dark:bg-slate-900 mr-4 shrink-0 radio-circle';
+        } else {
+          label.className = 'relative flex items-center p-4 cursor-pointer rounded-2xl border-2 border-slate-100 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all';
+          if(circle) circle.className = 'w-4 h-4 rounded-full border-2 border-slate-300 dark:border-slate-600 bg-transparent mr-4 shrink-0 radio-circle';
+        }
+      });
+
+      if(selectedInput.value === 'card') {
+        cardForm.style.display = 'block';
+      } else {
+        cardForm.style.display = 'none';
+      }
+    }
+
+    // Initialize lucide icons
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
