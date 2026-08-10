@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>Create Account | ApplianceHub</title>
+  <title>Sign Up | ApplianceHub</title>
+  <meta name="description" content="Create an ApplianceHub account to track orders, manage service requests, or access admin management portals.">
 
   <!-- Google Fonts & Tailwind CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,229 +19,253 @@
       theme: {
         extend: {
           colors: {
-            hub: {
-              blue: '#0284C7',
-              blueDark: '#0369A1',
-              orange: '#EA580C',
-              dark: '#0F172A',
-              light: '#F8FAFC',
-              border: '#E2E8F0'
-            }
+            hub: { blue: '#0284C7', blueDark: '#0369A1', orange: '#EA580C', dark: '#0F172A', light: '#F8FAFC', border: '#E2E8F0' }
           },
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif']
+            sans: ['Outfit', 'sans-serif']
           }
         }
       }
     }
   </script>
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/mobile-nav.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/theme.js?v=2"></script>
 </head>
-<body class="bg-hub-light dark:bg-slate-900 text-hub-dark dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200 min-h-screen flex flex-col">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200 min-h-screen flex flex-col justify-between">
 
-  <!-- No Top Bar as per guidelines -->
-  <!-- SIGN UP CONTAINER -->
-  <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div class="w-full max-w-md space-y-6">
+  <!-- HEADER (BRAND LOGO + RTL & THEME TOGGLES ONLY) -->
+  <header class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-hub-border dark:border-slate-800 sticky top-0 z-50 transition-all shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- BRAND LOGO -->
+      <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <div class="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
+          <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-sm sm:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        </div>
+      </a>
 
-      <div class="bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 p-8 rounded-3xl shadow-xl space-y-6 relative">
+      <!-- RTL & THEME TOGGLE BUTTONS -->
+      <div class="flex items-center gap-2">
+        <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+        </button>
 
-        <!-- TOGGLES AT TOP RIGHT OF CARD -->
-        <div class="absolute top-4 right-4 flex items-center gap-1.5">
-          <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-600 dark:text-slate-300 text-[10px] font-bold transition-all flex items-center" title="Toggle Direction">
-            <span class="font-mono text-xs leading-none tracking-tighter">&#8801;</span>
+        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
+          <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SIGN UP MAIN CONTAINER -->
+  <main class="flex-1 flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[440px]">
+      <div class="bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 p-8 sm:p-10 rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none space-y-6">
+
+        <!-- TITLE & SUBTITLE -->
+        <div class="text-center space-y-2">
+          <h1 id="signupTitle" class="font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">Create Account</h1>
+          <p id="signupSubtitle" class="text-[11px] font-medium text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">
+            Join ApplianceHub to track appliance deliveries, schedule instant doorstep repairs, and unlock warranty benefits.
+          </p>
+        </div>
+
+        <!-- USER & ADMIN TABS -->
+        <div class="flex items-center bg-slate-100 dark:bg-slate-700/50 p-1.5 rounded-2xl">
+          <button type="button" id="tabUserBtn" onclick="switchSignUpType('user')" class="flex-1 py-2.5 rounded-xl text-[11px] font-extrabold transition-all flex items-center justify-center gap-1.5 bg-hub-blue text-white shadow-sm">
+            <i data-lucide="user" class="w-3.5 h-3.5"></i> User Account
           </button>
-          <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-600 dark:text-slate-300 transition-all" title="Toggle Theme">
-            <i data-lucide="moon" id="themeIcon" class="w-3.5 h-3.5"></i>
+          <button type="button" id="tabAdminBtn" onclick="switchSignUpType('admin')" class="flex-1 py-2.5 rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+            <i data-lucide="shield" class="w-3.5 h-3.5"></i> Admin Staff
           </button>
         </div>
 
-        <!-- BRAND INSIDE CARD -->
-        <a href="index.html" class="flex flex-col items-center justify-center gap-3 pt-2">
-          <div class="w-12 h-12 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-md shadow-hub-blue/20">
-            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-          </div>
-          <div class="text-center">
-            <span class="font-extrabold text-2xl tracking-tight text-hub-dark dark:text-white block leading-none">Store<span class="text-hub-blue">Logo</span></span>
-            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 block">Create Account</span>
-          </div>
-        </a>
+        <!-- ALERTS -->
+        <div id="authError" class="hidden text-[11px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 rounded-xl px-3.5 py-2.5 flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+          <span id="authErrorText"></span>
+        </div>
 
-        <!-- ALERT -->
-        <p id="authError" class="hidden text-[11px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 rounded-xl px-3 py-2 flex items-center gap-2">
-          <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
-          <span id="authErrorText">Something went wrong. Please try again.</span>
-        </p>
-        <p id="authSuccess" class="hidden text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-xl px-3 py-2 flex items-center gap-2">
-          <i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i>
-          <span id="authSuccessText">Success!</span>
-        </p>
+        <div id="authSuccess" class="hidden text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-xl px-3.5 py-2.5 flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i>
+          <span id="authSuccessText"></span>
+        </div>
 
         <!-- SIGN UP FORM -->
-        <form id="signupForm" onsubmit="handleSignUp(event)" class="space-y-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1.5">Full Name</label>
-            <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
-                <i data-lucide="user" class="w-4 h-4"></i>
-              </span>
-              <input type="text" required placeholder="Jane Doe" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs text-hub-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue placeholder:text-slate-400">
-            </div>
+        <form onsubmit="handleSignUp(event)" class="space-y-4">
+          
+          <div class="space-y-1.5">
+            <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300">Full Name</label>
+            <input type="text" id="nameInput" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
           </div>
 
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1.5">Email Address</label>
-            <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
-                <i data-lucide="mail" class="w-4 h-4"></i>
-              </span>
-              <input type="email" required placeholder="you@example.com" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs text-hub-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue placeholder:text-slate-400">
-            </div>
+          <div class="space-y-1.5">
+            <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300">Email Address</label>
+            <input type="email" id="emailInput" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
           </div>
 
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1.5">Password</label>
+          <div class="space-y-1.5">
+            <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300">Password</label>
             <div class="relative">
-              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
-                <i data-lucide="lock" class="w-4 h-4"></i>
-              </span>
-              <input type="password" id="signupPassword" required minlength="8" placeholder="At least 8 characters" class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs text-hub-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue placeholder:text-slate-400">
-              <button type="button" onclick="togglePasswordVisibility('signupPassword', this)" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-hub-blue">
+              <input type="password" id="signupPass" required placeholder="At least 8 characters" class="w-full ps-4 pe-10 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium tracking-widest">
+              <button type="button" onclick="togglePasswordVisibility('signupPass', this)" class="absolute inset-y-0 end-0 pe-3.5 flex items-center text-slate-400 hover:text-slate-600 transition-colors">
                 <i data-lucide="eye" class="w-4 h-4"></i>
               </button>
             </div>
           </div>
 
-          <label class="flex items-start gap-2 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-            <input type="checkbox" required class="mt-0.5 rounded border-hub-border dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            I agree to the Terms of Service and Privacy Policy
-          </label>
+          <!-- ADMIN STAFF ACCESS KEY FIELD (SHOWN ONLY FOR ADMIN TAB) -->
+          <div id="adminKeyContainer" class="space-y-1.5 hidden">
+            <label class="block text-[11px] font-extrabold text-amber-600 dark:text-amber-400">Staff Verification Key</label>
+            <input type="password" id="adminSecretInput" placeholder="Enter employee access key" class="w-full px-4 py-3 rounded-xl border border-amber-300 dark:border-amber-700/80 bg-amber-50/50 dark:bg-amber-950/20 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-orange focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
+          </div>
 
-          <button type="submit" class="w-full py-3.5 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold shadow-lg shadow-hub-blue/25 transition-all flex items-center justify-center gap-2">
-            <span>Create Account</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          <div class="flex items-start gap-2 pt-1">
+            <input type="checkbox" required id="agreeTerms" class="w-3.5 h-3.5 mt-0.5 rounded border-slate-300 dark:border-slate-600 text-hub-blue focus:ring-hub-blue bg-white dark:bg-slate-900">
+            <label for="agreeTerms" class="text-[11px] font-medium text-slate-500 dark:text-slate-400 leading-tight cursor-pointer">
+              I agree to the <a href="coming-soon.html" id="termsLink" class="text-hub-blue font-bold hover:underline">Terms of Service</a> and <a href="coming-soon.html" id="privacyLink" class="text-hub-blue font-bold hover:underline">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button id="signupSubmitBtn" type="submit" class="w-full py-3.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-[13px] font-bold transition-all flex items-center justify-center gap-2 shadow-md shadow-hub-blue/20 mt-2">
+            <i data-lucide="user-plus" class="w-4 h-4"></i> <span id="submitBtnText">Create Free Account</span>
           </button>
         </form>
 
-        <!-- DIVIDER -->
-        <div class="flex items-center gap-3">
-          <span class="flex-1 h-px bg-hub-border dark:bg-slate-700"></span>
-          <span class="text-[10px] font-bold uppercase text-slate-400">Or continue with</span>
-          <span class="flex-1 h-px bg-hub-border dark:bg-slate-700"></span>
-        </div>
-
-        <!-- SOCIAL BUTTONS -->
-        <div class="grid grid-cols-3 gap-3">
-          <button type="button" onclick="handleSocialLogin('Google')" class="py-2.5 rounded-xl border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold text-hub-dark dark:text-white transition-all flex items-center justify-center gap-2" title="Google">
-            <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.24 1.4-1.7 4.1-5.5 4.1-3.3 0-6-2.7-6-6.2s2.7-6.2 6-6.2c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.2 14.7 2.2 12 2.2 6.9 2.2 2.8 6.4 2.8 11.5S6.9 20.8 12 20.8c6.9 0 9.6-4.9 9.6-7.4 0-.5-.1-.9-.1-1.2H12z"/></svg>
-          </button>
-          <button type="button" onclick="handleSocialLogin('Facebook')" class="py-2.5 rounded-xl border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold text-hub-dark dark:text-white transition-all flex items-center justify-center gap-2" title="Facebook">
-            <svg class="w-4 h-4" fill="#1877F2" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>
-          </button>
-          <button type="button" onclick="handleSocialLogin('Apple')" class="py-2.5 rounded-xl border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold text-hub-dark dark:text-white transition-all flex items-center justify-center gap-2" title="Apple">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-          </button>
+        <div class="text-center pt-2 border-t border-slate-100 dark:border-slate-700/60">
+          <p class="text-[11px] text-slate-400 font-medium">
+            Already have an account?
+            <a href="login.html" id="signinLink" class="text-hub-blue font-bold hover:underline">Sign In</a>
+          </p>
         </div>
 
       </div>
-
-      <p class="text-center text-[11px] text-slate-400 mt-4">
-        Already have an account?
-        <a href="login.html" class="text-hub-blue font-bold hover:underline">Sign In</a>
-      </p>
-
     </div>
   </main>
-  <!-- FOOTER -->
-  <!-- FOOTER -->
-  <footer class="bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 py-12 border-t border-slate-200 dark:border-slate-800 text-xs mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-      
-      <div class="space-y-4">
-        <span class="font-extrabold text-lg text-slate-900 dark:text-white flex items-center gap-2">
-          <span class="w-8 h-8 rounded-full bg-hub-blue flex items-center justify-center text-white">
-            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          </span>
-          Appliance<span class="text-hub-blue">Hub</span>
-        </span>
-        <p class="leading-relaxed pr-4">ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.</p>
-        <div class="flex space-x-3 pt-2">
-          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-          </a>
-          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-          </a>
-          <a href="#" class="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:text-hub-blue transition-colors shadow-sm">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h4>
-        <ul class="space-y-2.5">
-          <li><a href="index.html" class="hover:text-hub-blue transition-colors">Home</a></li>
-          <li><a href="shop.html" class="hover:text-hub-blue transition-colors">Shop</a></li>
-          <li><a href="services.html" class="hover:text-hub-blue transition-colors">Book Repair Service</a></li>
-          <li><a href="deals.html" class="hover:text-hub-blue transition-colors">Deals</a></li>
-          <li><a href="blog.html" class="hover:text-hub-blue transition-colors">Blog</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Shop Categories</h4>
-        <ul class="space-y-2.5">
-          <li><a href="shop.html" class="hover:text-hub-blue transition-colors">All Products</a></li>
-          <li><a href="shop.html?cat=refrigerators" class="hover:text-hub-blue transition-colors">Refrigerators</a></li>
-          <li><a href="shop.html?cat=washing-machines" class="hover:text-hub-blue transition-colors">Washing Machines</a></li>
-          <li><a href="shop.html?cat=air-conditioners" class="hover:text-hub-blue transition-colors">Air Conditioners</a></li>
-          <li><a href="shop.html?cat=ovens" class="hover:text-hub-blue transition-colors">Built-in Ovens</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Customer Support</h4>
-        <ul class="space-y-2.5">
-          <li><a href="contact.html" class="hover:text-hub-blue transition-colors">Help & FAQ Center</a></li>
-          <li><a href="track-service.html" class="hover:text-hub-blue transition-colors">Live Order Tracking</a></li>
-          <li><a href="login.html" class="hover:text-hub-blue transition-colors">Order History</a></li>
-          <li><a href="404.html" class="hover:text-hub-blue transition-colors">Returns & Refunds</a></li>
-          <li><a href="coming-soon.html" class="hover:text-hub-blue transition-colors">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-      <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
-      <div class="text-right text-[10px] text-slate-500 flex items-center justify-center gap-1">
-        <span>Developed by</span>
-        <span class="font-bold text-hub-blue">Abhivorn Technologies Pvt.Ltd.</span>
-      </div>
-    </div>
-  </footer>
-
-
 
   <script>
+    let currentSignUpType = 'user';
+
+    function switchSignUpType(type) {
+      currentSignUpType = type;
+      hideAlerts();
+
+      const title = document.getElementById('signupTitle');
+      const subtitle = document.getElementById('signupSubtitle');
+      const tabUser = document.getElementById('tabUserBtn');
+      const tabAdmin = document.getElementById('tabAdminBtn');
+      const submitBtn = document.getElementById('signupSubmitBtn');
+      const submitBtnText = document.getElementById('submitBtnText');
+      const nameInput = document.getElementById('nameInput');
+      const emailInput = document.getElementById('emailInput');
+      const passwordInput = document.getElementById('signupPass');
+      const adminKeyContainer = document.getElementById('adminKeyContainer');
+      const adminSecretInput = document.getElementById('adminSecretInput');
+      const agreeTerms = document.getElementById('agreeTerms');
+      const termsLink = document.getElementById('termsLink');
+      const privacyLink = document.getElementById('privacyLink');
+      const signinLink = document.getElementById('signinLink');
+
+      const userClasses = ['bg-hub-blue', 'text-white', 'shadow-sm', 'font-extrabold'];
+      const adminClasses = ['bg-hub-orange', 'text-white', 'shadow-sm', 'font-extrabold'];
+      const inactiveClasses = ['text-slate-500', 'dark:text-slate-400', 'hover:text-slate-700', 'dark:hover:text-slate-200', 'font-bold'];
+
+      // Reset tabs & input focus states
+      tabUser.className = 'flex-1 py-2.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5';
+      tabAdmin.className = 'flex-1 py-2.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5';
+
+      if (type === 'user') {
+        title.innerText = 'Create User Account';
+        subtitle.innerText = 'Join ApplianceHub to track appliance deliveries, schedule instant doorstep repairs, and unlock warranty benefits.';
+        nameInput.placeholder = 'John Doe';
+        emailInput.placeholder = 'name@example.com';
+        submitBtnText.innerText = 'Create Free Account';
+        
+        adminKeyContainer.classList.add('hidden');
+        adminSecretInput.removeAttribute('required');
+
+        tabUser.classList.add(...userClasses);
+        tabAdmin.classList.add(...inactiveClasses);
+
+        // Styling accents
+        nameInput.classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
+        emailInput.classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
+        passwordInput.classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
+        agreeTerms.classList.replace('text-hub-orange', 'text-hub-blue');
+        agreeTerms.classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
+
+        termsLink.className = 'text-hub-blue font-bold hover:underline';
+        privacyLink.className = 'text-hub-blue font-bold hover:underline';
+        signinLink.className = 'text-hub-blue font-bold hover:underline';
+
+        submitBtn.className = 'w-full py-3.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-[13px] font-bold transition-all flex items-center justify-center gap-2 shadow-md shadow-hub-blue/20 mt-2';
+      } else {
+        title.innerText = 'Register Admin Staff';
+        subtitle.innerText = 'Register an authorized administrator account to manage store inventory, technician dispatches, and sales reports.';
+        nameInput.placeholder = 'Staff Member Name';
+        emailInput.placeholder = 'admin.name@appliancehub.com';
+        submitBtnText.innerText = 'Register Admin Account';
+
+        adminKeyContainer.classList.remove('hidden');
+        adminSecretInput.setAttribute('required', 'true');
+
+        tabAdmin.classList.add(...adminClasses);
+        tabUser.classList.add(...inactiveClasses);
+
+        // Styling accents
+        nameInput.classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
+        emailInput.classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
+        passwordInput.classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
+        agreeTerms.classList.replace('text-hub-blue', 'text-hub-orange');
+        agreeTerms.classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
+
+        termsLink.className = 'text-hub-orange font-bold hover:underline';
+        privacyLink.className = 'text-hub-orange font-bold hover:underline';
+        signinLink.className = 'text-hub-orange font-bold hover:underline';
+
+        submitBtn.className = 'w-full py-3.5 rounded-xl bg-hub-orange hover:bg-orange-600 text-white text-[13px] font-bold transition-all flex items-center justify-center gap-2 shadow-md shadow-hub-orange/20 mt-2';
+      }
+    }
+
     function handleSignUp(event) {
       event.preventDefault();
       hideAlerts();
-      const email = event.target.querySelector('input[type="email"]').value.trim();
-      const name = event.target.querySelector('input[type="text"]').value.trim();
 
-      localStorage.setItem('isCustomerLoggedIn', 'true');
-      localStorage.setItem('customerEmail', email);
-      localStorage.setItem('customerName', name);
-      showSuccess('Account created! Redirecting you to the store...');
-      setTimeout(() => { window.location.href = 'index.html'; }, 900);
-    }
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('signupPass').value.trim();
 
-    function handleSocialLogin(provider) {
-      hideAlerts();
-      showSuccess(`Redirecting to sign up with ${provider}...`);
+      if (!name || !email || !password) {
+        showError('Please complete all required fields.');
+        return;
+      }
+
+      if (currentSignUpType === 'user') {
+        localStorage.setItem('isCustomerLoggedIn', 'true');
+        localStorage.setItem('customerEmail', email);
+        localStorage.setItem('customerName', name);
+        showSuccess('User account registered successfully! Redirecting...');
+        setTimeout(() => { window.location.href = 'user-dashboard.html'; }, 900);
+      } else {
+        const adminKey = document.getElementById('adminSecretInput').value.trim();
+        if (!adminKey) {
+          showError('Staff Verification Key is required for admin registration.');
+          return;
+        }
+        localStorage.setItem('isAdminLoggedIn', 'true');
+        localStorage.setItem('adminEmail', email);
+        localStorage.setItem('adminName', name);
+        showSuccess('Admin staff account registered! Redirecting to admin panel...');
+        setTimeout(() => { window.location.href = 'admin/dashboard.html'; }, 900);
+      }
     }
 
     function togglePasswordVisibility(inputId, btn) {
@@ -268,12 +294,8 @@
       document.getElementById('authSuccess').classList.add('hidden');
     }
 
-    // ---------------------------------------------------------------
-    // RTL & DARK MODE TOGGLES
-    // ---------------------------------------------------------------
     function toggleRTL() {
       const htmlElement = document.documentElement;
-
       if (htmlElement.getAttribute('dir') === 'rtl') {
         htmlElement.setAttribute('dir', 'ltr');
       } else {
@@ -295,10 +317,6 @@
       }
 
       if (window.lucide) lucide.createIcons();
-    }
-
-    if (localStorage.getItem('isCustomerLoggedIn') === 'true') {
-      // window.location.replace('index.html');
     }
 
     document.addEventListener('DOMContentLoaded', () => {

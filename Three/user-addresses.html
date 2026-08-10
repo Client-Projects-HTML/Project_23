@@ -38,15 +38,17 @@
 
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/theme.js?v=2"></script>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
 
-  <div class="flex h-screen overflow-hidden relative">
+  <div class="flex h-screen overflow-hidden">
     
     <!-- DESKTOP SIDEBAR -->
-    <aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col hidden lg:flex shrink-0 h-full relative z-20">
+    <aside class="w-64 bg-white dark:bg-slate-900 border-e border-slate-200 dark:border-slate-800 flex-col hidden lg:flex shrink-0 h-full relative z-20">
       
+      <!-- Brand Logo -->
       <a href="index.html" class="p-6 flex items-center gap-3 shrink-0">
         <div class="w-9 h-9 bg-hub-blue text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
           <i data-lucide="wrench" class="w-4 h-4"></i>
@@ -54,6 +56,7 @@
         <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
       </a>
 
+      <!-- Profile Card -->
       <div class="px-4 mb-6">
         <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 flex items-center gap-3 border border-slate-100 dark:border-slate-700/50">
           <img src="https://i.pravatar.cc/150?img=47" class="w-10 h-10 rounded-xl object-cover border-2 border-white dark:border-slate-700 shadow-sm" alt="Sarah Jenkins">
@@ -66,6 +69,7 @@
         </div>
       </div>
 
+      <!-- Navigation Links -->
       <nav class="flex-1 px-4 space-y-0.5 overflow-y-auto">
         <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-2 pb-1">Overview</p>
         <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-xs font-bold transition-all">
@@ -100,18 +104,25 @@
         </a>
       </nav>
 
+      <!-- Logout -->
       <div class="p-4 mt-auto shrink-0 border-t border-slate-100 dark:border-slate-800">
         <button onclick="handleLogout()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-all">
-          <i data-lucide="log-out" class="w-4 h-4"></i> <span>Logout</span>
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+          <span>Logout</span>
         </button>
       </div>
     </aside>
 
     <!-- MOBILE SIDEBAR BACKDROP & DRAWER -->
-    <div id="mobileSidebarBackdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity opacity-0"></div>
-    <aside id="mobileSidebar" class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-900 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col lg:hidden">
-      <div class="flex items-center justify-between p-6">
-        <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+    <div id="mobileSidebarBackdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-40 hidden lg:hidden transition-opacity opacity-0"></div>
+    <aside id="mobileSidebar" class="fixed inset-y-0 end-0 w-64 bg-white dark:bg-slate-900 shadow-2xl z-50 transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col lg:hidden">
+      <div class="flex items-center justify-between p-5 border-b border-hub-border dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+          <div class="w-7 h-7 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-xl flex items-center justify-center font-bold text-xs shadow-md shadow-hub-blue/20">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-extrabold text-base sm:text-lg tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        </a>
         <button id="closeSidebarBtn" class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
@@ -168,39 +179,48 @@
     </aside>
 
     <!-- MAIN CONTENT AREA -->
-    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+    <div class="flex-1 flex flex-col h-screen overflow-y-auto">
       
       <!-- TOP HEADER -->
-      <header class="h-16 lg:h-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 flex items-center justify-between px-4 sm:px-6 lg:px-8 shrink-0 z-10">
-        <!-- Logo on the left (mobile only) -->
-        <a href="index.html" class="flex lg:hidden items-center gap-2 shrink-0">
-          <div class="w-8 h-8 bg-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-sm shadow-md shadow-hub-blue/20">
-            <i data-lucide="wrench" class="w-4 h-4"></i>
-          </div>
-          <span class="font-extrabold text-lg tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
-        </a>
-        
-        <div class="flex-1 flex justify-end items-center gap-3">
-          <a href="shop.html" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20">
-            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Shop Store
-          </a>
+      <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800 sticky top-0 z-40 shrink-0 w-full shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           
-          <div class="flex items-center gap-1 border-l border-slate-200 dark:border-slate-700 pl-3">
-            <button onclick="toggleRTL()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-              <i data-lucide="globe" class="w-4 h-4"></i>
-            </button>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-              <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
-            </button>
-            <button id="openSidebarBtn" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all lg:hidden">
-              <i data-lucide="menu" class="w-5 h-5"></i>
+          <!-- LEFT: MOBILE BRAND LOGO LINK -->
+          <a href="index.html" class="flex lg:hidden items-center gap-1.5 shrink-0">
+            <div class="w-7 h-7 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-xs shadow-md shadow-hub-blue/20">
+              <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+            </div>
+            <span class="font-extrabold text-sm tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          </a>
+
+          <!-- RIGHT: ACTION UTILITIES & HAMBURGER ON RIGHT -->
+          <div class="flex items-center gap-1.5 sm:gap-3 ml-auto">
+            <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
+              <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+              <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+            </a>
+
+            <div class="flex items-center gap-1 sm:gap-1.5">
+              <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
+                <i data-lucide="globe" class="w-4 h-4"></i>
+              </button>
+
+              <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
+                <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- HAMBURGER MENU BUTTON ON RIGHT -->
+            <button id="openMobileSidebarBtn" class="lg:hidden p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Open Navigation Menu">
+              <i data-lucide="menu" class="w-4 h-4"></i>
             </button>
           </div>
+
         </div>
       </header>
 
       <!-- SCROLLABLE PAGE CONTENT -->
-      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 relative">
+      <main class="flex-1 p-4 sm:p-6 lg:p-8 relative">
         <div class="max-w-5xl mx-auto space-y-6">
           
           <!-- HEADER & ADD BUTTON -->
@@ -209,56 +229,73 @@
               <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">Delivery Addresses</h1>
               <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Manage saved home, workplace, and secondary shipping destinations.</p>
             </div>
-            <button onclick="toggleAddressModal(true)" class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
+            <button onclick="openNewAddressModal()" class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
               <i data-lucide="plus" class="w-4 h-4"></i> Add New Address
             </button>
           </div>
 
           <!-- ADDRESSES GRID -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div id="addressesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <!-- Address 1 (Default) -->
-            <div class="bg-white dark:bg-slate-900 border-2 border-hub-blue/30 dark:border-hub-blue/40 rounded-3xl p-6 relative shadow-[0_8px_30px_rgb(2,132,199,0.06)] hover:shadow-[0_8px_30px_rgb(2,132,199,0.1)] transition-shadow">
-              <span class="absolute top-6 right-6 px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-500/20 bg-emerald-50 dark:bg-emerald-500/10 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-                Default
-              </span>
-              
-              <div class="flex items-center gap-2 mb-4">
-                <i data-lucide="home" class="w-5 h-5 text-hub-blue"></i>
-                <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Home Address</h3>
+            <div id="addressCard-1" class="bg-white dark:bg-slate-900 border-2 border-hub-blue/30 dark:border-hub-blue/40 rounded-3xl p-6 relative shadow-[0_8px_30px_rgb(2,132,199,0.06)] hover:shadow-[0_8px_30px_rgb(2,132,199,0.1)] transition-all">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="home" class="w-5 h-5 text-hub-blue"></i>
+                  <h3 id="addrLabel-1" class="text-sm font-extrabold text-slate-900 dark:text-white">Home Address</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span id="defaultBadge-1" class="px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-500/20 bg-emerald-50 dark:bg-emerald-500/10 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                    DEFAULT
+                  </span>
+                  <button onclick="deleteAddress('1')" class="p-1.5 text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Delete Address">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
               </div>
               
               <div class="text-xs text-slate-500 dark:text-slate-400 space-y-1 mb-6">
-                <p class="text-slate-900 dark:text-white font-bold">Sarah Jenkins</p>
-                <p>742 Evergreen Terr., Apt 4B</p>
-                <p>Springfield, SP 12345</p>
-                <p class="pt-2">Phone: (555) 234-5678</p>
+                <p id="addrName-1" class="text-slate-900 dark:text-white font-bold">Sarah Jenkins</p>
+                <p id="addrStreet-1">742 Evergreen Terr., Apt 4B</p>
+                <p id="addrCity-1">Springfield, SP 12345</p>
+                <p id="addrPhone-1" class="pt-2">Phone: (555) 234-5678</p>
               </div>
 
               <div class="flex items-center gap-4">
-                <button class="text-xs font-bold text-hub-blue hover:underline">Edit Address</button>
+                <button id="setDefaultBtn-1" onclick="setAsDefault('1')" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors hidden">Set Default</button>
+                <span id="dot-1" class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 hidden"></span>
+                <button onclick="editAddress('1')" class="text-xs font-bold text-hub-blue hover:underline">Edit Address</button>
               </div>
             </div>
 
             <!-- Address 2 -->
-            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 relative shadow-sm hover:shadow-md transition-shadow">
-              
-              <div class="flex items-center gap-2 mb-4">
-                <i data-lucide="building-2" class="w-5 h-5 text-slate-400"></i>
-                <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">Office / Workplace</h3>
+            <div id="addressCard-2" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 relative shadow-sm hover:shadow-md transition-all">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="building-2" class="w-5 h-5 text-slate-400"></i>
+                  <h3 id="addrLabel-2" class="text-sm font-extrabold text-slate-900 dark:text-white">Office / Workplace</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span id="defaultBadge-2" class="px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-500/20 bg-emerald-50 dark:bg-emerald-500/10 text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider hidden">
+                    DEFAULT
+                  </span>
+                  <button onclick="deleteAddress('2')" class="p-1.5 text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Delete Address">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
               </div>
               
               <div class="text-xs text-slate-500 dark:text-slate-400 space-y-1 mb-6">
-                <p class="text-slate-900 dark:text-white font-bold">Sarah Jenkins</p>
-                <p>100 Tech Plaza, Floor 5</p>
-                <p>Springfield, SP 12345</p>
-                <p class="pt-2">Phone: (555) 876-5432</p>
+                <p id="addrName-2" class="text-slate-900 dark:text-white font-bold">Sarah Jenkins</p>
+                <p id="addrStreet-2">100 Tech Plaza, Floor 5</p>
+                <p id="addrCity-2">Springfield, SP 12345</p>
+                <p id="addrPhone-2" class="pt-2">Phone: (555) 876-5432</p>
               </div>
 
               <div class="flex items-center gap-4">
-                <button class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors">Set as Default</button>
-                <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-                <button class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors">Edit Address</button>
+                <button id="setDefaultBtn-2" onclick="setAsDefault('2')" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Set Default</button>
+                <span id="dot-2" class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+                <button onclick="editAddress('2')" class="text-xs font-bold text-hub-blue hover:underline">Edit Address</button>
               </div>
             </div>
 
@@ -266,101 +303,163 @@
 
         </div>
       </main>
-  
-
     </div>
   </div>
 
-  <!-- ADD ADDRESS MODAL OVERLAY -->
+  <!-- ADDRESS MODAL OVERLAY -->
   <div id="addressModalOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 transition-opacity opacity-0">
-    <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="addressModalContent">
-      
-      <!-- Modal Header -->
-      <div class="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-800">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
         <div>
-          <h2 class="text-lg font-extrabold text-slate-900 dark:text-white">Add New Address</h2>
-          <p class="text-[11px] text-slate-500 mt-0.5">Save a new shipping location for quick express deliveries.</p>
+          <h2 id="modalTitle" class="text-lg font-extrabold text-slate-900 dark:text-white">Edit Delivery Address</h2>
+          <p class="text-[11px] text-slate-500 mt-0.5">Manage your shipping details for quick express checkout.</p>
         </div>
-        <button onclick="toggleAddressModal(false)" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <button onclick="toggleAddressModal(false)" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-xl">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Modal Body (Form) -->
-      <form onsubmit="event.preventDefault(); toggleAddressModal(false); window.showToast('New delivery address saved successfully!', 'map-pin');" class="p-6 space-y-4">
+      <form onsubmit="saveAddressForm(event)" class="space-y-4">
+        <input type="hidden" id="modalActiveId" value="1">
         
         <div>
-          <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">Address Label (e.g. Home, Office, Beach House)</label>
-          <input type="text" placeholder="e.g. Vacation Home" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
+          <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">Address Label</label>
+          <input type="text" id="modalLabelInput" placeholder="Home Address" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white font-medium">
         </div>
 
         <div>
           <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">Street & Apartment</label>
-          <input type="text" placeholder="123 Ocean Ave, Apt 2" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
+          <input type="text" id="modalStreetInput" placeholder="742 Evergreen Terr., Apt 4B" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white font-medium">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">City & Zip</label>
-            <input type="text" placeholder="Springfield, SP 12345" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
+            <input type="text" id="modalCityInput" placeholder="Springfield, SP 12345" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white font-medium">
           </div>
           <div>
             <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300 mb-1.5">Phone Number</label>
-            <input type="text" placeholder="(555) 000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
+            <input type="text" id="modalPhoneInput" placeholder="(555) 234-5678" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white font-medium">
           </div>
         </div>
 
         <div class="pt-4">
           <button type="submit" class="w-full py-3.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-[13px] font-bold transition-all shadow-md shadow-hub-blue/20">
-            Save Address
+            Save Address Changes
           </button>
         </div>
-
       </form>
     </div>
   </div>
 
   <script>
-    // Modal Logic
-    const addressModalOverlay = document.getElementById('addressModalOverlay');
-    const addressModalContent = document.getElementById('addressModalContent');
+    function setAsDefault(id) {
+      document.querySelectorAll('[id^="defaultBadge-"]').forEach(b => b.classList.add('hidden'));
+      document.querySelectorAll('[id^="setDefaultBtn-"]').forEach(b => b.classList.remove('hidden'));
+      document.querySelectorAll('[id^="dot-"]').forEach(b => b.classList.remove('hidden'));
 
-    function toggleAddressModal(show) {
-      if (show) {
-        addressModalOverlay.classList.remove('hidden');
+      const activeBadge = document.getElementById('defaultBadge-' + id);
+      const activeBtn = document.getElementById('setDefaultBtn-' + id);
+      const activeDot = document.getElementById('dot-' + id);
+
+      if (activeBadge) activeBadge.classList.remove('hidden');
+      if (activeBtn) activeBtn.classList.add('hidden');
+      if (activeDot) activeDot.classList.add('hidden');
+
+      const label = document.getElementById('addrLabel-' + id)?.innerText || 'Address';
+      if (window.showToast) window.showToast(`"${label}" set as default delivery location!`, 'check-circle');
+    }
+
+    function editAddress(id) {
+      const label = document.getElementById('addrLabel-' + id)?.innerText || '';
+      const street = document.getElementById('addrStreet-' + id)?.innerText || '';
+      const city = document.getElementById('addrCity-' + id)?.innerText || '';
+      const phone = (document.getElementById('addrPhone-' + id)?.innerText || '').replace('Phone: ', '');
+
+      document.getElementById('modalTitle').innerText = 'Edit Address';
+      document.getElementById('modalLabelInput').value = label;
+      document.getElementById('modalStreetInput').value = street;
+      document.getElementById('modalCityInput').value = city;
+      document.getElementById('modalPhoneInput').value = phone;
+      document.getElementById('modalActiveId').value = id;
+
+      toggleAddressModal(true);
+    }
+
+    function openNewAddressModal() {
+      document.getElementById('modalTitle').innerText = 'Add New Address';
+      document.getElementById('modalLabelInput').value = '';
+      document.getElementById('modalStreetInput').value = '';
+      document.getElementById('modalCityInput').value = '';
+      document.getElementById('modalPhoneInput').value = '';
+      document.getElementById('modalActiveId').value = 'new';
+
+      toggleAddressModal(true);
+    }
+
+    function saveAddressForm(e) {
+      e.preventDefault();
+      const id = document.getElementById('modalActiveId').value;
+      const label = document.getElementById('modalLabelInput').value || 'New Address';
+      const street = document.getElementById('modalStreetInput').value || '123 Main St';
+      const city = document.getElementById('modalCityInput').value || 'Springfield, SP 12345';
+      const phone = document.getElementById('modalPhoneInput').value || '(555) 000-0000';
+
+      if (id !== 'new') {
+        const lEl = document.getElementById('addrLabel-' + id);
+        const sEl = document.getElementById('addrStreet-' + id);
+        const cEl = document.getElementById('addrCity-' + id);
+        const pEl = document.getElementById('addrPhone-' + id);
+        if (lEl) lEl.innerText = label;
+        if (sEl) sEl.innerText = street;
+        if (cEl) cEl.innerText = city;
+        if (pEl) pEl.innerText = 'Phone: ' + phone;
+      }
+      toggleAddressModal(false);
+      if (window.showToast) window.showToast('Delivery address saved successfully!', 'map-pin');
+    }
+
+    function deleteAddress(id) {
+      const card = document.getElementById('addressCard-' + id);
+      if (card) {
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
         setTimeout(() => {
-          addressModalOverlay.classList.remove('opacity-0');
-          addressModalContent.classList.remove('scale-95');
-        }, 10);
-      } else {
-        addressModalOverlay.classList.add('opacity-0');
-        addressModalContent.classList.add('scale-95');
-        setTimeout(() => {
-          addressModalOverlay.classList.add('hidden');
+          card.remove();
+          if (window.showToast) window.showToast('Address deleted successfully!', 'trash-2');
         }, 300);
       }
     }
 
-    // Close on click outside
-    addressModalOverlay.addEventListener('click', (e) => {
-      if(e.target === addressModalOverlay) {
-        toggleAddressModal(false);
-      }
-    });
+    const addressModalOverlay = document.getElementById('addressModalOverlay');
 
-    // Sidebar & Theme Logic
+    function toggleAddressModal(show) {
+      if (show) {
+        addressModalOverlay.classList.remove('hidden');
+        setTimeout(() => addressModalOverlay.classList.remove('opacity-0'), 10);
+      } else {
+        addressModalOverlay.classList.add('opacity-0');
+        setTimeout(() => addressModalOverlay.classList.add('hidden'), 300);
+      }
+    }
+
     const openBtn = document.getElementById('openSidebarBtn');
     const closeBtn = document.getElementById('closeSidebarBtn');
     const sidebar = document.getElementById('mobileSidebar');
     const backdrop = document.getElementById('mobileSidebarBackdrop');
 
     function toggleMobileMenu(show) {
+      if (!sidebar || !backdrop) return;
+      const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      const closedClass = isRTL ? '-translate-x-full' : 'translate-x-full';
+
       if (show) {
-        sidebar.classList.remove('-translate-x-full');
+        sidebar.classList.remove('translate-x-full', '-translate-x-full', 'ltr:-translate-x-full', 'rtl:translate-x-full', 'rtl:-translate-x-full');
         backdrop.classList.remove('hidden');
         setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
       } else {
-        sidebar.classList.add('-translate-x-full');
+        sidebar.classList.add(closedClass);
         backdrop.classList.add('opacity-0');
         setTimeout(() => backdrop.classList.add('hidden'), 300);
       }

@@ -3,7 +3,7 @@ let cart = JSON.parse(localStorage.getItem('applianceHubCart')) || [];
 
 function updateCartBadge() {
     const badges = document.querySelectorAll('#cartBadge, #cartBadgeMobile, .cart-badge-indicator');
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
     badges.forEach(badge => {
         badge.textContent = totalItems;
         if (totalItems === 0) {
@@ -15,11 +15,20 @@ function updateCartBadge() {
 }
 
 // Add item to cart from product list
-function addToCart(name, priceStr, imgUrl) {
+function addToCart(name, priceInput, imgUrl) {
+    cart = JSON.parse(localStorage.getItem('applianceHubCart')) || [];
     const productId = name.replace(/\s+/g, '-').toLowerCase();
-    const price = parseFloat(priceStr.replace('$', ''));
     
-    const existingItem = cart.find(item => item.id === productId);
+    let price = 0;
+    if (typeof priceInput === 'number') {
+        price = priceInput;
+    } else if (typeof priceInput === 'string') {
+        price = parseFloat(priceInput.replace(/[^0-9.]/g, '')) || 0;
+    }
+    
+    const image = imgUrl || 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=200&auto=format&fit=crop';
+    
+    const existingItem = cart.find(item => item.id === productId || item.name === name);
     
     if (existingItem) {
         existingItem.quantity += 1;
@@ -28,67 +37,55 @@ function addToCart(name, priceStr, imgUrl) {
             id: productId,
             name: name,
             price: price,
-            image: imgUrl,
+            image: image,
             quantity: 1
         });
     }
     
     localStorage.setItem('applianceHubCart', JSON.stringify(cart));
     updateCartBadge();
-    updateProductCards();
-    showToast(`${name} added to cart!`);
+    if (typeof updateProductCards === 'function') updateProductCards();
+    
+    if (window.showToast) {
+        window.showToast(`${name} added to cart!`, 'shopping-bag');
+    } else {
+        showToast(`${name} added to cart!`);
+    }
 }
+
+window.addToCart = addToCart;
 
 // Add item from Quick View Modal
 function addToCartModal() {
-    const title = document.getElementById('modalTitle').textContent;
-    const price = document.getElementById('modalPrice').textContent;
-    const img = document.getElementById('modalImg').src;
+    const title = document.getElementById('modalTitle')?.textContent || 'Appliance Product';
+    const price = document.getElementById('modalPrice')?.textContent || '$0.00';
+    const img = document.getElementById('modalImg')?.src || '';
     
     addToCart(title, price, img);
-    closeQuickView(); // close modal after adding
+    if (typeof closeQuickView === 'function') closeQuickView();
 }
 
-// Update the Add buttons to show quantity controls dynamically
+// Ensure the blue "Add" button stays visible
 function updateProductCards() {
     const addButtons = document.querySelectorAll('button[onclick^="addToCart("]');
     
     addButtons.forEach(btn => {
         if (!btn.hasAttribute('data-product-id')) {
-            const match = btn.getAttribute('onclick').match(/addToCart\('(.*?)'/);
+            const match = btn.getAttribute('onclick')?.match(/addToCart\('(.*?)'/);
             if (match) {
                 btn.setAttribute('data-product-id', match[1].replace(/\s+/g, '-').toLowerCase());
             }
         }
         
-        const productId = btn.getAttribute('data-product-id');
-        const item = cart.find(i => i.id === productId);
-        
-        if (item && item.quantity > 0) {
-            let ctrl = btn.nextElementSibling;
-            if (!ctrl || !ctrl.classList.contains('cart-qty-ctrl')) {
-                ctrl = document.createElement('div');
-                ctrl.className = 'cart-qty-ctrl flex items-center border border-hub-border dark:border-slate-700 rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-900 h-[36px] w-[88px] shrink-0 justify-between';
-                ctrl.innerHTML = `
-                    <button onclick="updateQuantityFromCard('${productId}', -1)" class="px-2.5 h-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm w-1/3 text-center">-</button>
-                    <span class="text-xs font-bold qty-val w-1/3 text-center">${item.quantity}</span>
-                    <button onclick="updateQuantityFromCard('${productId}', 1)" class="px-2.5 h-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-sm w-1/3 text-center">+</button>
-                `;
-                btn.parentNode.insertBefore(ctrl, btn.nextSibling);
-            } else {
-                ctrl.querySelector('.qty-val').textContent = item.quantity;
-            }
-            btn.style.display = 'none';
-        } else {
-            btn.style.display = 'flex';
-            if (btn.nextElementSibling && btn.nextElementSibling.classList.contains('cart-qty-ctrl')) {
-                btn.nextElementSibling.remove();
-            }
+        btn.style.display = 'inline-flex';
+        if (btn.nextElementSibling && btn.nextElementSibling.classList.contains('cart-qty-ctrl')) {
+            btn.nextElementSibling.remove();
         }
     });
 }
 
 function updateQuantityFromCard(id, delta) {
+    cart = JSON.parse(localStorage.getItem('applianceHubCart')) || [];
     const item = cart.find(i => i.id === id);
     if (item) {
         item.quantity += delta;
@@ -102,7 +99,7 @@ function updateQuantityFromCard(id, delta) {
     }
 }
 
-// Simple Toast Notification
+// Simple Toast Notification Fallback
 function showToast(message) {
     let toastContainer = document.getElementById('toast-container');
     if (!toastContainer) {
@@ -126,8 +123,13 @@ function showToast(message) {
 }
 
 // Initialize and refresh on page load or when returning via back button
-window.addEventListener('pageshow', (event) => {
-    // Always fetch fresh cart state from localStorage in case it changed on another page (e.g. cart.html)
+window.addEventListener('pageshow', () => {
+    cart = JSON.parse(localStorage.getItem('applianceHubCart')) || [];
+    updateCartBadge();
+    updateProductCards();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     cart = JSON.parse(localStorage.getItem('applianceHubCart')) || [];
     updateCartBadge();
     updateProductCards();

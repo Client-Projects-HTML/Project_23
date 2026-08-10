@@ -1,7 +1,11 @@
 /* ApplianceHub — Mobile hamburger navigation (Side Drawer).
-   Generates a mobile sidebar dynamically from the desktop header. */
+   Generates a mobile sidebar dynamically from the desktop header with expandable accordion dropdowns. */
 
 document.addEventListener('DOMContentLoaded', function () {
+  var path = window.location.pathname;
+  var filename = path.split('/').pop();
+  if (filename.endsWith('login.html') || filename.endsWith('signup.html') || filename.endsWith('404.html') || filename.endsWith('coming-soon.html') || filename.startsWith('user-') || path.includes('/admin')) return;
+
   var header = document.querySelector('header');
   if (!header || header.classList.contains('header')) return;
 
@@ -10,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var navEl = inner.querySelector('nav');
   
-  // Find utilities by looking for the container of the toggles/login button
-  // instead of relying on exact index, since hardcoded buttons might exist.
   var utilities = Array.from(inner.children).find(child => 
     child.tagName !== 'NAV' && 
     child.tagName !== 'A' && 
@@ -21,28 +23,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!navEl && !utilities) return;
 
-  // Hide the utilities row on mobile, restore it at the lg breakpoint.
+  // Keep utilities container visible on mobile so Cart, RTL, and Theme toggles are always available on topbar
   if (utilities) {
-    if (utilities.classList.contains('flex')) {
-      utilities.classList.remove('flex');
-      utilities.classList.add('hidden', 'lg:flex');
+    if (utilities.classList.contains('hidden')) {
+      utilities.classList.remove('hidden');
     }
-  }
-
-  // Hide the hardcoded button if it exists so we can create our own wired one
-  var existingBtn = inner.querySelector('#mobileMenuBtn');
-  if (existingBtn) {
-    existingBtn.style.display = 'none';
+    if (!utilities.classList.contains('flex')) {
+      utilities.classList.add('flex');
+    }
   }
 
   // ---- Build the mobile drawer overlay --------------------------------
   var backdrop = document.createElement('div');
-  backdrop.className = 'fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity opacity-0';
+  backdrop.className = 'fixed inset-0 bg-slate-950/60 backdrop-blur-md z-40 hidden lg:hidden transition-opacity opacity-0';
   document.body.appendChild(backdrop);
 
   // ---- Build the mobile drawer ----------------------------------------
   var drawer = document.createElement('aside');
-  drawer.className = 'fixed inset-y-0 start-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-50 transform -translate-x-full rtl:translate-x-full transition-transform duration-300 flex flex-col lg:hidden';
+  drawer.className = 'fixed inset-y-0 end-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-50 transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col lg:hidden';
   
   // Drawer Header (Logo + Close btn)
   var drawerHeader = document.createElement('div');
@@ -67,100 +65,147 @@ document.addEventListener('DOMContentLoaded', function () {
     var navClone = navEl.cloneNode(true);
     navClone.className = 'flex flex-col gap-2 text-sm font-bold text-slate-700 dark:text-slate-200';
     navClone.querySelectorAll('.group').forEach(function (g) { g.classList.remove('group'); });
-    navClone.querySelectorAll('div[class*="absolute"]').forEach(function (d) {
-      d.className = 'block mt-2 ml-4 space-y-1 border-l-2 border-hub-blue/20 dark:border-slate-700 pl-3 static shadow-none bg-transparent p-0';
-    });
-    
-    // Convert desktop buttons into mobile links
-    navClone.querySelectorAll('button').forEach(function (btn) {
-      btn.className = 'flex items-center justify-between w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 text-hub-blue font-extrabold';
-    });
-    
-    // Style links
-    navClone.querySelectorAll('a').forEach(function (a) {
-      if (!a.parentElement.classList.contains('border-l-2')) {
-        a.className = 'flex items-center gap-2 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-hub-blue transition-all';
+
+    // Process containers with sub-menus (e.g. Home)
+    var navItems = Array.from(navClone.children);
+    navItems.forEach(function(item) {
+      var dropdownMenu = item.querySelector('div[class*="absolute"]');
+      var triggerBtn = item.querySelector('a') || item.querySelector('button');
+
+      if (dropdownMenu && triggerBtn) {
+        // Start COLLAPSED (hidden) by default
+        dropdownMenu.className = 'hidden mt-2 ml-4 space-y-1 border-l-2 border-hub-blue/20 dark:border-slate-700 pl-3 static shadow-none bg-transparent p-0';
+        triggerBtn.className = 'flex items-center justify-between w-full p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-hub-blue transition-all cursor-pointer';
+
+        // Group Icon + Span together so "Home" sits right next to the home icon!
+        var chevron = triggerBtn.querySelector('[data-lucide="chevron-down"]');
+        var nonChevronNodes = Array.from(triggerBtn.childNodes).filter(function(node) {
+          if (node === chevron) return false;
+          if (node.nodeType === 1 && node.getAttribute && node.getAttribute('data-lucide') === 'chevron-down') return false;
+          return true;
+        });
+
+        if (nonChevronNodes.length > 0 && !triggerBtn.querySelector('.mobile-nav-label-group')) {
+          var labelGroup = document.createElement('div');
+          labelGroup.className = 'flex items-center gap-2.5 mobile-nav-label-group';
+          nonChevronNodes.forEach(function(node) {
+            labelGroup.appendChild(node);
+          });
+          triggerBtn.innerHTML = '';
+          triggerBtn.appendChild(labelGroup);
+          if (chevron) {
+            triggerBtn.appendChild(chevron);
+          }
+        }
+
+        triggerBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var isHidden = dropdownMenu.classList.contains('hidden');
+          var chevronIcon = triggerBtn.querySelector('[data-lucide="chevron-down"]');
+
+          if (isHidden) {
+            dropdownMenu.classList.remove('hidden');
+            dropdownMenu.classList.add('block');
+            if (chevronIcon) {
+              chevronIcon.style.transform = 'rotate(180deg)';
+              chevronIcon.style.transition = 'transform 0.2s ease-in-out';
+            }
+          } else {
+            dropdownMenu.classList.remove('block');
+            dropdownMenu.classList.add('hidden');
+            if (chevronIcon) {
+              chevronIcon.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
       }
+    });
+
+    // Style remaining direct links
+    navClone.querySelectorAll('a').forEach(function (a) {
+      if (!a.parentElement.classList.contains('border-l-2') && !a.querySelector('[data-lucide="chevron-down"]')) {
+        a.className = 'flex items-center gap-2.5 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-hub-blue transition-all';
+      }
+    });
+
+    // Highlight Active Link & Clicked Link inside Mobile Drawer
+    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    navClone.querySelectorAll('a').forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:')) return;
+      var linkFile = href.split('/').pop();
+
+      var isMatch = (currentPath === linkFile);
+      if ((linkFile === 'index.html' || href === 'index.html') && (currentPath === 'index.html' || currentPath === 'home-v2.html' || currentPath === '')) {
+        isMatch = true;
+      } else if (linkFile === 'shop.html' && currentPath === 'product-detail.html') {
+        isMatch = true;
+      } else if (linkFile === 'blog.html' && (currentPath.startsWith('blog-detail') || currentPath === 'blog.html')) {
+        isMatch = true;
+      }
+
+      if (isMatch) {
+        link.classList.add('bg-hub-blue/10', 'text-hub-blue', 'font-extrabold');
+        link.classList.remove('text-slate-700', 'dark:text-slate-200');
+      }
+
+      link.addEventListener('click', function() {
+        navClone.querySelectorAll('a').forEach(function(other) {
+          other.classList.remove('bg-hub-blue/10', 'text-hub-blue', 'font-extrabold');
+        });
+        link.classList.add('bg-hub-blue/10', 'text-hub-blue', 'font-extrabold');
+      });
     });
 
     drawerContent.appendChild(navClone);
   }
   drawer.appendChild(drawerContent);
 
-  // Drawer Footer (Utilities)
+  // Drawer Footer (Utilities / Login)
   if (utilities) {
     var drawerFooter = document.createElement('div');
     drawerFooter.className = 'p-5 border-t border-hub-border dark:border-slate-800 flex flex-col gap-3';
     
-    var utilClone = utilities.cloneNode(true);
-    utilClone.className = 'flex flex-col gap-3';
-    
-    // Make login button full width
-    var loginBtn = utilClone.querySelector('a[href="login.html"]');
+    var loginBtn = utilities.querySelector('a[href="login.html"]');
     if (loginBtn) {
-      loginBtn.className = 'flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-hub-blue text-white font-bold shadow-md shadow-hub-blue/20';
+      var loginClone = loginBtn.cloneNode(true);
+      loginClone.className = 'flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-hub-blue text-white font-bold shadow-md shadow-hub-blue/20';
+      loginClone.classList.remove('hidden');
+      drawerFooter.appendChild(loginClone);
     }
-
-    // Adjust toggles container
-    var togglesContainer = utilClone.querySelector('.border-l');
-    if (togglesContainer) {
-      togglesContainer.className = 'flex items-center justify-between w-full';
-      togglesContainer.querySelectorAll('button').forEach(function(btn) {
-        btn.className = 'flex-1 flex justify-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all mx-1';
-      });
-    }
-
-    utilClone.querySelectorAll('*').forEach(function (el) {
-      el.classList.remove('hidden');
-      if (el.id) el.id = el.id + '-mobile';
-    });
-    
-    // Re-wire the RTL / dark-mode toggle clones
-    var rtlClone = utilClone.querySelector('#rtlToggleBtn-mobile');
-    if (rtlClone) {
-      rtlClone.removeAttribute('onclick');
-      rtlClone.addEventListener('click', function () {
-        if (typeof toggleRTL === 'function') toggleRTL();
-      });
-    }
-    var themeClone = utilClone.querySelector('#themeToggleBtn-mobile');
-    if (themeClone) {
-      themeClone.removeAttribute('onclick');
-      themeClone.addEventListener('click', function () {
-        if (typeof toggleDarkMode === 'function') toggleDarkMode();
-        var src = document.getElementById('themeIcon');
-        var dst = document.getElementById('themeIcon-mobile');
-        if (src && dst) {
-          dst.setAttribute('data-lucide', src.getAttribute('data-lucide'));
-          if (window.lucide) lucide.createIcons();
-        }
-      });
-    }
-
-    drawerFooter.appendChild(utilClone);
     drawer.appendChild(drawerFooter);
   }
 
   document.body.appendChild(drawer);
 
-  // ---- Hamburger button ----------------------------------------------
-  var burger = document.createElement('button');
-  burger.id = 'mobileMenuBtn';
-  burger.setAttribute('aria-label', 'Toggle menu');
-  burger.className = 'flex lg:hidden p-2 rounded-xl text-slate-500 hover:text-hub-blue hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shrink-0';
-  burger.innerHTML = '<i data-lucide="menu" id="mobileMenuIcon" class="w-6 h-6"></i>';
+  // ---- Wire / Attach Hamburger button --------------------------------
+  var burger = utilities ? (utilities.querySelector('#mobileNavToggleBtn') || utilities.querySelector('#mobileMenuBtn')) : null;
+  
+  if (!burger) {
+    burger = document.createElement('button');
+    burger.id = 'mobileMenuBtn';
+    burger.setAttribute('aria-label', 'Toggle menu');
+    burger.className = 'flex lg:hidden p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shrink-0';
+    burger.innerHTML = '<i data-lucide="menu" id="mobileMenuIcon" class="w-5 h-5"></i>';
+    if (utilities) {
+      utilities.appendChild(burger);
+    } else {
+      inner.appendChild(burger);
+    }
+  }
   
   function toggleMenu() {
-    var isClosed = drawer.classList.contains('-translate-x-full') || drawer.classList.contains('rtl:translate-x-full');
+    var isClosed = drawer.classList.contains('translate-x-full') || drawer.classList.contains('-translate-x-full') || drawer.classList.contains('rtl:-translate-x-full') || drawer.classList.contains('rtl:translate-x-full');
     
     if (isClosed) {
-      drawer.classList.remove('-translate-x-full', 'rtl:translate-x-full');
+      drawer.classList.remove('translate-x-full', '-translate-x-full', 'rtl:translate-x-full', 'rtl:-translate-x-full');
       backdrop.classList.remove('hidden');
       setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
       document.body.style.overflow = 'hidden'; // Prevent scrolling
     } else {
       var isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-      drawer.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
+      drawer.classList.add(isRtl ? '-translate-x-full' : 'translate-x-full');
       backdrop.classList.add('opacity-0');
       setTimeout(() => backdrop.classList.add('hidden'), 300);
       document.body.style.overflow = '';
@@ -170,8 +215,6 @@ document.addEventListener('DOMContentLoaded', function () {
   burger.addEventListener('click', toggleMenu);
   closeBtn.addEventListener('click', toggleMenu);
   backdrop.addEventListener('click', toggleMenu);
-
-  inner.appendChild(burger);
 
   if (window.lucide) lucide.createIcons();
 });

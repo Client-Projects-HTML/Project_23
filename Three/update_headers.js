@@ -1,6 +1,7 @@
 const fs = require('fs');
+const path = require('path');
 
-const headerTemplate = `  <!-- MAIN REDESIGNED NAVIGATION BAR -->
+const headerTemplate = `  <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
   <header class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-hub-border dark:border-slate-800 sticky top-0 z-50 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
@@ -11,24 +12,22 @@ const headerTemplate = `  <!-- MAIN REDESIGNED NAVIGATION BAR -->
         </div>
         <div>
           <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
-          <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5 block">Store & Service</span>
+          
         </div>
       </a>
 
-      <!-- 2. STREAMLINED CENTER NAVIGATION LINKS -->
+      <!-- 2. NAVIGATION MENU: Home | Shop | Categories | Deals | Blog | Contact -->
       <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-200">
         
-        <!-- HOME DROPDOWN -->
+        <!-- 1. HOME -->
         <div class="relative group py-2">
-          <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-home">
+          <a href="index.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-home">
             <i data-lucide="home" class="w-4 h-4"></i>
             <span>Home</span>
             <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200"></i>
-          </button>
-
-          <!-- DROPDOWN CONTENT -->
+          </a>
           <div class="absolute top-full left-0 w-64 bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 rounded-2xl shadow-xl p-2 hidden group-hover:block transition-all duration-200 z-50">
-            <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
+            <a href="index.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
               <div class="w-8 h-8 rounded-lg bg-hub-blue/10 text-hub-blue flex items-center justify-center shrink-0 mt-0.5">
                 <i data-lucide="store" class="w-4 h-4"></i>
               </div>
@@ -37,8 +36,7 @@ const headerTemplate = `  <!-- MAIN REDESIGNED NAVIGATION BAR -->
                 <span class="text-[10px] text-slate-400 font-normal">Hybrid store, products & booking</span>
               </div>
             </a>
-
-            <a href="home-v2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
+            <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
               <div class="w-8 h-8 rounded-lg bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0 mt-0.5">
                 <i data-lucide="shield-alert" class="w-4 h-4"></i>
               </div>
@@ -50,57 +48,31 @@ const headerTemplate = `  <!-- MAIN REDESIGNED NAVIGATION BAR -->
           </div>
         </div>
 
-        <!-- SHOP CATALOG LINK -->
+        <!-- 2. SHOP -->
         <a href="shop.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-shop">
-          Shop Store
+          Shop
         </a>
 
-        <!-- SERVICES & PLANS DROPDOWN -->
-        <div class="relative group py-2">
-          <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-services">
-            <span>Services & Plans</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200"></i>
-          </button>
-
-          <div class="absolute top-full left-0 w-60 bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 rounded-2xl shadow-xl p-2 hidden group-hover:block transition-all duration-200 z-50">
-            <a href="services.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
-              <i data-lucide="wrench" class="w-4 h-4 text-hub-blue"></i>
-              <span>Book Repair Service</span>
-            </a>
-            <a href="index.html#comparison" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
-              <i data-lucide="sliders" class="w-4 h-4 text-emerald-500"></i>
-              <span>Compare Brands</span>
-            </a>
-            <a href="index.html#warranty" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
-              <i data-lucide="shield" class="w-4 h-4 text-amber-500"></i>
-              <span>AMC Protection Plans</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- CONTACT LINK -->
-        <a href="contact.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
-          Contact
+        <!-- 3. CATEGORIES -->
+        <a href="categories.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-categories">
+          Categories
         </a>
 
-        <!-- DEALS LINK -->
+        <!-- 4. DEALS -->
         <a href="deals.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-deals">
           Deals
         </a>
 
-        <!-- BLOG LINK -->
+        <!-- 5. BLOG -->
         <a href="blog.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-blog">
           Blog
         </a>
-      </nav>
 
-      <!-- 3. COMPACT SEARCH BAR -->
-      <div class="hidden xl:flex items-center flex-1 max-w-xs mx-2">
-        <div class="flex w-full rounded-full border border-hub-border dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 focus-within:border-hub-blue transition-all px-3 py-1.5 items-center gap-2">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
-          <input type="text" placeholder="Search appliances or repair..." class="w-full bg-transparent text-xs text-hub-dark dark:text-white focus:outline-none font-medium">
-        </div>
-      </div>
+        <!-- 6. CONTACT -->
+        <a href="contact.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
+          Contact
+        </a>
+      </nav>
 
       <!-- 3. RIGHT ACTION UTILITIES & TOGGLES -->
       <div class="flex items-center gap-2 sm:gap-3">
@@ -127,44 +99,54 @@ const headerTemplate = `  <!-- MAIN REDESIGNED NAVIGATION BAR -->
           <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
         </a>
 
+        <!-- MOBILE MENU BUTTON -->
+        <button id="mobileNavToggleBtn" onclick="toggleMobileNav()" class="lg:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 transition-all">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
     </div>
   </header>`;
 
-const activeClass = 'bg-slate-100 dark:bg-slate-800 text-hub-orange font-extrabold transition-all';
-const normalClass = 'hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all';
+const activeClass = 'bg-slate-100 dark:bg-slate-800 text-hub-blue font-extrabold transition-all';
 
 const files = [
-    { name: 'index.html', activeId: 'nav-home', startMarker: '<header', endMarker: '</header>' },
-    { name: 'shop.html', activeId: 'nav-shop', startMarker: '<header', endMarker: '</header>' },
-    { name: 'services.html', activeId: 'nav-services', startMarker: '<header', endMarker: '</header>' },
-    { name: 'contact.html', activeId: 'nav-contact', startMarker: '<header', endMarker: '</header>' },
-    { name: 'cart.html', activeId: 'nav-cart', startMarker: '<header', endMarker: '</header>' },
-    { name: 'deals.html', activeId: 'nav-deals', startMarker: '<header', endMarker: '</header>' },
-    { name: 'blog.html', activeId: 'nav-blog', startMarker: '<header', endMarker: '</header>' },
-    { name: 'blog-detail.html', activeId: 'nav-blog', startMarker: '<header', endMarker: '</header>' }
+    { name: 'index.html', activeId: 'nav-home' },
+    { name: 'home-v2.html', activeId: 'nav-home' },
+    { name: 'shop.html', activeId: 'nav-shop' },
+    { name: 'categories.html', activeId: 'nav-categories' },
+    { name: 'product-detail.html', activeId: 'nav-shop' },
+    { name: 'deals.html', activeId: 'nav-deals' },
+    { name: 'blog.html', activeId: 'nav-blog' },
+    { name: 'blog-detail.html', activeId: 'nav-blog' },
+    { name: 'blog-detail-2.html', activeId: 'nav-blog' },
+    { name: 'blog-detail-3.html', activeId: 'nav-blog' },
+    { name: 'cart.html', activeId: 'nav-shop' },
+    { name: 'checkout.html', activeId: 'nav-shop' },
+    { name: 'contact.html', activeId: 'nav-contact' },
+    { name: 'services.html', activeId: 'nav-categories' },
+    { name: 'track-service.html', activeId: 'nav-contact' },
+    { name: '404.html', activeId: 'nav-home' },
+    { name: 'coming-soon.html', activeId: 'nav-home' }
 ];
 
 files.forEach(file => {
+    if (!fs.existsSync(file.name)) return;
     let content = fs.readFileSync(file.name, 'utf8');
     
-    // Create custom header for this file
     let customHeader = headerTemplate;
     
     // Set active link
-    customHeader = customHeader.replace(new RegExp('class=".*?id="' + file.activeId + '"'), 'class="flex items-center gap-1.5 px-3 py-2 rounded-xl ' + activeClass + '" id="' + file.activeId + '"');
+    customHeader = customHeader.replace(
+      new RegExp('id="' + file.activeId + '"'),
+      'id="' + file.activeId + '" class="flex items-center gap-1.5 px-3 py-2 rounded-xl ' + activeClass + '"'
+    );
     
-    // Special case for non-flex buttons
-    if (['nav-shop', 'nav-contact', 'nav-deals', 'nav-blog'].includes(file.activeId)) {
-        customHeader = customHeader.replace(new RegExp('class=".*?id="' + file.activeId + '"'), 'class="px-3 py-2 rounded-xl ' + activeClass + '" id="' + file.activeId + '"');
-    }
-    
-    const startIdx = content.indexOf(file.startMarker);
-    const endIdx = content.indexOf(file.endMarker, startIdx) + file.endMarker.length;
+    const startIdx = content.indexOf('<header');
+    const endIdx = content.indexOf('</header>', startIdx) + '</header>'.length;
     
     if (startIdx !== -1 && endIdx > startIdx) {
         content = content.substring(0, startIdx) + customHeader + content.substring(endIdx);
-        fs.writeFileSync(file.name, content);
-        console.log("Updated " + file.name);
+        fs.writeFileSync(file.name, content, 'utf8');
+        console.log("Successfully updated header in " + file.name);
     }
 });

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Appliance Categories & Brand Comparison | ApplianceHub</title>
+  <meta name="description" content="Explore home appliance categories including Refrigerators, Washing Machines, Air Conditioners, and compare top brands like Samsung, LG, Whirlpool, Bosch, and Daikin.">
+
+  <!-- Google Fonts & Vanilla CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hub: {
+              blue: '#0284C7',
+              blueDark: '#0369A1',
+              orange: '#EA580C',
+              dark: '#0F172A',
+              light: '#F8FAFC',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/mobile-nav.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/nav-active.js" defer></script>
+  <script src="js/theme.js?v=2"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
+
+  <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-slate-950/80 backdrop-blur-md text-slate-400 text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
+      <div class="flex items-center gap-3 sm:gap-6 min-w-0">
+        <span class="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-hub-blue shrink-0"></i> Delivering to: <strong class="text-white ml-0.5 sm:ml-1">Downtown 10001</strong></span>
+        <span class="hidden md:flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="zap" class="w-3.5 h-3.5 text-hub-blue shrink-0"></i> Express delivery in 24 hours available</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-5 font-medium shrink-0">
+        <a href="tel:18002775426" class="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap hover:text-white transition-colors">
+          <i data-lucide="phone" class="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0"></i> <span class="hidden sm:inline">Support: </span>1-800-APPLIANCE
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN REDESIGNED NAVIGATION BAR (MANDATORY MENU: Home | Shop | Categories | Deals | Blog | Account) -->
+    <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
+    <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
+  <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- 1. BRAND LOGO -->
+      <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <div class="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
+          <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-sm sm:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        </div>
+      </a>
+
+      <!-- 2. NAVIGATION MENU: Home | Shop | Categories | Deals | Blog | Contact -->
+      <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-200">
+        
+        <!-- 1. HOME -->
+        <div class="relative group py-2">
+          <a href="index.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200"></i>
+          </a>
+          <div class="absolute top-full left-0 w-64 bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 rounded-2xl shadow-xl p-2 hidden group-hover:block transition-all duration-200 z-50">
+            <a href="index.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all">
+              <div class="w-8 h-8 rounded-lg bg-hub-blue/10 text-hub-blue flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="store" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
+                <span class="text-[10px] text-slate-400 font-normal">Hybrid store, products & booking</span>
+              </div>
+            </a>
+            <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
+              <div class="w-8 h-8 rounded-lg bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="shield-alert" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
+                <span class="text-[10px] text-slate-400 font-normal">High-conversion repair focus</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. SHOP -->
+        <a href="shop.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-shop">
+          Shop
+        </a>
+
+        <!-- 3. CATEGORIES -->
+        <a href="categories.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-categories">
+          Categories
+        </a>
+
+        <!-- 4. DEALS -->
+        <a href="deals.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-deals">
+          Deals
+        </a>
+
+        <!-- 5. BLOG -->
+        <a href="blog.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-blog">
+          Blog
+        </a>
+
+        <!-- 6. CONTACT -->
+        <a href="contact.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
+          Contact
+        </a>
+      </nav>
+
+      <!-- 3. RIGHT ACTION UTILITIES & TOGGLES -->
+      <div class="flex items-center gap-1.5 sm:gap-3">
+        
+        <!-- CART BUTTON -->
+        <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
+          <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+        </a>
+
+        <!-- === TOGGLES === -->
+        <div class="flex items-center gap-1 sm:gap-1.5">
+          <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </button>
+
+          <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- LOGIN BUTTON -->
+        <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
+          <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
+        </a>
+      </div>
+    </div>
+  </header>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-slate-900 via-hub-dark to-slate-950 text-white overflow-hidden pt-32 sm:pt-36 md:pt-40 pb-20 lg:pb-24">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-hub-blue/20 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hub-blue/10 border border-hub-blue/30 text-hub-blue text-xs font-extrabold uppercase tracking-widest">
+          <i data-lucide="grid" class="w-3.5 h-3.5"></i> Appliance Hub Catalog
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          Explore Appliance Categories & <span class="text-transparent bg-clip-text bg-gradient-to-r from-hub-blue to-cyan-400">Brand Comparisons</span>
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg font-medium leading-relaxed">
+          Browse top-tier refrigerators, washing machines, inverter air conditioners, and more. Compare warranty coverage, energy ratings, and book authorized repair services.
+        </p>
+
+        <!-- QUICK ANCHOR CHIPS -->
+        <div class="flex flex-wrap justify-center gap-2.5 pt-4">
+          <a href="#refrigerators" class="px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-hub-blue text-xs font-bold border border-slate-700/80 transition-all flex items-center gap-2">
+            <i data-lucide="refrigerator" class="w-4 h-4 text-hub-blue group-hover:text-white"></i> Refrigerators
+          </a>
+          <a href="#washing-machines" class="px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-hub-blue text-xs font-bold border border-slate-700/80 transition-all flex items-center gap-2">
+            <i data-lucide="washing-machine" class="w-4 h-4 text-emerald-400"></i> Washing Machines
+          </a>
+          <a href="#air-conditioners" class="px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-hub-blue text-xs font-bold border border-slate-700/80 transition-all flex items-center gap-2">
+            <i data-lucide="wind" class="w-4 h-4 text-cyan-400"></i> Air Conditioners
+          </a>
+          <a href="#comparison" class="px-4 py-2 rounded-xl bg-hub-orange/20 hover:bg-hub-orange text-hub-orange hover:text-white text-xs font-bold border border-hub-orange/30 transition-all flex items-center gap-2">
+            <i data-lucide="sliders" class="w-4 h-4"></i> Brand Comparison Matrix
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLIANCE CATEGORIES SHOWCASE GRID -->
+  <section class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-hub-blue block mb-2">Category Overview</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Main Appliance Categories</h2>
+        </div>
+        <p class="text-slate-600 dark:text-slate-400 text-sm max-w-md">
+          Every category features certified manufacturer models, express 24-hour delivery options, and factory warranty protection.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- CATEGORY 1: REFRIGERATORS -->
+        <div id="refrigerators" class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/80 hover:shadow-xl hover:border-hub-blue/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-hub-blue/10 text-hub-blue flex items-center justify-center font-bold">
+                <i data-lucide="refrigerator" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-extrabold">120+ Models</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-hub-blue transition-colors">Refrigerators & Freezers</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              Double Door, French Door, Side-by-Side, Single Door, and Smart Convertible Inverter models.
+            </p>
+            <div class="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-hub-blue"></i> Up to 5-Star Inverter Efficiency</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-hub-blue"></i> 10-Year Compressor Warranty</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-hub-blue"></i> Brands: Samsung, LG, Whirlpool, Haier</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-3">
+            <a href="shop.html?category=refrigerator" class="flex-1 py-2.5 px-4 rounded-xl bg-hub-blue text-white text-xs font-bold text-center hover:bg-hub-blueDark transition-colors">
+              Browse Refrigerator Models
+            </a>
+            <a href="services.html?appliance=refrigerator" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-hub-orange hover:text-white transition-colors" title="Book Refrigerator Repair">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 2: WASHING MACHINES -->
+        <div id="washing-machines" class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/80 hover:shadow-xl hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold">
+                <i data-lucide="washing-machine" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-extrabold">95+ Models</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-emerald-500 transition-colors">Washing Machines</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              Front Load, Top Load, Semi-Automatic, Washer Dryer combos with Steam Hygiene and Inverter Direct Drive.
+            </p>
+            <div class="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> AI EcoBubble & TurboWash</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Free Installation & Demo</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Brands: Bosch, LG, IFB, Whirlpool</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-3">
+            <a href="shop.html?category=washer" class="flex-1 py-2.5 px-4 rounded-xl bg-emerald-600 text-white text-xs font-bold text-center hover:bg-emerald-700 transition-colors">
+              Browse Washers
+            </a>
+            <a href="services.html?appliance=washer" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-hub-orange hover:text-white transition-colors" title="Book Washer Repair">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 3: AIR CONDITIONERS -->
+        <div id="air-conditioners" class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/80 hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold">
+                <i data-lucide="wind" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[11px] font-extrabold">80+ Models</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-500 transition-colors">Air Conditioners</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              Split ACs, Window ACs, Inverter Multi-stage cooling, Hot & Cold models with PM 2.5 air filtration.
+            </p>
+            <div class="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-500"></i> Copper Condenser & 5-Star Inverter</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-500"></i> Express Gas Refill & Installation</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-500"></i> Brands: Daikin, Voltas, Hitachi, LG</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-3">
+            <a href="shop.html?category=ac" class="flex-1 py-2.5 px-4 rounded-xl bg-cyan-600 text-white text-xs font-bold text-center hover:bg-cyan-700 transition-colors">
+              Browse AC Models
+            </a>
+            <a href="services.html?appliance=ac" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-hub-orange hover:text-white transition-colors" title="Book AC Service">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 4: MICROWAVE OVENS -->
+        <div id="microwaves" class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/80 hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">
+                <i data-lucide="microwave" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[11px] font-extrabold">45+ Models</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-amber-500 transition-colors">Microwave Ovens</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              Convection, Grill, and Solo Microwaves with Auto-cook menus and Slim Fry technology.
+            </p>
+            <div class="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i> Ceramic Enamel Cavity (Anti-bacterial)</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i> Magnetron Warranty Included</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i> Brands: Panasonic, Samsung, IFB</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-3">
+            <a href="shop.html?category=microwave" class="flex-1 py-2.5 px-4 rounded-xl bg-amber-600 text-white text-xs font-bold text-center hover:bg-amber-700 transition-colors">
+              Browse Microwaves
+            </a>
+            <a href="services.html?appliance=microwave" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-hub-orange hover:text-white transition-colors" title="Book Microwave Repair">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 5: WATER PURIFIERS -->
+        <div id="water-purifiers" class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/80 hover:shadow-xl hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold">
+                <i data-lucide="droplet" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[11px] font-extrabold">35+ Models</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors">Water Purifiers & Dispensers</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              RO + UV + UF + Copper + Alkaline purification technology with mineral boosters.
+            </p>
+            <div class="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-500"></i> Free Filter Service for 1st Year</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-500"></i> TDS Controller & Smart LED Alerts</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-500"></i> Brands: Aquaguard, Kent, Pureit</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-3">
+            <a href="shop.html?category=water" class="flex-1 py-2.5 px-4 rounded-xl bg-blue-600 text-white text-xs font-bold text-center hover:bg-blue-700 transition-colors">
+              Browse Purifiers
+            </a>
+            <a href="services.html?appliance=water" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-hub-orange hover:text-white transition-colors" title="Book Filter Service">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 6: SMART TV & ENTERTAINMENT -->
+        <div id="smart-tvs" class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/80 hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center font-bold">
+                <i data-lucide="tv" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[11px] font-extrabold">60+ Models</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-purple-500 transition-colors">Smart TVs & Home Audio</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">
+              4K OLED, QLED, Google Smart TVs, and Dolby Atmos surround sound systems.
+            </p>
+            <div class="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-purple-500"></i> Wall Mount & Setup Included</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-purple-500"></i> Extended Panel Protection Available</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-purple-500"></i> Brands: Sony, Samsung, LG, TCL</div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-3">
+            <a href="shop.html?category=tv" class="flex-1 py-2.5 px-4 rounded-xl bg-purple-600 text-white text-xs font-bold text-center hover:bg-purple-700 transition-colors">
+              Browse Smart TVs
+            </a>
+            <a href="services.html?appliance=tv" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-hub-orange hover:text-white transition-colors" title="Book TV Installation/Repair">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE BRAND COMPARISON MATRIX SECTION -->
+  <section id="comparison" class="py-16 lg:py-24 bg-slate-100 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-hub-blue/10 border border-hub-blue/30 text-hub-blue text-xs font-extrabold uppercase tracking-widest mb-3">
+          <i data-lucide="sliders" class="w-3.5 h-3.5"></i> Smart Purchasing Tool
+        </span>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Brand Comparison Matrix
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+          Compare leading appliance brands on Energy Efficiency, Factory Warranty, Repairability Score, and Annual Maintenance Cost.
+        </p>
+      </div>
+
+      <!-- FILTER SWITCH TABS -->
+      <div class="flex justify-center gap-2 mb-8">
+        <button onclick="switchComparisonCategory('refrigerators')" id="tab-refrigerators" class="px-4 py-2 rounded-xl text-xs font-bold bg-hub-blue text-white shadow-md shadow-hub-blue/20 transition-all">Refrigerators</button>
+        <button onclick="switchComparisonCategory('washers')" id="tab-washers" class="px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all">Washing Machines</button>
+        <button onclick="switchComparisonCategory('acs')" id="tab-acs" class="px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all">Air Conditioners</button>
+      </div>
+
+      <!-- COMPARISON TABLE CONTAINER -->
+      <div class="w-full overflow-x-auto pb-4">
+        <table class="w-full min-w-[800px] border-collapse bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-700">
+          <thead>
+            <tr class="bg-slate-900 text-white border-b border-slate-800 text-xs uppercase tracking-wider">
+              <th class="py-5 px-6 text-left">Brand & Series</th>
+              <th class="py-5 px-6 text-left">Energy Rating</th>
+              <th class="py-5 px-6 text-left">Comprehensive Warranty</th>
+              <th class="py-5 px-6 text-left">Compressor / Motor Warranty</th>
+              <th class="py-5 px-6 text-center">Repairability Score</th>
+              <th class="py-5 px-6 text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="comparisonTableBody" class="divide-y divide-slate-200 dark:divide-slate-700 text-sm">
+            <!-- REFRIGERATOR DATA (DEFAULT) -->
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-blue-500"></span> Samsung Smart Conversion
+              </td>
+              <td class="py-5 px-6 font-bold text-hub-blue">5-Star Digital Inverter</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Full Coverage</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">20 Years Digital Motor</td>
+              <td class="py-5 px-6 text-center">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.4 / 10</span>
+              </td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=samsung" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span> LG ThinQ Smart Inverter
+              </td>
+              <td class="py-5 px-6 font-bold text-hub-blue">5-Star Smart Inverter</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Full Coverage</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+              <td class="py-5 px-6 text-center">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.2 / 10</span>
+              </td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=lg" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-indigo-500"></span> Whirlpool IntelliFresh
+              </td>
+              <td class="py-5 px-6 font-semibold text-slate-700 dark:text-slate-300">4-Star Energy Saver</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">1 Year Standard</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+              <td class="py-5 px-6 text-center">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-amber-500/10 text-amber-500 border border-amber-500/20">8.8 / 10</span>
+              </td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=whirlpool" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+              <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span> Bosch MaxFlex Series
+              </td>
+              <td class="py-5 px-6 font-bold text-hub-blue">5-Star VarioInverter</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Full Coverage</td>
+              <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+              <td class="py-5 px-6 text-center">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.5 / 10</span>
+              </td>
+              <td class="py-5 px-6 text-center">
+                <a href="shop.html?brand=bosch" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARRANTY & AMC REPAIR PROTECTION SECTION -->
+  <section id="warranty" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 inline mr-1"></i> Warranty & Protection Plans
+        </span>
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-3">
+          Appliance Protection & Annual Maintenance (AMC)
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+          Never worry about sudden breakdown expenses. Secure your home appliances with factory-backed AMC protection.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- AMC BASIC -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 flex flex-col justify-between hover:shadow-xl transition-all">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Essential Cover</span>
+            <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Basic Maintenance</h3>
+            <div class="text-3xl font-black text-slate-900 dark:text-white mb-4">$49 <span class="text-xs text-slate-400 font-normal">/ appliance / year</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 2 Annual Maintenance Inspections</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Free Labor on Repairs</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 15% Off Genuine Spare Parts</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 24-Hour Repair Response</li>
+            </ul>
+          </div>
+          <a href="services.html?plan=basic" class="w-full py-3 rounded-xl bg-slate-900 dark:bg-slate-700 text-white font-bold text-xs text-center hover:bg-hub-blue transition-colors">Enroll in Basic Plan</a>
+        </div>
+
+        <!-- AMC PREMIER -->
+        <div class="bg-gradient-to-b from-slate-900 to-hub-dark rounded-3xl p-8 border-2 border-hub-blue text-white flex flex-col justify-between shadow-2xl relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-hub-blue text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-md">Most Recommended</span>
+          <div>
+            <span class="text-xs font-bold text-hub-blue uppercase tracking-wider block mb-1">Full Coverage</span>
+            <h3 class="text-2xl font-extrabold text-white mb-2">Full Home Care</h3>
+            <div class="text-3xl font-black text-white mb-4">$129 <span class="text-xs text-slate-300 font-normal">/ 3 appliances / year</span></div>
+            <ul class="space-y-3 text-xs text-slate-200 mb-8">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> Unlimited Breakdown Visits</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> 100% Free Parts Replacement</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> Priority 4-Hour Technician Dispatch</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-hub-blue"></i> Free Annual AC Deep Chemical Wash</li>
+            </ul>
+          </div>
+          <a href="services.html?plan=full" class="w-full py-3 rounded-xl bg-hub-blue text-white font-bold text-xs text-center hover:bg-hub-blueDark transition-colors shadow-lg shadow-hub-blue/30">Get Full Home Protection</a>
+        </div>
+
+        <!-- AMC COMMERCIAL -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 flex flex-col justify-between hover:shadow-xl transition-all">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Business Solution</span>
+            <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Commercial AMC</h3>
+            <div class="text-3xl font-black text-slate-900 dark:text-white mb-4">$299 <span class="text-xs text-slate-400 font-normal">/ annual custom tier</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Dedicated Fleet Technician Manager</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Monthly Preventive Health Checkups</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Emergency 2-Hour Response Time</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Multi-Unit Commercial Discounts</li>
+            </ul>
+          </div>
+          <a href="contact.html?type=commercial" class="w-full py-3 rounded-xl bg-slate-900 dark:bg-slate-700 text-white font-bold text-xs text-center hover:bg-hub-blue transition-colors">Request Custom Quote</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPRESS SERVICE BOOKING BANNER -->
+  <section class="py-16 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-hub-blueDark to-hub-blue rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-xl text-center lg:text-left">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-extrabold uppercase">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Express Repair Booking
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">Need Urgent Repair for Your Appliance?</h2>
+          <p class="text-white/80 text-sm leading-relaxed">
+            Our certified technician can be at your doorstep within 2 hours with authentic manufacturer spare parts.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 shrink-0">
+          <a href="services.html" class="px-6 py-3.5 rounded-xl bg-white text-hub-blue font-extrabold text-xs text-center shadow-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4"></i> Book Repair Service
+          </a>
+          <a href="tel:18002775426" class="px-6 py-3.5 rounded-xl bg-slate-950/40 text-white font-extrabold text-xs text-center border border-white/20 hover:bg-slate-950 transition-colors flex items-center justify-center gap-2">
+            <i data-lucide="phone-call" class="w-4 h-4 text-emerald-400"></i> Call Emergency Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- COLUMN 1: BRAND & SOCIAL LOGOS -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-full bg-hub-blue text-white flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
+              <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
+            </div>
+            <span class="font-extrabold text-xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
+          </a>
+          <p class="leading-relaxed pr-4 text-slate-400 text-xs">
+            ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.
+          </p>
+          
+          <!-- OFFICIAL BRAND SOCIAL LOGOS (FACEBOOK, TWITTER/X, INSTAGRAM, YOUTUBE, LINKEDIN) -->
+          <div class="flex items-center gap-2.5 pt-2">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Facebook">
+              <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+
+            <!-- Twitter / X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-700 hover:border-slate-600 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Twitter / X">
+              <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 hover:border-rose-500 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Instagram">
+              <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="YouTube">
+              <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="LinkedIn">
+              <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: QUICK NAVIGATION -->
+        <div>
+          <h4 class="font-bold text-white mb-4 text-sm">Quick Navigation</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="shop.html" class="hover:text-white transition-colors">Shop</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">Book Repair Service</a></li>
+            <li><a href="deals.html" class="hover:text-white transition-colors">Deals</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: SHOP CATEGORIES -->
+        <div>
+          <h4 class="font-bold text-white mb-4 text-sm">Shop Categories</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="shop.html" class="hover:text-white transition-colors">All Products</a></li>
+            <li><a href="categories.html#refrigerators" class="hover:text-white transition-colors">Refrigerators</a></li>
+            <li><a href="categories.html#washing-machines" class="hover:text-white transition-colors">Washing Machines</a></li>
+            <li><a href="categories.html#air-conditioners" class="hover:text-white transition-colors">Air Conditioners</a></li>
+            <li><a href="categories.html#microwaves" class="hover:text-white transition-colors">Built-in Ovens</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: CUSTOMER SUPPORT -->
+        <div>
+          <h4 class="font-bold text-white mb-4 text-sm">Customer Support</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="contact.html" class="hover:text-white transition-colors">Help & FAQ Center</a></li>
+            <li><a href="track-service.html" class="hover:text-white transition-colors">Live Order Tracking</a></li>
+            <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li>
+            <li><a href="404.html" class="hover:text-white transition-colors">Returns & Refunds</a></li>
+            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM BAR -->
+      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-400">
+        <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
+        <div class="flex items-center gap-1">
+          <span>Developed by</span>
+          <span class="font-bold text-hub-blue">Abhivorn Technologies Pvt.Ltd.</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching for Comparison Category
+    function switchComparisonCategory(cat) {
+      const btnFridge = document.getElementById('tab-refrigerators');
+      const btnWasher = document.getElementById('tab-washers');
+      const btnAC = document.getElementById('tab-acs');
+      const tbody = document.getElementById('comparisonTableBody');
+
+      btnFridge.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all";
+      btnWasher.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all";
+      btnAC.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all";
+
+      const activeClass = "px-4 py-2 rounded-xl text-xs font-bold bg-hub-blue text-white shadow-md shadow-hub-blue/20 transition-all";
+
+      if (cat === 'refrigerators') {
+        btnFridge.className = activeClass;
+        tbody.innerHTML = `
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-blue-500"></span> Samsung Smart Conversion</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star Digital Inverter</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Full Coverage</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">20 Years Digital Motor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.4 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=samsung" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-rose-500"></span> LG ThinQ Smart Inverter</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star Smart Inverter</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Full Coverage</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.2 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=lg" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> Bosch MaxFlex Series</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star VarioInverter</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Full Coverage</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.5 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=bosch" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>`;
+      } else if (cat === 'washers') {
+        btnWasher.className = activeClass;
+        tbody.innerHTML = `
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> Bosch Series 6 Front Load</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star EcoSilence Drive</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Comprehensive</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">12 Years Motor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.6 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=bosch" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-rose-500"></span> LG AI DD Steam Washer</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star Direct Drive Inverter</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">2 Years Comprehensive</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Motor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.3 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=lg" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>`;
+      } else if (cat === 'acs') {
+        btnAC.className = activeClass;
+        tbody.innerHTML = `
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-cyan-500"></span> Daikin FTKG Inverter AC</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star Heavy Duty Inverter</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">1 Year Unit / 5 Year PCB</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.7 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=daikin" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors">
+            <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-amber-500"></span> Voltas Adjustable Inverter AC</td>
+            <td class="py-5 px-6 font-bold text-hub-blue">5-Star Multi-Stage Cooling</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">1 Year Comprehensive</td>
+            <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years Compressor</td>
+            <td class="py-5 px-6 text-center"><span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">9.0 / 10</span></td>
+            <td class="py-5 px-6 text-center"><a href="shop.html?brand=voltas" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-xl hover:bg-hub-blue hover:text-white transition-all">Explore Models</a></td>
+          </tr>`;
+      }
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

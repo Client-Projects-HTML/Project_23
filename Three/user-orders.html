@@ -38,6 +38,7 @@
 
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/theme.js?v=2"></script>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
@@ -113,16 +114,19 @@
     </aside>
 
     <!-- MOBILE SIDEBAR BACKDROP & DRAWER -->
-    <div id="mobileSidebarBackdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity opacity-0"></div>
-    <aside id="mobileSidebar" class="fixed inset-y-0 start-0 w-64 bg-white dark:bg-slate-900 shadow-2xl z-50 transform ltr:-translate-x-full rtl:translate-x-full transition-transform duration-300 flex flex-col lg:hidden">
-      <!-- Cloned Content for Mobile (populated by JS for simplicity or duplicated) -->
-      <div class="flex items-center justify-between p-6">
-        <span class="font-extrabold text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+    <div id="mobileSidebarBackdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-40 hidden lg:hidden transition-opacity opacity-0"></div>
+    <aside id="mobileSidebar" class="fixed inset-y-0 end-0 w-64 bg-white dark:bg-slate-900 shadow-2xl z-50 transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col lg:hidden">
+      <div class="flex items-center justify-between p-5 border-b border-hub-border dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+          <div class="w-7 h-7 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-xl flex items-center justify-center font-bold text-xs shadow-md shadow-hub-blue/20">
+            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="font-extrabold text-base sm:text-lg tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+        </a>
         <button id="closeSidebarBtn" class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
-      <!-- Profile Card -->
       <div class="px-4 mb-4">
         <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 flex items-center gap-3">
           <img src="https://i.pravatar.cc/150?img=47" class="w-10 h-10 rounded-xl" alt="Sarah Jenkins">
@@ -134,7 +138,6 @@
           </div>
         </div>
       </div>
-      <!-- Mobile Links -->
       <nav class="flex-1 px-4 space-y-0.5 overflow-y-auto">
         <p class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest px-4 pt-2 pb-1">Overview</p>
         <a href="user-dashboard.html" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-bold">
@@ -176,39 +179,48 @@
     </aside>
 
     <!-- MAIN CONTENT AREA -->
-    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+    <div class="flex-1 flex flex-col h-screen overflow-y-auto">
       
       <!-- TOP HEADER -->
-      <header class="h-16 lg:h-20 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 flex items-center justify-between px-4 sm:px-6 lg:px-8 shrink-0 z-10">
-        <!-- Logo on the left (mobile only) -->
-        <a href="index.html" class="flex lg:hidden items-center gap-2 shrink-0">
-          <div class="w-8 h-8 bg-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-sm shadow-md shadow-hub-blue/20">
-            <i data-lucide="wrench" class="w-4 h-4"></i>
-          </div>
-          <span class="font-extrabold text-lg tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
-        </a>
-        
-        <div class="flex-1 flex justify-end items-center gap-3">
-          <a href="shop.html" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20">
-            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Shop Store
-          </a>
+      <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800 sticky top-0 z-40 shrink-0 w-full shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           
-          <div class="flex items-center gap-1 border-s border-slate-200 dark:border-slate-700 ps-3">
-            <button onclick="toggleRTL()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-              <i data-lucide="globe" class="w-4 h-4"></i>
-            </button>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-              <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
-            </button>
-            <button id="openSidebarBtn" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all lg:hidden">
-              <i data-lucide="menu" class="w-5 h-5"></i>
+          <!-- LEFT: MOBILE BRAND LOGO LINK -->
+          <a href="index.html" class="flex lg:hidden items-center gap-1.5 shrink-0">
+            <div class="w-7 h-7 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg flex items-center justify-center font-bold text-xs shadow-md shadow-hub-blue/20">
+              <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+            </div>
+            <span class="font-extrabold text-sm tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          </a>
+
+          <!-- RIGHT: ACTION UTILITIES & HAMBURGER ON RIGHT -->
+          <div class="flex items-center gap-1.5 sm:gap-3 ml-auto">
+            <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
+              <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+              <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+            </a>
+
+            <div class="flex items-center gap-1 sm:gap-1.5">
+              <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
+                <i data-lucide="globe" class="w-4 h-4"></i>
+              </button>
+
+              <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
+                <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- HAMBURGER MENU BUTTON ON RIGHT -->
+            <button id="openMobileSidebarBtn" class="lg:hidden p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Open Navigation Menu">
+              <i data-lucide="menu" class="w-4 h-4"></i>
             </button>
           </div>
+
         </div>
       </header>
 
       <!-- SCROLLABLE PAGE CONTENT -->
-      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 relative">
+      <main class="flex-1 p-4 sm:p-6 lg:p-8 relative">
         <div class="max-w-4xl mx-auto space-y-6">
           
           <!-- HEADER & TABS -->
@@ -219,15 +231,14 @@
             </div>
             
             <div class="flex items-center bg-slate-100 dark:bg-slate-800/50 p-1.5 rounded-2xl shrink-0 overflow-x-auto hide-scrollbar">
-              <button class="px-4 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold shadow-sm whitespace-nowrap">All Orders</button>
-              <button class="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:white text-xs font-bold transition-all whitespace-nowrap">Active Services</button>
-              <button class="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:white text-xs font-bold transition-all whitespace-nowrap">Completed</button>
+              <button onclick="filterOrders('all', this)" class="px-4 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold shadow-sm whitespace-nowrap">All Orders</button>
+              <button onclick="filterOrders('active', this)" class="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition-all whitespace-nowrap">Active Services</button>
+              <button onclick="filterOrders('completed', this)" class="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition-all whitespace-nowrap">Completed</button>
             </div>
           </div>
 
           <!-- ACTIVE EXPRESS ORDER CARD -->
-          <div class="bg-white dark:bg-slate-900 border border-hub-blue/30 dark:border-hub-blue/20 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(2,132,199,0.06)] relative overflow-hidden">
-            <!-- decorative background -->
+          <div id="activeExpressOrderCard" class="bg-white dark:bg-slate-900 border border-hub-blue/30 dark:border-hub-blue/20 rounded-3xl p-5 sm:p-8 shadow-[0_8px_30px_rgb(2,132,199,0.06)] relative overflow-hidden">
             <div class="absolute top-0 start-0 w-2 h-full bg-hub-blue"></div>
 
             <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8 ps-4">
@@ -250,7 +261,6 @@
                 <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Service Progress</span>
                 <span class="text-xs font-bold text-hub-blue">Technician En Route (1.2 miles away)</span>
               </div>
-              <!-- Progress Bar -->
               <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 mb-6 overflow-hidden">
                 <div class="bg-hub-blue h-2.5 rounded-full relative" style="width: 75%">
                    <div class="absolute inset-0 bg-white/20 progress-stripe"></div>
@@ -276,9 +286,8 @@
           </div>
 
           <!-- PAST ORDERS LIST -->
-          <div class="space-y-4">
-            
-            <!-- Past Order Item -->
+          <div id="pastOrdersList" class="space-y-4">
+            <!-- Past Order 1 -->
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
               <div>
                 <div class="flex items-center gap-2 mb-1">
@@ -291,14 +300,14 @@
               </div>
 
               <div class="flex items-center gap-3 md:shrink-0">
-                <button class="px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:white transition-colors">Details & Receipt</button>
-                <button class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors">
+                <button onclick="viewReceipt('AH-712049', 'Refrigerator Annual Servicing & Filter Change', '$84.50')" class="px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Details & Receipt</button>
+                <button onclick="addToCart('Appliance Maintenance Kit', '$84.50', 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=200&auto=format&fit=crop')" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors">
                   Book Again
                 </button>
               </div>
             </div>
 
-            <!-- Past Order Item -->
+            <!-- Past Order 2 -->
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
               <div>
                 <div class="flex items-center gap-2 mb-1">
@@ -311,60 +320,117 @@
               </div>
 
               <div class="flex items-center gap-3 md:shrink-0">
-                <button class="px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:white transition-colors">Details & Receipt</button>
-                <button class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors">
+                <button onclick="viewReceipt('AH-650912', 'Water Purifier Dual Filter Replacement', '$32.10')" class="px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Details & Receipt</button>
+                <button onclick="addToCart('Water Filters (x2)', '$32.10', 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=200&auto=format&fit=crop')" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors">
                   Book Again
                 </button>
               </div>
             </div>
-
           </div>
 
         </div>
       </main>
-  
-
     </div>
-
   </div>
 
-  <style>
-    /* Add subtle animated stripes for progress bar */
-    .progress-stripe {
-      background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-      background-size: 1rem 1rem;
-      animation: progress-stripes 1s linear infinite;
-    }
-    @keyframes progress-stripes {
-      from { background-position: 1rem 0; }
-      to { background-position: 0 0; }
-    }
-    /* Hide scrollbar for tabs */
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
+  <!-- RECEIPT MODAL OVERLAY -->
+  <div id="receiptModalOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 transition-opacity opacity-0">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden p-6 space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold">
+            <i data-lucide="receipt" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="receiptId" class="text-base font-extrabold text-slate-900 dark:text-white">Receipt</h3>
+            <p class="text-[11px] text-slate-400">Payment Status: Paid In Full</p>
+          </div>
+        </div>
+        <button onclick="closeReceiptModal()" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded-xl">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 space-y-3 text-xs">
+        <div class="flex justify-between text-slate-600 dark:text-slate-400">
+          <span>Service / Product:</span>
+          <span id="receiptDesc" class="font-bold text-slate-900 dark:text-white">--</span>
+        </div>
+        <div class="flex justify-between text-slate-600 dark:text-slate-400">
+          <span>Tax & Platform Fee:</span>
+          <span class="font-bold text-slate-900 dark:text-white">$4.20</span>
+        </div>
+        <div class="flex justify-between text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-2 font-bold text-sm text-slate-900 dark:text-white">
+          <span>Total Paid:</span>
+          <span id="receiptTotal" class="text-hub-blue">$0.00</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeReceiptModal(); window.showToast('Invoice PDF downloaded!', 'download')" class="flex-1 py-3 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+        </button>
+        <button onclick="closeReceiptModal()" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Mobile Sidebar Toggle
+    function filterOrders(filter, btn) {
+      const container = btn.parentElement;
+      container.querySelectorAll('button').forEach(b => {
+        b.className = 'px-4 py-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xs font-bold transition-all whitespace-nowrap';
+      });
+      btn.className = 'px-4 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold shadow-sm whitespace-nowrap';
+
+      const activeCard = document.getElementById('activeExpressOrderCard');
+      const pastList = document.getElementById('pastOrdersList');
+
+      if (filter === 'all') {
+        if (activeCard) activeCard.style.display = 'block';
+        if (pastList) pastList.style.display = 'block';
+      } else if (filter === 'active') {
+        if (activeCard) activeCard.style.display = 'block';
+        if (pastList) pastList.style.display = 'none';
+      } else if (filter === 'completed') {
+        if (activeCard) activeCard.style.display = 'none';
+        if (pastList) pastList.style.display = 'block';
+      }
+    }
+
+    function viewReceipt(orderId, description, amount) {
+      document.getElementById('receiptId').innerText = 'Receipt for Order #' + orderId;
+      document.getElementById('receiptDesc').innerText = description;
+      document.getElementById('receiptTotal').innerText = amount;
+      const modal = document.getElementById('receiptModalOverlay');
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+    }
+
+    function closeReceiptModal() {
+      const modal = document.getElementById('receiptModalOverlay');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 300);
+    }
+
     const openBtn = document.getElementById('openSidebarBtn');
     const closeBtn = document.getElementById('closeSidebarBtn');
     const sidebar = document.getElementById('mobileSidebar');
     const backdrop = document.getElementById('mobileSidebarBackdrop');
 
     function toggleMobileMenu(show) {
+      if (!sidebar || !backdrop) return;
       const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      const closedClass = isRTL ? '-translate-x-full' : 'translate-x-full';
+
       if (show) {
-        sidebar.classList.remove('-translate-x-full', 'translate-x-full', 'ltr:-translate-x-full', 'rtl:translate-x-full');
+        sidebar.classList.remove('translate-x-full', '-translate-x-full', 'ltr:-translate-x-full', 'rtl:translate-x-full', 'rtl:-translate-x-full');
         backdrop.classList.remove('hidden');
-        // Small delay for fade in
         setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
       } else {
-        sidebar.classList.add(isRTL ? 'translate-x-full' : '-translate-x-full');
+        sidebar.classList.add(closedClass);
         backdrop.classList.add('opacity-0');
         setTimeout(() => backdrop.classList.add('hidden'), 300);
       }
@@ -379,7 +445,6 @@
       window.location.href = 'login.html';
     }
 
-    // Standard Theme Toggles
     function toggleRTL() {
       const htmlElement = document.documentElement;
       if (htmlElement.getAttribute('dir') === 'rtl') {

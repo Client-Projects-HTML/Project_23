@@ -35,10 +35,10 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/admin-theme.css">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white min-h-screen flex flex-col justify-between">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white min-h-screen flex flex-col justify-between overflow-hidden">
 
   <!-- TOP BAR -->
-  <div class="bg-slate-900/80 text-slate-400 text-xs py-2 px-4 border-b border-slate-800">
+  <div class="bg-slate-900/80 text-slate-400 text-xs py-2 px-4 border-b border-slate-800/60">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -61,15 +61,15 @@
   </div>
 
   <!-- LOGIN CONTAINER -->
-  <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-y-auto">
     <div class="w-full max-w-md space-y-6">
       
-      <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-2xl space-y-6">
+      <div class="bg-slate-900 border border-slate-800/60 p-8 rounded-3xl shadow-2xl space-y-6">
         
         <!-- HEADER -->
         <div class="text-center space-y-2">
           <div class="w-14 h-14 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-hub-blue/20">
-            <i data-lucide="shield-check" class="w-7 h-7"></i>
+            <i data-lucide="wrench" class="w-7 h-7"></i>
           </div>
           <div>
             <h1 class="text-2xl font-extrabold text-white tracking-tight">Admin Portal</h1>
@@ -85,7 +85,7 @@
               <span class="absolute inset-y-0 start-0 ps-3.5 flex items-center text-slate-500">
                 <i data-lucide="user" class="w-4 h-4"></i>
               </span>
-              <input type="text" required value="admin@storelogo.com" class="w-full ps-10 pe-4 py-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
+              <input type="text" required value="admin@storelogo.com" class="w-full ps-10 pe-4 py-2.5 rounded-xl border border-slate-800/60 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
             </div>
           </div>
 
@@ -95,7 +95,7 @@
               <span class="absolute inset-y-0 start-0 ps-3.5 flex items-center text-slate-500">
                 <i data-lucide="lock" class="w-4 h-4"></i>
               </span>
-              <input type="password" required value="admin123" class="w-full ps-10 pe-4 py-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
+              <input type="password" required value="admin123" class="w-full ps-10 pe-4 py-2.5 rounded-xl border border-slate-800/60 bg-slate-950 text-xs text-white focus:outline-none focus:ring-2 focus:ring-hub-blue">
             </div>
           </div>
 

@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Coming Soon | ApplianceHub</title>
+  <meta name="description" content="We are launching new features soon. Stay tuned for exciting updates on ApplianceHub.">
 
-  <!-- Google Fonts & Tailwind CSS -->
+  <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,86 +24,132 @@
               blue: '#0284C7',
               blueDark: '#0369A1',
               orange: '#EA580C',
-              dark: '#0B132B'
+              dark: '#0F172A',
+              light: '#F8FAFC',
+              border: '#E2E8F0'
             }
           },
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif']
+            sans: ['Outfit', 'sans-serif']
           }
         }
       }
     }
   </script>
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/theme.js?v=2"></script>
 </head>
-<body class="bg-[#111827] text-white font-sans antialiased selection:bg-green-600 selection:text-white min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden transition-colors duration-200">
 
-  <!-- MAIN COMING SOON CONTENT -->
-  <main class="flex-1 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <!-- TOP-RIGHT FLOATING CONTROLS (RTL & THEME) -->
+  <div class="absolute top-4 end-4 flex items-center gap-2 z-20">
+    <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Toggle Direction (LTR/RTL)">
+      <i data-lucide="globe" class="w-4 h-4"></i>
+    </button>
+    <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Toggle Dark/Light Mode">
+      <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+    </button>
+  </div>
+
+  <!-- STANDALONE COMING SOON CARD -->
+  <main class="w-full max-w-xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-8 sm:p-12 text-center space-y-8 border border-slate-200 dark:border-slate-800 relative z-10 my-auto">
     
-    <div class="w-full max-w-2xl text-center flex flex-col items-center space-y-8">
-      
-      <!-- ICON CONTAINER -->
-      <div class="relative w-24 h-24 flex items-center justify-center">
-        <!-- Optional glow effect -->
-        <div class="absolute inset-0 bg-green-500/20 rounded-3xl blur-xl"></div>
-        <div class="relative w-20 h-20 bg-green-500/10 border border-green-500/20 rounded-3xl flex items-center justify-center shadow-lg shadow-green-500/10">
-          <i data-lucide="rocket" class="w-10 h-10 text-green-500"></i>
-        </div>
+    <!-- BRAND LOGO HEADER -->
+    <a href="index.html" class="inline-flex items-center gap-2 sm:gap-3 mb-2 shrink-0">
+      <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-xl sm:rounded-2xl flex items-center justify-center font-bold text-base sm:text-xl shadow-md shadow-hub-blue/20">
+        <i data-lucide="wrench" class="w-4 h-4 sm:w-5 sm:h-5"></i>
       </div>
+      <span class="font-extrabold text-lg sm:text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+    </a>
 
-      <!-- HEADING -->
-      <div class="space-y-4">
-        <span class="inline-block px-3 py-1 text-[10px] font-bold text-green-500 uppercase tracking-widest bg-green-500/10 rounded-full border border-green-500/20 mb-2">NEW FEATURE</span>
-        <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight">Coming Soon</h1>
-        <p class="text-sm sm:text-base text-slate-400 max-w-md mx-auto leading-relaxed">
-          Our team is building this new feature for your neighborhood supermarket.
-          Stay tuned for exciting updates!
-        </p>
+    <!-- ICON CONTAINER -->
+    <div class="relative w-20 h-20 mx-auto flex items-center justify-center">
+      <div class="absolute inset-0 bg-hub-blue/20 rounded-3xl blur-xl"></div>
+      <div class="relative w-20 h-20 bg-hub-blue/10 border border-hub-blue/20 rounded-3xl flex items-center justify-center shadow-lg shadow-hub-blue/10">
+        <i data-lucide="rocket" class="w-10 h-10 text-hub-blue"></i>
       </div>
+    </div>
 
-      <!-- TIMER BLOCKS -->
-      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 py-4 px-2">
-        
-        <!-- Days -->
-        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
-          <span class="text-xl sm:text-3xl font-black text-green-500">14</span>
-          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Days</span>
-        </div>
+    <!-- TITLE & DESCRIPTION -->
+    <div class="space-y-3">
+      <span class="inline-block px-3.5 py-1 rounded-full bg-hub-blue/10 text-hub-blue text-xs font-black uppercase tracking-widest">We Are Launching Soon</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Something Extraordinary is Coming</h1>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
+        We are building a brand-new experience for appliance purchases, instant doorstep repairs, and smart warranty management.
+      </p>
+    </div>
 
-        <!-- Hours -->
-        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
-          <span class="text-xl sm:text-3xl font-black text-green-500">08</span>
-          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hours</span>
-        </div>
-
-        <!-- Minutes -->
-        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
-          <span class="text-xl sm:text-3xl font-black text-green-500">45</span>
-          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mins</span>
-        </div>
-
-        <!-- Seconds -->
-        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-slate-800/80 border border-slate-700 rounded-2xl flex flex-col items-center justify-center gap-1 shadow-inner">
-          <span class="text-xl sm:text-3xl font-black text-green-500">12</span>
-          <span class="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Secs</span>
-        </div>
-
+    <!-- COUNTDOWN TIMER -->
+    <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-sm mx-auto pt-2">
+      <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 rounded-2xl p-3 text-center">
+        <span class="block text-xl sm:text-2xl font-black text-hub-blue">14</span>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Days</span>
       </div>
+      <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 rounded-2xl p-3 text-center">
+        <span class="block text-xl sm:text-2xl font-black text-hub-blue">08</span>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hours</span>
+      </div>
+      <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 rounded-2xl p-3 text-center">
+        <span class="block text-xl sm:text-2xl font-black text-hub-blue">42</span>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mins</span>
+      </div>
+      <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 rounded-2xl p-3 text-center">
+        <span class="block text-xl sm:text-2xl font-black text-hub-blue">19</span>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Secs</span>
+      </div>
+    </div>
 
-      <!-- ACTION BUTTON -->
-      <div class="pt-4">
-        <a href="index.html" class="inline-flex px-8 py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-slate-900 text-sm font-bold shadow-md shadow-green-500/20 transition-all items-center justify-center text-center">
-          Back to Home
+    <!-- NOTIFY FORM & ACTION -->
+    <div class="space-y-4 pt-2">
+      <form onsubmit="event.preventDefault(); if(window.showToast) window.showToast('Thank you! We will notify you upon launch.', 'success');" class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+        <input type="email" required placeholder="Enter your email address..." class="flex-1 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+        <button type="submit" class="px-6 py-3 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold shadow-md shadow-hub-blue/20 transition-all whitespace-nowrap">
+          Notify Me
+        </button>
+      </form>
+
+      <div class="pt-2">
+        <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-hub-blue transition-colors">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Return to Home
         </a>
       </div>
-
     </div>
+
   </main>
 
-  <!-- SCRIPT -->
+  <!-- BOTTOM SIMPLE COPYRIGHT -->
+  <div class="mt-8 text-center text-xs text-slate-400 z-10">
+    <p>&copy; 2026 ApplianceHub Inc. All rights reserved. <span class="hidden sm:inline">| Developed by <strong class="text-hub-blue">Abhivorn Technologies Pvt.Ltd.</strong></span></p>
+  </div>
+
+  <!-- RTL & THEME TOGGLE LOGIC -->
   <script>
+    function toggleRTL() {
+      const htmlElement = document.documentElement;
+      if (htmlElement.getAttribute('dir') === 'rtl') {
+        htmlElement.setAttribute('dir', 'ltr');
+      } else {
+        htmlElement.setAttribute('dir', 'rtl');
+      }
+    }
+
+    function toggleDarkMode() {
+      if (window.appThemeToggle) return window.appThemeToggle();
+      const htmlElement = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        if (themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
+      } else {
+        htmlElement.classList.add('dark');
+        if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
