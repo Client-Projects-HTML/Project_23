@@ -10,7 +10,7 @@
   <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,13 +24,14 @@
               blue: '#0284C7',
               blueDark: '#0369A1',
               orange: '#EA580C',
-              dark: '#0F172A',
+              dark: '#091524',
               light: '#F8FAFC',
-              border: '#E2E8F0'
+              border: '#1d3d5f'
             }
           },
           fontFamily: {
-            sans: ['Outfit', 'sans-serif']
+            sans: ['Outfit', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif']
           }
         }
       }
@@ -41,58 +42,70 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/theme.js?v=2"></script>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden transition-colors duration-200">
+<body class="bg-[#091524] text-slate-100 font-sans antialiased selection:bg-[#0284C7] selection:text-white min-h-screen flex flex-col justify-between items-center p-4 sm:p-6 relative overflow-hidden transition-colors duration-200">
 
-  <!-- TOP-RIGHT FLOATING CONTROLS (RTL & THEME) -->
-  <div class="absolute top-4 end-4 flex items-center gap-2 z-20">
-    <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Toggle Direction (LTR/RTL)">
-      <i data-lucide="globe" class="w-4 h-4"></i>
-    </button>
-    <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 shadow-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Toggle Dark/Light Mode">
-      <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
-    </button>
-  </div>
+  <!-- BACKGROUND DECORATIVE GLOWS -->
+  <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#0284C7]/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#EA580C]/15 rounded-full blur-3xl pointer-events-none"></div>
+
 
   <!-- STANDALONE 404 CARD -->
-  <main class="w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-8 sm:p-12 text-center space-y-6 border border-slate-200 dark:border-slate-800 relative z-10 my-auto">
+  <main class="w-full max-w-lg bg-[#0f243a] border border-[#1d3d5f] rounded-[32px] p-7 sm:p-10 shadow-2xl space-y-6 relative overflow-hidden z-10 my-auto text-center">
     
-    <!-- BRAND LOGO HEADER -->
-    <a href="index.html" class="inline-flex items-center gap-2 sm:gap-3 mb-2 shrink-0">
-      <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-xl sm:rounded-2xl flex items-center justify-center font-bold text-base sm:text-xl shadow-md shadow-hub-blue/20">
-        <i data-lucide="wrench" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+    <!-- INSIDE CARD HEADER (BRAND LOGO + RTL & THEME TOGGLES) -->
+    <div class="flex items-center justify-between gap-4 pb-2">
+      <!-- BRAND LOGO -->
+      <a href="index.html" class="inline-flex items-center gap-2.5 shrink-0 text-start">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0369A1] to-[#0284C7] text-white flex items-center justify-center font-bold text-sm shadow-md shadow-sky-600/30">
+          <i data-lucide="wrench" class="w-4 h-4"></i>
+        </div>
+        <div class="leading-none">
+          <span class="font-extrabold text-sm tracking-wider uppercase text-white block">APPLIANCE<span class="text-[#0284C7]">HUB</span></span>
+          <span class="text-[9px] tracking-widest uppercase text-sky-400 font-bold block mt-0.5">SMART SERVICES & REPAIRS</span>
+        </div>
+      </a>
+
+      <!-- RTL & THEME TOGGLES -->
+      <div class="flex items-center gap-2">
+        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl border border-slate-700/80 bg-slate-900/60 hover:bg-slate-800 text-amber-400 transition-all shadow-sm" title="Toggle Dark/Light Mode">
+          <i data-lucide="sun" id="themeIcon" class="w-4 h-4"></i>
+        </button>
+        <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2.5 rounded-xl border border-slate-700/80 bg-slate-900/60 hover:bg-slate-800 text-sky-400 transition-all shadow-sm" title="Toggle Direction (LTR/RTL)">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+        </button>
       </div>
-      <span class="font-extrabold text-lg sm:text-xl tracking-tight text-hub-dark dark:text-white leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
-    </a>
+    </div>
 
     <!-- ICON CONTAINER -->
-    <div class="mx-auto w-20 h-20 bg-sky-50 dark:bg-slate-800/80 rounded-3xl flex items-center justify-center border border-sky-100 dark:border-slate-700 shadow-inner">
-      <i data-lucide="alert-triangle" class="w-10 h-10 text-hub-blue"></i>
+    <div class="mx-auto w-16 h-16 bg-[#07192d] border border-[#1c3a5e] rounded-2xl flex items-center justify-center shadow-inner">
+      <i data-lucide="alert-triangle" class="w-8 h-8 text-amber-400"></i>
     </div>
 
     <!-- ERROR MESSAGE -->
-    <div class="space-y-3">
-      <span class="inline-block px-3.5 py-1 rounded-full bg-hub-blue/10 text-hub-blue text-xs font-black uppercase tracking-widest">Error 404</span>
-      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Page Not Found</h1>
-      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">
+    <div class="space-y-2">
+      <span class="inline-block px-3.5 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-extrabold uppercase tracking-widest">Error 404</span>
+      <h1 class="text-2xl sm:text-4xl font-serif text-white tracking-tight font-normal leading-tight">Page Not Found</h1>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xs mx-auto leading-relaxed">
         The appliance, model, or service page you are looking for has been moved or is temporarily unavailable.
       </p>
     </div>
 
     <!-- ACTION BUTTONS -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-      <a href="index.html" class="w-full flex-1 px-6 py-3.5 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold shadow-lg shadow-hub-blue/20 transition-all text-center flex items-center justify-center gap-2">
+      <a href="index.html" class="w-full sm:w-auto px-6 py-3 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-sky-950/40">
         <i data-lucide="home" class="w-4 h-4"></i> Back to Home
       </a>
-      <a href="shop.html" class="w-full flex-1 px-6 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all text-center flex items-center justify-center gap-2">
+      <a href="shop.html" class="w-full sm:w-auto px-6 py-3 rounded-full border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-xs font-bold transition-all text-center flex items-center justify-center gap-2">
         <i data-lucide="shopping-bag" class="w-4 h-4"></i> Browse Shop
       </a>
     </div>
 
   </main>
 
-  <!-- BOTTOM SIMPLE COPYRIGHT -->
-  <div class="mt-8 text-center text-xs text-slate-400 z-10">
-    <p>&copy; 2026 ApplianceHub Inc. All rights reserved. <span class="hidden sm:inline">| Developed by <strong class="text-hub-blue">Abhivorn Technologies Pvt.Ltd.</strong></span></p>
+  <!-- BOTTOM SIMPLE COPYRIGHT & CREDIT -->
+  <div class="mt-8 text-center text-xs text-slate-400 z-10 space-y-1 pb-4">
+    <p>&copy; 2026 ApplianceHub Supermarket Inc. All rights reserved.</p>
+    <p>Developed by <a href="#" class="text-slate-200 font-semibold hover:underline">Abhivorn Technologies Pvt Ltd</a></p>
   </div>
 
   <!-- RTL & THEME TOGGLE LOGIC -->

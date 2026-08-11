@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Sign In | ApplianceHub</title>
+  <meta name="description" content="Sign in to access your ApplianceHub user dashboard or admin staff management portal.">
 
   <!-- Google Fonts & Tailwind CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,131 +22,140 @@
               blue: '#0284C7',
               blueDark: '#0369A1',
               orange: '#EA580C',
-              dark: '#0F172A',
+              dark: '#091524',
               light: '#F8FAFC',
-              border: '#E2E8F0'
+              border: '#1d3d5f'
             }
           },
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif']
+            sans: ['Outfit', 'sans-serif']
           }
         }
       }
     }
   </script>
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="js/mobile-nav.js" defer></script>
-  <script src="js/cart.js" defer></script>
   <script src="js/theme.js?v=2"></script>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-hub-dark dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200 min-h-screen flex flex-col justify-between relative">
+<body class="bg-[#091524] text-slate-100 font-sans antialiased selection:bg-[#0284C7] selection:text-white min-h-screen flex flex-col justify-between items-center p-4 sm:p-6 relative overflow-hidden transition-colors duration-200">
 
-  <!-- HEADER (BRAND LOGO + RTL & THEME TOGGLES ONLY) -->
-  <header class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-hub-border dark:border-slate-800 sticky top-0 z-50 transition-all shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-      
-      <!-- BRAND LOGO -->
-      <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
-        <div class="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
-          <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5"></i>
-        </div>
-        <div>
-          <span class="font-extrabold text-sm sm:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
-        </div>
-      </a>
+  <!-- BACKGROUND DECORATIVE GLOWS -->
+  <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#0284C7]/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#EA580C]/15 rounded-full blur-3xl pointer-events-none"></div>
 
-      <!-- RTL & THEME TOGGLE BUTTONS -->
-      <div class="flex items-center gap-2">
-        <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
-          <i data-lucide="globe" class="w-4 h-4"></i>
+  <!-- FLOATING TOP-LEFT BACK TO HOME BUTTON (OUTSIDE CARD) -->
+  <div class="w-full max-w-5xl flex justify-start z-30 pt-2 pb-4">
+    <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/80 bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-bold transition-all shadow-md">
+      <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Home
+    </a>
+  </div>
+
+  <!-- LOGIN CONTAINER CARD -->
+  <main class="w-full max-w-[430px] my-auto relative z-10">
+    <div class="bg-[#0f243a] border border-[#1d3d5f] rounded-[32px] p-7 sm:p-9 shadow-2xl space-y-5">
+
+      <!-- INSIDE CARD HEADER (BRAND LOGO + RTL & THEME TOGGLES) -->
+      <div class="flex items-center justify-between gap-4 pb-1">
+        <!-- BRAND LOGO -->
+        <a href="index.html" class="inline-flex items-center gap-2 shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-[#0284C7] text-white flex items-center justify-center font-bold text-xs shadow-md">
+            <i data-lucide="wrench" class="w-4 h-4"></i>
+          </div>
+          <span class="font-extrabold text-base tracking-tight text-white">Appliance<span class="text-[#0284C7]">Hub</span></span>
+        </a>
+
+        <!-- RTL & THEME TOGGLES -->
+        <div class="flex items-center gap-2">
+          <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 rounded-xl border border-slate-700/80 bg-slate-900/60 hover:bg-slate-800 text-amber-400 transition-all shadow-sm" title="Toggle Dark/Light Mode">
+            <i data-lucide="sun" id="themeIcon" class="w-4 h-4"></i>
+          </button>
+          <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 rounded-xl border border-slate-700/80 bg-slate-900/60 hover:bg-slate-800 text-sky-400 transition-all shadow-sm" title="Toggle Direction (LTR/RTL)">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- TITLE & SUBTITLE -->
+      <div class="text-center space-y-1.5">
+        <h1 id="loginTitle" class="font-extrabold text-xl sm:text-2xl tracking-tight text-white">User Login</h1>
+        <p id="loginSubtitle" class="text-[11px] text-slate-300 max-w-xs mx-auto leading-relaxed">
+          Login to access your saved appliance lists, orders, and VIP member perks.
+        </p>
+      </div>
+
+      <!-- SEGMENTED ROLE TABS -->
+      <div class="flex items-center bg-[#07192d] p-1.5 rounded-2xl border border-[#1c3a5e]">
+        <button type="button" id="tabUserBtn" onclick="switchLoginType('user')" class="flex-1 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 bg-[#0284C7] text-white shadow-md">
+          <i data-lucide="user" class="w-3.5 h-3.5"></i> User Account
         </button>
-
-        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
-          <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+        <button type="button" id="tabAdminBtn" onclick="switchLoginType('admin')" class="flex-1 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-slate-200">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i> Admin Staff
         </button>
       </div>
 
-    </div>
-  </header>
-
-  <!-- LOGIN CONTAINER -->
-  <main class="flex-1 flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
-    <div class="w-full max-w-[420px]">
-      <div class="bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 p-8 sm:p-10 rounded-[32px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none space-y-6">
-
-        <!-- TITLE & SUBTITLE -->
-        <div class="text-center space-y-2">
-          <h1 id="loginTitle" class="font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">User Login</h1>
-          <p id="loginSubtitle" class="text-[11px] font-medium text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">Login to access your saved orders, service requests, and VIP member perks.</p>
-        </div>
-
-        <!-- TABS -->
-        <div class="flex items-center bg-slate-100 dark:bg-slate-700/50 p-1.5 rounded-2xl">
-          <button type="button" id="tabUserBtn" onclick="switchLoginType('user')" class="flex-1 py-2.5 rounded-xl text-[11px] font-extrabold transition-all flex items-center justify-center gap-1.5 bg-hub-blue text-white shadow-sm">
-            <i data-lucide="user" class="w-3.5 h-3.5"></i> User Account
-          </button>
-          <button type="button" id="tabAdminBtn" onclick="switchLoginType('admin')" class="flex-1 py-2.5 rounded-xl text-[11px] font-bold transition-all flex items-center justify-center gap-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
-            <i data-lucide="shield" class="w-3.5 h-3.5"></i> Admin Staff
-          </button>
-        </div>
-
-        <!-- ALERTS -->
-        <div id="authAlert" class="hidden text-[11px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 rounded-xl px-3 py-2 flex items-center gap-2">
-          <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
-          <span id="authAlertText"></span>
-        </div>
-
-        <!-- SIGN IN FORM -->
-        <form id="signinForm" onsubmit="handleSignIn(event)" class="space-y-4">
-          
-          <div class="space-y-1.5">
-            <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300">Email Address</label>
-            <input type="email" id="emailInput" required placeholder="customer@appliancehub.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium">
-          </div>
-
-          <div class="space-y-1.5">
-            <div class="flex items-center justify-between">
-              <label class="block text-[11px] font-extrabold text-slate-700 dark:text-slate-300">Password</label>
-              <a href="#forgot" onclick="event.preventDefault()" id="forgotBtn" class="text-[11px] font-bold text-hub-blue hover:underline">Forgot password?</a>
-            </div>
-            <div class="relative">
-              <input type="password" id="passwordInput" required placeholder="••••••••" class="w-full ps-4 pe-10 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 text-[13px] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all placeholder:text-slate-400 font-medium tracking-widest">
-              <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 end-0 pe-3.5 flex items-center text-slate-400 hover:text-slate-600 transition-colors">
-                <i data-lucide="eye" id="passwordEyeIcon" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2 pt-1">
-            <input type="checkbox" id="rememberMe" class="w-3.5 h-3.5 rounded border-slate-300 dark:border-slate-600 text-hub-blue focus:ring-hub-blue bg-white dark:bg-slate-900">
-            <label for="rememberMe" class="text-[11px] font-medium text-slate-500 dark:text-slate-400 cursor-pointer">
-              Remember me
-            </label>
-          </div>
-
-          <div class="pt-2 space-y-3">
-            <button id="loginSubmitBtn" type="submit" class="w-full py-3.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-[13px] font-bold transition-all flex items-center justify-center shadow-md shadow-hub-blue/20">
-              Login
-            </button>
-
-            <button type="button" id="goDashboardBtn" onclick="goToDashboard()" class="w-full py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-[13px] font-bold transition-all flex items-center justify-center gap-2">
-              <i data-lucide="layout-dashboard" class="w-4 h-4 text-slate-500 dark:text-slate-400"></i>
-              <span id="goDashboardText">Go to User Dashboard</span>
-            </button>
-          </div>
-        </form>
-
-        <div class="text-center pt-2">
-          <p class="text-[11px] text-slate-400 font-medium">
-            Don't have an account?
-            <a href="signup.html" id="signupLink" class="text-hub-blue font-bold hover:underline">Sign up now</a>
-          </p>
-        </div>
-
+      <!-- ALERTS -->
+      <div id="authAlert" class="hidden text-[11px] font-semibold text-rose-400 bg-rose-950/40 border border-rose-800/60 rounded-xl px-3.5 py-2.5 flex items-center gap-2">
+        <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+        <span id="authAlertText"></span>
       </div>
+
+      <!-- SIGN IN FORM -->
+      <form id="signinForm" onsubmit="handleSignIn(event)" class="space-y-4">
+        
+        <div class="space-y-1.5">
+          <label class="block text-[11px] font-bold text-slate-300">Email Address</label>
+          <input type="email" id="emailInput" required placeholder="customer@appliancehub.com" class="w-full px-4 py-3 rounded-xl border border-[#1c3a5e] bg-[#07192d] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#0284C7] focus:border-transparent transition-all placeholder:text-slate-500 font-medium">
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <label class="block text-[11px] font-bold text-slate-300">Password</label>
+            <a href="#forgot" onclick="event.preventDefault(); alert('Password reset link sent to your email address.');" id="forgotBtn" class="text-[11px] font-bold text-[#0284C7] hover:underline">Forgot password?</a>
+          </div>
+          <div class="relative">
+            <input type="password" id="passwordInput" required placeholder="••••••••" class="w-full ps-4 pe-10 py-3 rounded-xl border border-[#1c3a5e] bg-[#07192d] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#0284C7] focus:border-transparent transition-all placeholder:text-slate-500 font-medium tracking-widest">
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 end-0 pe-3.5 flex items-center text-slate-400 hover:text-slate-200 transition-colors">
+              <i data-lucide="eye" id="passwordEyeIcon" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pt-0.5">
+          <input type="checkbox" id="rememberMe" class="w-3.5 h-3.5 rounded border-slate-700 bg-[#07192d] text-[#0284C7] focus:ring-[#0284C7]">
+          <label for="rememberMe" class="text-[11px] font-medium text-slate-300 cursor-pointer">
+            Remember me
+          </label>
+        </div>
+
+        <div class="pt-2 space-y-3">
+          <button id="loginSubmitBtn" type="submit" class="w-full py-3.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold transition-all flex items-center justify-center shadow-lg shadow-sky-950/40">
+            Login
+          </button>
+
+          <button type="button" id="goDashboardBtn" onclick="goToDashboard()" class="w-full py-3 rounded-xl border border-slate-700/80 bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-xs font-bold transition-all flex items-center justify-center gap-2">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-slate-400"></i>
+            <span id="goDashboardText">Go to User Dashboard</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="text-center pt-2">
+        <p class="text-[11px] text-slate-400 font-medium">
+          Don't have an account?
+          <a href="signup.html" id="signupLink" class="text-[#0284C7] font-bold hover:underline">Sign up now</a>
+        </p>
+      </div>
+
     </div>
   </main>
+
+  <!-- BOTTOM SIMPLE COPYRIGHT & CREDIT -->
+  <div class="mt-8 text-center text-xs text-slate-400 z-10 space-y-1 pb-4">
+    <p>&copy; 2026 ApplianceHub Supermarket Inc. All rights reserved.</p>
+    <p>Developed by <a href="#" class="text-slate-200 font-semibold hover:underline">Abhivorn Technologies Pvt Ltd</a></p>
+  </div>
 
   <script>
     let currentLoginType = 'user';
@@ -165,54 +175,41 @@
       const signupLink = document.getElementById('signupLink');
       const rememberMe = document.getElementById('rememberMe');
 
-      const userClasses = ['bg-hub-blue', 'text-white', 'shadow-sm', 'font-extrabold'];
-      const adminClasses = ['bg-hub-orange', 'text-white', 'shadow-sm', 'font-extrabold'];
-      const inactiveClasses = ['text-slate-500', 'dark:text-slate-400', 'hover:text-slate-700', 'dark:hover:text-slate-200', 'font-bold'];
-
-      // Reset inputs & classes
-      tabUser.className = 'flex-1 py-2.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5';
-      tabAdmin.className = 'flex-1 py-2.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5';
+      tabUser.className = 'flex-1 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5';
+      tabAdmin.className = 'flex-1 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5';
       emailInput.value = '';
       document.getElementById('passwordInput').value = '';
       rememberMe.checked = false;
 
       if (type === 'user') {
         title.innerText = 'User Login';
-        subtitle.innerText = 'Login to access your saved orders, service requests, and VIP member perks.';
+        subtitle.innerText = 'Login to access your saved appliance lists, orders, and VIP member perks.';
         emailInput.placeholder = 'customer@appliancehub.com';
         
-        tabUser.classList.add(...userClasses);
-        tabAdmin.classList.add(...inactiveClasses);
+        tabUser.classList.add('bg-[#0284C7]', 'text-white', 'shadow-md');
+        tabAdmin.classList.add('text-slate-400', 'hover:text-slate-200');
         
-        // Input outlines and text
-        emailInput.classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
-        document.getElementById('passwordInput').classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
-        rememberMe.classList.replace('text-hub-orange', 'text-hub-blue');
-        rememberMe.classList.replace('focus:ring-hub-orange', 'focus:ring-hub-blue');
-        forgotBtn.className = 'text-[11px] font-bold text-hub-blue hover:underline';
-        signupLink.className = 'text-hub-blue font-bold hover:underline';
+        emailInput.className = 'w-full px-4 py-3 rounded-xl border border-[#1c3a5e] bg-[#07192d] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#0284C7] focus:border-transparent transition-all placeholder:text-slate-500 font-medium';
+        document.getElementById('passwordInput').className = 'w-full ps-4 pe-10 py-3 rounded-xl border border-[#1c3a5e] bg-[#07192d] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#0284C7] focus:border-transparent transition-all placeholder:text-slate-500 font-medium tracking-widest';
 
-        // Buttons
-        submitBtn.className = 'w-full py-3.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-[13px] font-bold transition-all flex items-center justify-center shadow-md shadow-hub-blue/20';
+        forgotBtn.className = 'text-[11px] font-bold text-[#0284C7] hover:underline';
+        signupLink.className = 'text-[#0284C7] font-bold hover:underline';
+        submitBtn.className = 'w-full py-3.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold transition-all flex items-center justify-center shadow-lg shadow-sky-950/40';
         goDashboardText.innerText = 'Go to User Dashboard';
       } else {
-        title.innerText = 'Admin Portal Login';
-        subtitle.innerText = 'Login to access inventory, orders, customer management, and analytics.';
+        title.innerText = 'Admin Staff Login';
+        subtitle.innerText = 'Login to access store inventory, technician dispatches, and sales reports.';
         emailInput.placeholder = 'admin@appliancehub.com';
         
-        tabAdmin.classList.add(...adminClasses);
-        tabUser.classList.add(...inactiveClasses);
+        tabAdmin.classList.add('bg-[#EA580C]', 'text-white', 'shadow-md');
+        tabUser.classList.add('text-slate-400', 'hover:text-slate-200');
         
-        // Input outlines and text
-        emailInput.classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
-        document.getElementById('passwordInput').classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
-        rememberMe.classList.replace('text-hub-blue', 'text-hub-orange');
-        rememberMe.classList.replace('focus:ring-hub-blue', 'focus:ring-hub-orange');
-        forgotBtn.className = 'text-[11px] font-bold text-hub-orange hover:underline';
-        signupLink.className = 'text-hub-orange font-bold hover:underline';
+        emailInput.className = 'w-full px-4 py-3 rounded-xl border border-amber-800/80 bg-[#07192d] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#EA580C] focus:border-transparent transition-all placeholder:text-slate-500 font-medium';
+        document.getElementById('passwordInput').className = 'w-full ps-4 pe-10 py-3 rounded-xl border border-amber-800/80 bg-[#07192d] text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#EA580C] focus:border-transparent transition-all placeholder:text-slate-500 font-medium tracking-widest';
 
-        // Buttons
-        submitBtn.className = 'w-full py-3.5 rounded-xl bg-hub-orange hover:bg-orange-600 text-white text-[13px] font-bold transition-all flex items-center justify-center shadow-md shadow-hub-orange/20';
+        forgotBtn.className = 'text-[11px] font-bold text-[#EA580C] hover:underline';
+        signupLink.className = 'text-[#EA580C] font-bold hover:underline';
+        submitBtn.className = 'w-full py-3.5 rounded-xl bg-[#EA580C] hover:bg-orange-600 text-white text-xs font-bold transition-all flex items-center justify-center shadow-lg shadow-orange-950/40';
         goDashboardText.innerText = 'Go to Admin Dashboard';
       }
     }
@@ -232,7 +229,7 @@
       const email = document.getElementById('emailInput').value.trim();
 
       if (!email) {
-        showAlert('Please enter a valid email address.', false);
+        showAlert('Please enter a valid email address.');
         return;
       }
 
@@ -256,19 +253,9 @@
       }
     }
 
-    function showAlert(message, isSuccess) {
+    function showAlert(message) {
       const el = document.getElementById('authAlert');
-      const text = document.getElementById('authAlertText');
-      const icon = el.querySelector('i');
-      text.innerText = message;
-      
-      el.className = `text-[11px] font-semibold rounded-xl px-3 py-2 flex items-center gap-2 mt-2 mb-4 ${
-        isSuccess 
-          ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20' 
-          : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20'
-      }`;
-      icon.setAttribute('data-lucide', isSuccess ? 'check-circle-2' : 'alert-circle');
-      if (window.lucide) lucide.createIcons();
+      document.getElementById('authAlertText').innerText = message;
       el.classList.remove('hidden');
     }
 
@@ -286,18 +273,18 @@
     }
 
     function toggleDarkMode() {
-      if (typeof window.appThemeToggle === 'function') {
-        window.appThemeToggle();
+      if (window.appThemeToggle) return window.appThemeToggle();
+      const htmlElement = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        if (themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
       } else {
-        const html = document.documentElement;
-        const isDark = html.classList.toggle('dark');
-        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e){}
-        const icons = document.querySelectorAll('#themeIcon');
-        icons.forEach(icon => {
-          if (icon) icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-        });
-        if (window.lucide) lucide.createIcons();
+        htmlElement.classList.add('dark');
+        if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
       }
+      if (window.lucide) lucide.createIcons();
     }
 
     document.addEventListener('DOMContentLoaded', () => {
