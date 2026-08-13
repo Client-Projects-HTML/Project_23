@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var header = document.querySelector('header');
   if (!header || header.classList.contains('header')) return;
 
-  var inner = header.querySelector('.max-w-7xl');
+  var inner = header.querySelector('.max-w-\\[97\\%\\], .max-w-7xl') || header.querySelector('div');
   if (!inner) return;
 
   var navEl = inner.querySelector('nav');
@@ -162,22 +162,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   drawer.appendChild(drawerContent);
 
-  // Drawer Footer (Utilities / Login)
-  /*
-  if (utilities) {
-    var drawerFooter = document.createElement('div');
-    drawerFooter.className = 'p-5 border-t border-hub-border dark:border-slate-800 flex flex-col gap-3';
-    
-    var loginBtn = utilities.querySelector('a[href="login.html"]');
-    if (loginBtn) {
-      var loginClone = loginBtn.cloneNode(true);
-      loginClone.className = 'flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-hub-blue text-white font-bold shadow-md shadow-hub-blue/20';
-      loginClone.classList.remove('hidden');
-      drawerFooter.appendChild(loginClone);
-    }
-    drawer.appendChild(drawerFooter);
-  }
-  */
+  // Drawer Footer (Book Service CTA)
+  var drawerFooter = document.createElement('div');
+  drawerFooter.className = 'p-4 border-t border-hub-border dark:border-slate-800';
+  drawerFooter.innerHTML = '<a href="services.html" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white font-bold text-sm transition-all shadow-md shadow-hub-blue/20"><i data-lucide="wrench" class="w-4 h-4"></i> Book Service</a>';
+  drawer.appendChild(drawerFooter);
 
   document.body.appendChild(drawer);
 
