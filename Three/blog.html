@@ -9,7 +9,7 @@
   <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,7 +29,7 @@
             }
           },
           fontFamily: {
-            sans: ['Outfit', 'sans-serif']
+            sans: ['Inter', 'sans-serif']
           }
         }
       }
@@ -48,7 +48,7 @@
   <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
   <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
   <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- 1. BRAND LOGO -->
       <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
@@ -148,7 +148,7 @@
   </div>
 
   <main class="pt-32 sm:pt-36 md:pt-40 pb-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Blog Header -->
       <div class="text-center mb-16">
@@ -207,6 +207,54 @@
           </div>
         </a>
 
+        <!-- Blog Card 4 -->
+        <a href="blog-detail-4.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+          <div class="w-full h-56 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Microwave Hacks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8 flex flex-col flex-1">
+            <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-3">KITCHEN HACKS</div>
+            <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-3 leading-tight group-hover:text-hub-blue transition-colors">
+              7 Microwave Hacks That Will Change How You Cook
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4">
+              From steaming vegetables perfectly to frothing milk for your morning coffee, microwaves are capable of much more than reheating.
+            </p>
+          </div>
+        </a>
+
+        <!-- Blog Card 5 -->
+        <a href="blog-detail-5.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+          <div class="w-full h-56 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Energy Saving" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8 flex flex-col flex-1">
+            <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-3">ENERGY EFFICIENCY</div>
+            <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-3 leading-tight group-hover:text-hub-blue transition-colors">
+              How To Identify Energy Vampires In Your Home
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4">
+              Stop paying for electricity you aren't using. Unplugging certain appliances can make a noticeable dent in your utility bill.
+            </p>
+          </div>
+        </a>
+
+        <!-- Blog Card 6 -->
+        <a href="blog-detail-6.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+          <div class="w-full h-56 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="Smart Home" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8 flex flex-col flex-1">
+            <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-3">SMART LIVING</div>
+            <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-3 leading-tight group-hover:text-hub-blue transition-colors">
+              Integrating Smart Appliances With Your Ecosystem
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4">
+              Learn how to connect your smart washer, fridge, and oven to your voice assistant for a seamless hands-free kitchen experience.
+            </p>
+          </div>
+        </a>
+
       </div>
 
     </div>
@@ -214,7 +262,7 @@
 
   <!-- GLOBAL FOOTER -->
   <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm md:text-base mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         
@@ -314,3 +362,10 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+

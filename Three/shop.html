@@ -10,7 +10,7 @@
   <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +23,7 @@
             hub: { blue: '#0284C7', blueDark: '#0369A1', orange: '#EA580C', dark: '#0F172A', light: '#F8FAFC', border: '#E2E8F0' }
           },
           fontFamily: {
-            sans: ['Outfit', 'sans-serif']
+            sans: ['Inter', 'sans-serif']
           }
         }
       }
@@ -42,7 +42,7 @@
   <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
   <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
   <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- 1. BRAND LOGO -->
       <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
@@ -141,47 +141,119 @@
   </header>
   </div>
 
-  <!-- HEADER BANNER -->
-  <div class="bg-gradient-to-br from-white via-sky-50 to-sky-100 dark:from-slate-900 dark:to-slate-800 relative overflow-hidden border-b border-hub-border dark:border-slate-800 z-0 pt-32 sm:pt-36 md:pt-40 pb-20 lg:pb-24">
-    <div class="absolute inset-0 opacity-[0.03] dark:opacity-10 pointer-events-none z-0" style="background-image: radial-gradient(#000 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-      <div class="max-w-xl">
-        <nav class="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-500 mb-4 uppercase tracking-wider">
-          <a href="index.html" class="text-hub-blue hover:text-hub-blueDark transition-colors">Home</a>
-          <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-          <span class="text-slate-900 dark:text-white">Appliance Catalog</span>
-        </nav>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-3">Appliance Store</h1>
-        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed">Explore energy-efficient smart home electronics with official warranty and express delivery.</p>
-      </div>
-
-      <div class="flex items-center gap-4 bg-white/50 dark:bg-slate-800/50 border border-white dark:border-slate-700/50 p-5 rounded-2xl backdrop-blur-sm self-start shadow-sm shadow-sky-900/5">
-        <div class="w-12 h-12 rounded-xl bg-hub-blue/10 text-hub-blue flex items-center justify-center shrink-0">
-          <i data-lucide="truck" class="w-6 h-6"></i>
-        </div>
-        <div class="flex flex-col">
-          <strong class="text-slate-900 dark:text-white text-sm font-extrabold">Free Setup & Install</strong>
-          <span class="text-slate-600 dark:text-slate-400 text-xs font-medium">On orders over $300</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- SHOP MAIN CONTAINER -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="space-y-6">
+  <main class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 md:pt-40 pb-10">
+    <div class="flex flex-col lg:flex-row gap-8 items-start">
+      
+      <!-- IN-PAGE FILTER SIDEBAR (Hidden by default on mobile, can be toggled) -->
+      <aside id="filterSidebar" class="hidden lg:flex w-full lg:w-64 shrink-0 bg-white dark:bg-slate-800 rounded-3xl border border-hub-border dark:border-slate-700/80 shadow-sm overflow-hidden flex-col sticky top-24">
+        <!-- DRAWER HEADER -->
+        <div class="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-800 z-10">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white flex items-center justify-center font-bold shadow-md shadow-hub-blue/20">
+              <i data-lucide="filter" class="w-4.5 h-4.5"></i>
+            </div>
+            <div>
+              <h2 class="font-extrabold text-base text-slate-900 dark:text-white leading-none">Filter</h2>
+              <span class="text-[11px] text-slate-400 font-medium">Refine search</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="resetFilters()" class="text-xs font-bold text-hub-orange hover:underline px-2 py-1">Reset</button>
+            <button onclick="toggleInPageFilter()" class="lg:hidden p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Close Filters">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- FILTER CONTENT BODY -->
+        <div class="p-6 space-y-6">
+          
+          <!-- SEARCH FILTER -->
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Search</h3>
+            <div class="relative">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search products..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-hub-blue transition-colors text-slate-900 dark:text-white">
+            </div>
+          </div>
+
+          <!-- CATEGORY FILTER -->
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Categories</h3>
+            <div class="space-y-2.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" checked value="all" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>All Appliances</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="refrigerators" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Refrigerators</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="washing-machines" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Washing Machines</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="air-conditioners" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Air Conditioners</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="ovens" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Microwaves & Ovens</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- BRAND FILTER -->
+          <div class="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Brands</h3>
+            <div class="space-y-2.5 text-xs font-medium text-slate-600 dark:text-slate-300">
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="samsung" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Samsung</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="lg" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>LG Electronics</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="whirlpool" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Whirlpool</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="bosch" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Bosch</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
+                <input type="checkbox" value="daikin" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
+                <span>Daikin</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PRICE RANGE -->
+          <div class="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
+            <div class="flex justify-between items-center text-xs">
+              <h3 class="font-bold uppercase tracking-wider text-slate-400">Max Price</h3>
+              <span id="priceVal" class="font-bold text-hub-blue">$1500</span>
+            </div>
+            <input type="range" id="priceRange" min="200" max="2000" step="50" value="1500" oninput="updatePrice(this.value)" class="w-full accent-hub-blue cursor-pointer">
+          </div>
+
+        </div>
+      </aside>
 
       <!-- PRODUCTS CATALOG DISPLAY -->
-      <section class="w-full space-y-6">
+      <section class="flex-1 w-full space-y-6">
         
         <!-- TOOLBAR -->
         <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-hub-border dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-4 shadow-sm">
           <div class="flex items-center gap-3">
-            <!-- FILTER PRODUCTS BUTTON / LOGO TRIGGER -->
-            <button onclick="openFilterSidebar()" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-hub-blue to-cyan-500 hover:from-hub-blueDark hover:to-cyan-600 text-white text-xs sm:text-sm font-extrabold shadow-md shadow-hub-blue/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5 group cursor-pointer">
+            <!-- FILTER PRODUCTS BUTTON / LOGO TRIGGER (Mobile Only) -->
+            <button onclick="toggleInPageFilter()" class="lg:hidden flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-hub-blue to-cyan-500 hover:from-hub-blueDark hover:to-cyan-600 text-white text-xs sm:text-sm font-extrabold shadow-md shadow-hub-blue/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5 group cursor-pointer">
               <i data-lucide="filter" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
-              <span>Filter Products</span>
+              <span>Filter</span>
             </button>
 
             <span class="text-xs font-bold text-slate-500 dark:text-slate-400">
@@ -519,131 +591,6 @@
     </div>
   </main>
 
-  <!-- FILTER PRODUCTS SIDEBAR DRAWER & BACKDROP -->
-  <div id="filterBackdrop" onclick="closeFilterSidebar()" class="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-[60] transition-opacity duration-300 opacity-0 pointer-events-none"></div>
-
-  <aside id="filterDrawer" class="fixed top-0 left-0 h-full w-full max-w-sm bg-white dark:bg-slate-900 border-r border-hub-border dark:border-slate-800 shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 overflow-y-auto flex flex-col justify-between">
-    
-    <!-- DRAWER HEADER -->
-    <div class="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md z-10">
-      <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white flex items-center justify-center font-bold shadow-md shadow-hub-blue/20">
-          <i data-lucide="filter" class="w-4.5 h-4.5"></i>
-        </div>
-        <div>
-          <h2 class="font-extrabold text-base text-slate-900 dark:text-white leading-none">Filter Products</h2>
-          <span class="text-[11px] text-slate-400 font-medium">Refine your search</span>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="resetFilters()" class="text-xs font-bold text-hub-orange hover:underline px-2 py-1">Reset</button>
-        <button onclick="closeFilterSidebar()" class="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Close Filters">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- FILTER CONTENT BODY -->
-    <div class="p-6 space-y-6 flex-1 overflow-y-auto">
-      
-      <!-- SEARCH FILTER -->
-      <div class="space-y-3">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Search</h3>
-        <div class="relative">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
-          <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search products..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-hub-blue transition-colors text-slate-900 dark:text-white">
-        </div>
-      </div>
-
-      <!-- CATEGORY FILTER -->
-      <div class="space-y-3">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Categories</h3>
-        <div class="space-y-2.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" checked value="all" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>All Appliances</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="refrigerators" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Refrigerators</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="washing-machines" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Washing Machines</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="air-conditioners" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Air Conditioners</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="ovens" onchange="filterProducts()" class="cat-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Microwaves & Ovens</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- BRAND FILTER -->
-      <div class="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Brands</h3>
-        <div class="space-y-2.5 text-xs font-medium text-slate-600 dark:text-slate-300">
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="samsung" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Samsung</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="lg" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>LG Electronics</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="whirlpool" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Whirlpool</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="bosch" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Bosch</span>
-          </label>
-          <label class="flex items-center gap-2.5 cursor-pointer hover:text-hub-blue transition-colors">
-            <input type="checkbox" value="daikin" onchange="filterProducts()" class="brand-checkbox rounded border-slate-300 dark:border-slate-700 text-hub-blue focus:ring-hub-blue">
-            <span>Daikin</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- PRICE RANGE -->
-      <div class="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
-        <div class="flex justify-between items-center text-xs">
-          <h3 class="font-bold uppercase tracking-wider text-slate-400">Max Price</h3>
-          <span id="priceVal" class="font-bold text-hub-blue">$1500</span>
-        </div>
-        <input type="range" id="priceRange" min="200" max="2000" step="50" value="1500" oninput="updatePrice(this.value)" class="w-full accent-hub-blue cursor-pointer">
-      </div>
-
-      <!-- SMART EMI CALCULATOR WIDGET -->
-      <div class="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-3">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-500 flex items-center gap-1.5">
-          <i data-lucide="calculator" class="w-3.5 h-3.5"></i> 0% Interest EMI Estimate
-        </h3>
-        <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3.5 space-y-2 text-xs">
-          <div class="flex justify-between text-slate-700 dark:text-slate-300">
-            <span>Tenure:</span>
-            <strong class="text-amber-600 dark:text-amber-400">12 Months @ 0%</strong>
-          </div>
-          <div class="flex justify-between items-center pt-1 border-t border-amber-500/20">
-            <span class="text-slate-500">Pay as low as:</span>
-            <span class="font-black text-sm text-hub-dark dark:text-white">$35 <span class="text-[10px] font-normal text-slate-400">/mo</span></span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- DRAWER FOOTER -->
-    <div class="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/90 backdrop-blur-md sticky bottom-0">
-      <button onclick="closeFilterSidebar()" class="w-full py-3 rounded-xl bg-hub-blue text-white text-xs sm:text-sm font-extrabold shadow-md hover:bg-hub-blueDark transition-all">
-        Show Results
-      </button>
-    </div>
-  </aside>
 
   <!-- QUICK VIEW MODAL -->
   <div id="quickViewModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
@@ -671,7 +618,7 @@
 
   <!-- GLOBAL FOOTER -->
   <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm md:text-base mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         
@@ -907,36 +854,19 @@
       document.getElementById('quickViewModal').classList.add('hidden');
     }
 
-    // FILTER SIDEBAR DRAWER TOGGLE
-    function openFilterSidebar() {
-      const drawer = document.getElementById('filterDrawer');
-      const backdrop = document.getElementById('filterBackdrop');
-      if (drawer && backdrop) {
-        backdrop.classList.remove('opacity-0', 'pointer-events-none');
-        backdrop.classList.add('opacity-100');
-        drawer.classList.remove('-translate-x-full');
-        drawer.classList.add('translate-x-0');
-        document.body.style.overflow = 'hidden';
+    // IN-PAGE FILTER TOGGLE (For Mobile)
+    function toggleInPageFilter() {
+      const sidebar = document.getElementById('filterSidebar');
+      if (sidebar) {
+        if (sidebar.classList.contains('hidden')) {
+          sidebar.classList.remove('hidden');
+          sidebar.classList.add('flex');
+        } else {
+          sidebar.classList.add('hidden');
+          sidebar.classList.remove('flex');
+        }
       }
     }
-
-    function closeFilterSidebar() {
-      const drawer = document.getElementById('filterDrawer');
-      const backdrop = document.getElementById('filterBackdrop');
-      if (drawer && backdrop) {
-        backdrop.classList.remove('opacity-100');
-        backdrop.classList.add('opacity-0', 'pointer-events-none');
-        drawer.classList.remove('translate-x-0');
-        drawer.classList.add('-translate-x-full');
-        document.body.style.overflow = '';
-      }
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeFilterSidebar();
-      }
-    });
 
     // INITIALIZE ON DOM LOAD
     document.addEventListener('DOMContentLoaded', () => {
@@ -946,3 +876,5 @@
   </script>
 </body>
 </html>
+
+
