@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ---- Build the mobile drawer overlay --------------------------------
   var backdrop = document.createElement('div');
-  backdrop.className = 'fixed inset-0 bg-slate-950/60 backdrop-blur-md z-40 hidden lg:hidden transition-opacity opacity-0';
+  backdrop.className = 'fixed inset-0 bg-slate-950/60 backdrop-blur-md z-[60] hidden lg:hidden transition-opacity opacity-0';
   document.body.appendChild(backdrop);
 
   // ---- Build the mobile drawer ----------------------------------------
   var drawer = document.createElement('aside');
-  drawer.className = 'fixed inset-y-0 end-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-50 transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col lg:hidden';
+  drawer.className = 'fixed inset-y-0 end-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-[70] transform translate-x-full rtl:-translate-x-full transition-transform duration-300 flex flex-col lg:hidden';
   
   // Drawer Header (Logo + Close btn)
   var drawerHeader = document.createElement('div');
@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
   drawer.appendChild(drawerContent);
 
   // Drawer Footer (Utilities / Login)
+  /*
   if (utilities) {
     var drawerFooter = document.createElement('div');
     drawerFooter.className = 'p-5 border-t border-hub-border dark:border-slate-800 flex flex-col gap-3';
@@ -176,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     drawer.appendChild(drawerFooter);
   }
+  */
 
   document.body.appendChild(drawer);
 

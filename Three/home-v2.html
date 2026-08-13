@@ -39,21 +39,6 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
 
   <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
-  <!-- TOP UTILITY BAR -->
-  <div class="bg-slate-950/80 backdrop-blur-md text-slate-400 text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
-      <div class="flex items-center gap-3 sm:gap-6 min-w-0">
-        <span class="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-hub-blue shrink-0"></i> Delivering to: <strong class="text-white ml-0.5 sm:ml-1">Downtown 10001</strong></span>
-        <span class="hidden md:flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="zap" class="w-3.5 h-3.5 text-hub-blue shrink-0"></i> Express delivery in 24 hours available</span>
-      </div>
-      <div class="flex items-center gap-3 sm:gap-5 font-medium shrink-0">
-        <a href="tel:18002775426" class="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap hover:text-white transition-colors">
-          <i data-lucide="phone" class="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0"></i> <span class="hidden sm:inline">Support: </span>1-800-APPLIANCE
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
   <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
@@ -64,12 +49,12 @@
           <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5"></i>
         </div>
         <div>
-          <span class="font-extrabold text-sm sm:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          <span class="font-black text-base sm:text-xl lg:text-2xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
         </div>
       </a>
 
       <!-- 2. NAVIGATION MENU -->
-      <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-200">
+      <nav class="hidden lg:flex items-center gap-1 text-xs sm:text-sm lg:text-base font-bold text-slate-700 dark:text-slate-200">
         
         <!-- 1. HOME -->
         <div class="relative group py-2">
@@ -84,8 +69,8 @@
                 <i data-lucide="store" class="w-4 h-4"></i>
               </div>
               <div>
-                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
-                <span class="text-[10px] text-slate-400 font-normal">Hybrid store, products & booking</span>
+                <span class="block text-xs sm:text-sm font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
+                <span class="text-xs text-slate-400 font-normal">Hybrid store, products & booking</span>
               </div>
             </a>
             <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
@@ -93,8 +78,8 @@
                 <i data-lucide="shield-alert" class="w-4 h-4"></i>
               </div>
               <div>
-                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
-                <span class="text-[10px] text-slate-400 font-normal">High-conversion repair focus</span>
+                <span class="block text-xs sm:text-sm font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
+                <span class="text-xs text-slate-400 font-normal">High-conversion repair focus</span>
               </div>
             </a>
           </div>
@@ -113,7 +98,7 @@
         <!-- CART BUTTON -->
         <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
           <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[11px] sm:text-xs font-black rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
         </a>
 
         <!-- === TOGGLES === -->
@@ -127,10 +112,10 @@
           </button>
         </div>
 
-        <!-- LOGIN BUTTON -->
-        <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
+        <!-- LOGIN BUTTON (Commented out) -->
+        <!-- <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
           <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
-        </a>
+        </a> -->
       </div>
     </div>
   </header>
@@ -147,29 +132,29 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hub-blue/20 border border-hub-blue/30 text-hub-blue text-xs font-bold uppercase tracking-wider">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hub-blue/20 border border-hub-blue/30 text-hub-blue text-xs sm:text-sm font-bold uppercase tracking-wider">
             <i data-lucide="shield-check" class="w-4 h-4"></i> Certified Sales & Certified Repair Techs
           </div>
           
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
             Premium Home Appliances. <span class="text-hub-blue">Doorstep Repair Service.</span>
           </h1>
 
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+          <p class="text-slate-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl font-medium">
             Shop the newest energy-efficient refrigerators, washing machines, and air conditioners with extended manufacturer warranty and 24/7 emergency technician bookings.
           </p>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="shop.html" class="px-6 py-3.5 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-lg shadow-hub-blue/30 flex items-center gap-2">
+            <a href="shop.html" class="px-6 py-3.5 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-sm sm:text-base lg:text-lg font-bold transition-all shadow-lg shadow-hub-blue/30 flex items-center gap-2">
               <i data-lucide="shopping-bag" class="w-4 h-4"></i> Explore Store Catalog
             </a>
-            <a href="services.html" class="px-6 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition-all border border-slate-700 flex items-center gap-2">
+            <a href="services.html" class="px-6 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white text-sm sm:text-base lg:text-lg font-bold transition-all border border-slate-700 flex items-center gap-2">
               <i data-lucide="wrench" class="w-4 h-4"></i> Book Repair Service
             </a>
           </div>
 
           <!-- TRUST BADGES -->
-          <div class="pt-8 border-t border-slate-800 grid grid-cols-3 gap-4 text-slate-400 text-xs">
+          <div class="pt-8 border-t border-slate-800 grid grid-cols-3 gap-4 text-slate-400 text-xs sm:text-sm font-medium">
             <div class="flex items-center gap-2">
               <i data-lucide="truck" class="w-5 h-5 text-hub-blue shrink-0"></i>
               <span>Free Next-Day Delivery</span>
@@ -189,16 +174,16 @@
         <div class="lg:col-span-5">
           <div class="bg-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6">
             <div class="flex justify-between items-center">
-              <h3 class="text-lg font-extrabold text-white flex items-center gap-2">
+              <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-white flex items-center gap-2">
                 <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i> Fast Service Booking
               </h3>
-              <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded-full uppercase">Instant Dispatch</span>
+              <span class="text-xs sm:text-sm bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded-full uppercase">Instant Dispatch</span>
             </div>
 
             <form onsubmit="event.preventDefault(); alert('Request submitted! An agent will call within 15 minutes.');" class="space-y-4">
               <div>
-                <label class="block text-xs font-bold text-slate-300 mb-1">Select Service Need</label>
-                <select required class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-hub-blue">
+                <label class="block text-xs sm:text-sm md:text-base font-bold text-slate-300 mb-1">Select Service Need</label>
+                <select required class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs sm:text-sm md:text-base text-white focus:outline-none focus:border-hub-blue">
                   <option value="">Choose Category</option>
                   <option value="refrigerator">Smart Refrigerator Repair</option>
                   <option value="ac">Inverter AC Maintenance</option>
@@ -208,11 +193,11 @@
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-slate-300 mb-1">Phone Number</label>
-                <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs text-white focus:outline-none focus:border-hub-blue">
+                <label class="block text-xs sm:text-sm md:text-base font-bold text-slate-300 mb-1">Phone Number</label>
+                <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs sm:text-sm md:text-base text-white focus:outline-none focus:border-hub-blue">
               </div>
 
-              <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-hub-orange to-amber-600 text-white text-xs font-bold shadow-lg shadow-hub-orange/30 hover:opacity-95 transition-all">
+              <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-hub-orange to-amber-600 text-white text-sm sm:text-base md:text-lg font-bold shadow-lg shadow-hub-orange/30 hover:opacity-95 transition-all">
                 Request Emergency Callback
               </button>
             </form>
@@ -226,9 +211,9 @@
   <!-- FEATURED PRODUCTS SECTION WITH BLUE ADD BUTTONS -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center max-w-xl mx-auto mb-12">
-      <span class="text-xs font-bold text-hub-blue uppercase tracking-widest">Premium Catalog</span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-hub-dark dark:text-white mt-1">Smart Home Appliance Lineup</h2>
-      <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Browse the newest smart eco-certified products with instant delivery.</p>
+      <span class="text-xs sm:text-sm font-bold text-hub-blue uppercase tracking-widest">Premium Catalog</span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-hub-dark dark:text-white mt-1">Smart Home Appliance Lineup</h2>
+      <p class="text-sm sm:text-base md:text-lg text-slate-500 dark:text-slate-400 mt-2">Browse the newest smart eco-certified products with instant delivery.</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -242,19 +227,19 @@
               alt="Smart Refrigerator" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-amber-400 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-amber-500/30">
+            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-amber-400 text-xs font-extrabold px-2.5 py-1 rounded-full border border-amber-500/30">
               Smart Wi-Fi
             </span>
           </div>
-          <span class="text-[10px] font-extrabold text-hub-blue uppercase tracking-wider block">Refrigeration</span>
-          <h3 class="font-extrabold text-sm text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">Ultra-Quiet French Door Refrigerator</h3>
+          <span class="text-xs font-extrabold text-hub-blue uppercase tracking-wider block">Refrigeration</span>
+          <h3 class="font-extrabold text-base sm:text-lg text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">Ultra-Quiet French Door Refrigerator</h3>
         </div>
         <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
           <div>
-            <span class="text-xs text-slate-400 line-through">$1,499</span>
-            <span class="text-base font-black text-hub-dark dark:text-white block">$1,299</span>
+            <span class="text-xs sm:text-sm text-slate-400 line-through">$1,499</span>
+            <span class="text-base sm:text-lg font-black text-hub-dark dark:text-white block">$1,299</span>
           </div>
-          <button onclick="addToCart('Ultra-Quiet French Door Refrigerator', '$1,299', 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
+          <button onclick="addToCart('Ultra-Quiet French Door Refrigerator', '$1,299', 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs sm:text-sm font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Add
           </button>
         </div>
@@ -269,19 +254,19 @@
               alt="Washing Machine" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-emerald-400 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-emerald-500/30">
+            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-emerald-400 text-xs font-extrabold px-2.5 py-1 rounded-full border border-emerald-500/30">
               5★ Energy
             </span>
           </div>
-          <span class="text-[10px] font-extrabold text-hub-blue uppercase tracking-wider block">Laundry</span>
-          <h3 class="font-extrabold text-sm text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">AI Front Load Steam Washer</h3>
+          <span class="text-xs font-extrabold text-hub-blue uppercase tracking-wider block">Laundry</span>
+          <h3 class="font-extrabold text-base sm:text-lg text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">AI Front Load Steam Washer</h3>
         </div>
         <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
           <div>
-            <span class="text-xs text-slate-400 line-through">$899</span>
-            <span class="text-base font-black text-hub-dark dark:text-white block">$749</span>
+            <span class="text-xs sm:text-sm text-slate-400 line-through">$899</span>
+            <span class="text-base sm:text-lg font-black text-hub-dark dark:text-white block">$749</span>
           </div>
-          <button onclick="addToCart('AI Front Load Steam Washer', '$749', 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
+          <button onclick="addToCart('AI Front Load Steam Washer', '$749', 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs sm:text-sm font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Add
           </button>
         </div>
@@ -296,19 +281,19 @@
               alt="Air Conditioner" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-sky-400 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-sky-500/30">
+            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-sky-400 text-xs font-extrabold px-2.5 py-1 rounded-full border border-sky-500/30">
               Dual Inverter
             </span>
           </div>
-          <span class="text-[10px] font-extrabold text-hub-blue uppercase tracking-wider block">Cooling</span>
-          <h3 class="font-extrabold text-sm text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">Silent Dual-Inverter Split AC</h3>
+          <span class="text-xs font-extrabold text-hub-blue uppercase tracking-wider block">Cooling</span>
+          <h3 class="font-extrabold text-base sm:text-lg text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">Silent Dual-Inverter Split AC</h3>
         </div>
         <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
           <div>
-            <span class="text-xs text-slate-400 line-through">$699</span>
-            <span class="text-base font-black text-hub-dark dark:text-white block">$580</span>
+            <span class="text-xs sm:text-sm text-slate-400 line-through">$699</span>
+            <span class="text-base sm:text-lg font-black text-hub-dark dark:text-white block">$580</span>
           </div>
-          <button onclick="addToCart('Silent Dual-Inverter Split AC', '$580', 'https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
+          <button onclick="addToCart('Silent Dual-Inverter Split AC', '$580', 'https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs sm:text-sm font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Add
           </button>
         </div>
@@ -323,19 +308,19 @@
               alt="Microwave Oven" 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             >
-            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-purple-400 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-purple-500/30">
+            <span class="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md text-purple-400 text-xs font-extrabold px-2.5 py-1 rounded-full border border-purple-500/30">
               Convection
             </span>
           </div>
-          <span class="text-[10px] font-extrabold text-hub-blue uppercase tracking-wider block">Cooking</span>
-          <h3 class="font-extrabold text-sm text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">Smart Sensor Convection Microwave</h3>
+          <span class="text-xs font-extrabold text-hub-blue uppercase tracking-wider block">Cooking</span>
+          <h3 class="font-extrabold text-base sm:text-lg text-hub-dark dark:text-white mt-1 group-hover:text-hub-blue transition-colors">Smart Sensor Convection Microwave</h3>
         </div>
         <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
           <div>
-            <span class="text-xs text-slate-400 line-through">$349</span>
-            <span class="text-base font-black text-hub-dark dark:text-white block">$289</span>
+            <span class="text-xs sm:text-sm text-slate-400 line-through">$349</span>
+            <span class="text-base sm:text-lg font-black text-hub-dark dark:text-white block">$289</span>
           </div>
-          <button onclick="addToCart('Smart Sensor Convection Microwave', '$289', 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
+          <button onclick="addToCart('Smart Sensor Convection Microwave', '$289', 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?q=80&w=600&auto=format&fit=crop')" class="px-3.5 py-2 rounded-xl bg-hub-blue text-white text-xs sm:text-sm font-bold hover:bg-hub-blueDark transition-all flex items-center gap-1.5 shadow-md shadow-hub-blue/20">
             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Add
           </button>
         </div>
@@ -357,13 +342,13 @@
       </div>
 
       <div class="relative z-10 max-w-xl space-y-4">
-        <span class="bg-hub-orange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Annual AMC Special</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">Never Pay Unplanned Repair Bills Again.</h2>
-        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+        <span class="bg-hub-orange text-white text-xs sm:text-sm font-black px-3 py-1 rounded-full uppercase tracking-wider">Annual AMC Special</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">Never Pay Unplanned Repair Bills Again.</h2>
+        <p class="text-slate-300 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
           Join our Complete Care AMC Protection plan today and get unlimited doorstep visits, zero labor costs, and 25% off genuine parts.
         </p>
         <div class="pt-2">
-          <a href="services.html#amc-plans" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-500 text-slate-950 font-extrabold text-xs shadow-lg shadow-amber-500/20 hover:bg-amber-400 transition-all">
+          <a href="services.html#amc-plans" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-500 text-slate-950 font-extrabold text-xs sm:text-sm md:text-base shadow-lg shadow-amber-500/20 hover:bg-amber-400 transition-all">
             <i data-lucide="shield" class="w-4 h-4"></i> View Protection Plans
           </a>
         </div>
@@ -375,32 +360,32 @@
   <section class="py-16 bg-white dark:bg-slate-900 border-t border-b border-hub-border dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-hub-blue/10 text-hub-blue text-xs font-extrabold uppercase tracking-widest">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-hub-blue/10 text-hub-blue text-xs sm:text-sm font-extrabold uppercase tracking-widest">
           <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Instant Estimator
         </span>
-        <h2 class="text-3xl font-extrabold text-hub-dark dark:text-white">Appliance Diagnostic & Repair Cost Calculator</h2>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Select your appliance issue to calculate instant upfront repair estimates.</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-hub-dark dark:text-white">Appliance Diagnostic & Repair Cost Calculator</h2>
+        <p class="text-sm sm:text-base md:text-lg text-slate-500 dark:text-slate-400">Select your appliance issue to calculate instant upfront repair estimates.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         
         <!-- STEP 1: CHOOSE APPLIANCE -->
         <div class="bg-slate-50 dark:bg-slate-800/60 p-6 rounded-3xl border border-hub-border dark:border-slate-700/80 space-y-4">
-          <h3 class="font-extrabold text-sm text-hub-dark dark:text-white flex items-center gap-2">
+          <h3 class="font-extrabold text-sm sm:text-base md:text-lg text-hub-dark dark:text-white flex items-center gap-2">
             <span class="w-6 h-6 rounded-full bg-hub-blue text-white text-xs flex items-center justify-center font-bold">1</span>
             Select Appliance Type
           </h3>
           <div class="grid grid-cols-2 gap-3">
-            <button onclick="selectDiagAppliance('fridge')" id="diag-btn-fridge" class="diag-appliance-btn p-3 rounded-2xl border border-hub-blue bg-hub-blue/10 text-hub-blue font-bold text-xs flex flex-col items-center gap-2 transition-all">
+            <button onclick="selectDiagAppliance('fridge')" id="diag-btn-fridge" class="diag-appliance-btn p-3 rounded-2xl border border-hub-blue bg-hub-blue/10 text-hub-blue font-bold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
               <i data-lucide="snowflake" class="w-6 h-6"></i> Refrigerator
             </button>
-            <button onclick="selectDiagAppliance('washer')" id="diag-btn-washer" class="diag-appliance-btn p-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs flex flex-col items-center gap-2 transition-all">
+            <button onclick="selectDiagAppliance('washer')" id="diag-btn-washer" class="diag-appliance-btn p-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
               <i data-lucide="waves" class="w-6 h-6"></i> Washer
             </button>
-            <button onclick="selectDiagAppliance('ac')" id="diag-btn-ac" class="diag-appliance-btn p-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs flex flex-col items-center gap-2 transition-all">
+            <button onclick="selectDiagAppliance('ac')" id="diag-btn-ac" class="diag-appliance-btn p-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
               <i data-lucide="wind" class="w-6 h-6"></i> Air Conditioner
             </button>
-            <button onclick="selectDiagAppliance('oven')" id="diag-btn-oven" class="diag-appliance-btn p-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs flex flex-col items-center gap-2 transition-all">
+            <button onclick="selectDiagAppliance('oven')" id="diag-btn-oven" class="diag-appliance-btn p-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
               <i data-lucide="flame" class="w-6 h-6"></i> Microwave / Oven
             </button>
           </div>
@@ -408,11 +393,11 @@
 
         <!-- STEP 2: CHOOSE SYMPTOM -->
         <div class="bg-slate-50 dark:bg-slate-800/60 p-6 rounded-3xl border border-hub-border dark:border-slate-700/80 space-y-4">
-          <h3 class="font-extrabold text-sm text-hub-dark dark:text-white flex items-center gap-2">
+          <h3 class="font-extrabold text-sm sm:text-base md:text-lg text-hub-dark dark:text-white flex items-center gap-2">
             <span class="w-6 h-6 rounded-full bg-hub-blue text-white text-xs flex items-center justify-center font-bold">2</span>
             Select Observed Issue
           </h3>
-          <div id="symptomContainer" class="space-y-2 text-xs font-bold text-slate-700 dark:text-slate-300">
+          <div id="symptomContainer" class="space-y-2 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">
             <label class="flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 cursor-pointer">
               <input type="radio" name="symptom" value="45" checked onclick="calculateEstimate()" class="accent-hub-blue">
               <span>Not Cooling / Inadequate Temperature ($45)</span>
@@ -431,11 +416,11 @@
         <!-- STEP 3: ESTIMATE SUMMARY -->
         <div class="bg-hub-dark text-white p-6 rounded-3xl border border-slate-800 space-y-6 shadow-xl">
           <div>
-            <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block">Upfront Price Breakdown</span>
-            <h3 class="text-xl font-extrabold mt-1">Total Estimated Cost</h3>
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-slate-400 block">Upfront Price Breakdown</span>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold mt-1">Total Estimated Cost</h3>
           </div>
 
-          <div class="space-y-3 text-xs border-t border-b border-slate-800 py-4">
+          <div class="space-y-3 text-xs sm:text-sm border-t border-b border-slate-800 py-4">
             <div class="flex justify-between text-slate-400">
               <span>Inspection & Diagnostic Fee</span>
               <span class="font-bold text-white">$29</span>
@@ -451,11 +436,11 @@
           </div>
 
           <div class="flex justify-between items-baseline">
-            <span class="text-xs font-bold text-slate-300">Final Estimate:</span>
-            <span id="finalEstimatePrice" class="text-3xl font-black text-hub-orange">$64</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-300">Final Estimate:</span>
+            <span id="finalEstimatePrice" class="text-2xl sm:text-3xl md:text-4xl font-black text-hub-orange">$64</span>
           </div>
 
-          <a href="services.html" class="w-full py-3.5 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-hub-blue/20 transition-all">
+          <a href="services.html" class="w-full py-3.5 rounded-2xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm md:text-base font-bold flex items-center justify-center gap-2 shadow-lg shadow-hub-blue/20 transition-all">
             <i data-lucide="calendar" class="w-4 h-4"></i> Schedule Technician Now
           </a>
         </div>
@@ -465,7 +450,7 @@
   </section>
 
   <!-- GLOBAL FOOTER -->
-  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs mt-16">
+  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm md:text-base mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -476,9 +461,9 @@
             <div class="w-9 h-9 rounded-full bg-hub-blue text-white flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
               <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
             </div>
-            <span class="font-extrabold text-xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
+            <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
           </a>
-          <p class="leading-relaxed pr-4 text-slate-400 text-xs">
+          <p class="leading-relaxed pr-4 text-slate-400 text-xs sm:text-sm md:text-base">
             ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.
           </p>
           
@@ -503,8 +488,8 @@
 
         <!-- COLUMN 2: QUICK NAVIGATION -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Quick Navigation</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Quick Navigation</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
             <li><a href="shop.html" class="hover:text-white transition-colors">Shop</a></li>
             <li><a href="services.html" class="hover:text-white transition-colors">Book Repair Service</a></li>
@@ -515,8 +500,8 @@
 
         <!-- COLUMN 3: SHOP CATEGORIES -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Shop Categories</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Shop Categories</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="shop.html" class="hover:text-white transition-colors">All Products</a></li>
             <li><a href="categories.html#refrigerators" class="hover:text-white transition-colors">Refrigerators</a></li>
             <li><a href="categories.html#washing-machines" class="hover:text-white transition-colors">Washing Machines</a></li>
@@ -527,20 +512,20 @@
 
         <!-- COLUMN 4: CUSTOMER SUPPORT -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Customer Support</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Customer Support</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="contact.html" class="hover:text-white transition-colors">Help & FAQ Center</a></li>
             <li><a href="track-service.html" class="hover:text-white transition-colors">Live Order Tracking</a></li>
-            <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li>
+            <!-- <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li> -->
             <li><a href="404.html" class="hover:text-white transition-colors">Returns & Refunds</a></li>
-            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Service Policy</a></li>
           </ul>
         </div>
 
       </div>
 
       <!-- BOTTOM BAR -->
-      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-400">
+      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs sm:text-sm md:text-base text-slate-400">
         <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
         <div class="flex items-center gap-1">
           <span>Developed by</span>

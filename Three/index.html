@@ -46,25 +46,7 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
 
   <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
-  <!-- TOP UTILITY BAR -->
-  <div class="bg-slate-950/80 backdrop-blur-md text-slate-400 text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
-      <div class="flex items-center gap-3 sm:gap-6 min-w-0">
-        <span class="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-hub-blue shrink-0"></i> Delivering to: <strong class="text-white ml-0.5 sm:ml-1">Downtown 10001</strong></span>
-        <span class="hidden md:flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="zap" class="w-3.5 h-3.5 text-hub-blue shrink-0"></i> Express delivery in 24 hours available</span>
-      </div>
-      <div class="flex items-center gap-3 sm:gap-5 font-medium shrink-0">
-        <a href="tel:18002775426" class="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap hover:text-white transition-colors">
-          <i data-lucide="phone" class="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0"></i> <span class="hidden sm:inline">Support: </span>1-800-APPLIANCE
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- MAIN REDESIGNED NAVIGATION BAR -->
-    <!-- MAIN REDESIGNED NAVIGATION BAR (MANDATORY MENU: Home | Shop | Categories | Deals | Blog | Account) -->
-    <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
-    <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
   <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
@@ -74,12 +56,12 @@
           <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5"></i>
         </div>
         <div>
-          <span class="font-extrabold text-sm sm:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          <span class="font-black text-base sm:text-xl lg:text-2xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
         </div>
       </a>
 
       <!-- 2. NAVIGATION MENU: Home | Shop | Categories | Deals | Blog | Contact -->
-      <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-200">
+      <nav class="hidden lg:flex items-center gap-1 text-xs sm:text-sm lg:text-base font-bold text-slate-700 dark:text-slate-200">
         
         <!-- 1. HOME -->
         <div class="relative group py-2">
@@ -94,8 +76,8 @@
                 <i data-lucide="store" class="w-4 h-4"></i>
               </div>
               <div>
-                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
-                <span class="text-[10px] text-slate-400 font-normal">Hybrid store, products & booking</span>
+                <span class="block text-xs sm:text-sm font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
+                <span class="text-xs text-slate-400 font-normal">Hybrid store, products & booking</span>
               </div>
             </a>
             <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
@@ -103,8 +85,8 @@
                 <i data-lucide="shield-alert" class="w-4 h-4"></i>
               </div>
               <div>
-                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
-                <span class="text-[10px] text-slate-400 font-normal">High-conversion repair focus</span>
+                <span class="block text-xs sm:text-sm font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
+                <span class="text-xs text-slate-400 font-normal">High-conversion repair focus</span>
               </div>
             </a>
           </div>
@@ -142,7 +124,7 @@
         <!-- CART BUTTON -->
         <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
           <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[11px] sm:text-xs font-black rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
         </a>
 
         <!-- === TOGGLES === -->
@@ -156,10 +138,10 @@
           </button>
         </div>
 
-        <!-- LOGIN BUTTON -->
-        <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
+        <!-- LOGIN BUTTON (Commented out) -->
+        <!-- <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
           <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
-        </a>
+        </a> -->
       </div>
     </div>
   </header>
@@ -175,24 +157,24 @@
       <div class="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left space-y-8 z-10 relative animate-fade-in-up">
         
         <div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-hub-blue/30 bg-hub-blue/10 text-hub-blueDark dark:text-sky-400 text-xs font-bold tracking-wide">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-hub-blue/30 bg-hub-blue/10 text-hub-blueDark dark:text-sky-400 text-xs sm:text-sm font-bold tracking-wide">
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Certified Sales & Express Home Repairs
           </span>
         </div>
 
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tighter leading-[1.05]">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
           Premium Appliances.<br><span class="text-hub-blue">Delivered & Installed.</span>
         </h1>
         
-        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
           Shop everyday home essentials, from refrigerators to washing machines. Fast delivery and reliable repair services right to your door.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-          <a href="shop.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 w-full sm:w-auto rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-base font-bold transition-all shadow-lg shadow-hub-blue/30 hover:-translate-y-1">
+          <a href="shop.html" class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 w-full sm:w-auto rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-sm sm:text-base lg:text-lg font-bold transition-all shadow-lg shadow-hub-blue/30 hover:-translate-y-1">
             <i data-lucide="shopping-cart" class="w-5 h-5"></i> Shop Appliances
           </a>
-          <a href="services.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 w-full sm:w-auto rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 text-base font-bold transition-all shadow-md hover:-translate-y-1">
+          <a href="services.html" class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 w-full sm:w-auto rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 text-sm sm:text-base lg:text-lg font-bold transition-all shadow-md hover:-translate-y-1">
             <i data-lucide="tag" class="w-5 h-5"></i> Book a Service
           </a>
         </div>
@@ -204,9 +186,9 @@
             <img src="https://i.pravatar.cc/100?img=11" alt="User" class="w-10 h-10 rounded-full border-2 border-sky-50 dark:border-slate-900">
             <img src="https://i.pravatar.cc/100?img=12" alt="User" class="w-10 h-10 rounded-full border-2 border-sky-50 dark:border-slate-900">
           </div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 text-center sm:text-left flex flex-col">
-            <strong class="text-slate-900 dark:text-white font-extrabold">Over 10,000+ Happy Customers Served</strong>
-            <span class="font-medium">Servicing within 5 miles of your neighborhood</span>
+          <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 text-center sm:text-left flex flex-col">
+            <strong class="text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base">Over 10,000+ Happy Customers Served</strong>
+            <span class="font-medium text-xs sm:text-sm">Servicing within 5 miles of your neighborhood</span>
           </div>
         </div>
 
@@ -222,9 +204,9 @@
             <div class="w-12 h-12 rounded-xl bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0">
               <i data-lucide="clock" class="w-6 h-6"></i>
             </div>
-            <div class="flex flex-col text-sm">
+            <div class="flex flex-col text-xs sm:text-sm">
               <span class="text-xs text-slate-500 font-medium">Service Promise</span>
-              <strong class="text-hub-dark dark:text-white leading-tight">Technician arrives in under 90 minutes</strong>
+              <strong class="text-hub-dark dark:text-white leading-tight font-extrabold text-xs sm:text-sm md:text-base">Technician arrives in under 90 minutes</strong>
             </div>
           </div>
         </div>
@@ -234,14 +216,13 @@
   </section>
 
   <!-- PRODUCT LAYOUT: APPLIANCE CATEGORIES -->
-  <!-- PRODUCT LAYOUT: APPLIANCE CATEGORIES -->
   <section id="categories" class="py-16 lg:py-20 bg-white dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">Explore Our Catalog</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Featured Appliance Categories</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Top-rated home appliances with official brand warranties and free installation.</p>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">Explore Our Catalog</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Featured Appliance Categories</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">Top-rated home appliances with official brand warranties and free installation.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -252,11 +233,11 @@
             <img src="https://images.unsplash.com/photo-1721613877687-c9099b698faa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Refrigerators" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1 text-xs font-extrabold rounded-full text-slate-900 dark:text-white border border-slate-200/50 dark:border-slate-700/50">Top Seller</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Refrigerators</h3>
-          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">French door, side-by-side, and bottom freezer models.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Refrigerators</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">French door, side-by-side, and bottom freezer models.</p>
           <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
-            <span class="text-sm font-bold text-hub-blue">Starts from $699</span>
-            <a href="shop.html?cat=refrigerators" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-sm hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            <span class="text-xs sm:text-sm md:text-base font-extrabold text-hub-blue">Starts from $699</span>
+            <a href="shop.html?cat=refrigerators" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
           </div>
         </div>
 
@@ -264,13 +245,13 @@
         <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-2">
           <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
             <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=600&auto=format&fit=crop" alt="Washing Machines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-hub-blue text-white px-3 py-1 text-xs font-extrabold rounded-full animate-pulse">New Arrival</span>
+            <span class="absolute top-3 left-3 bg-hub-blue text-white px-3 py-1 text-[11px] sm:text-xs font-extrabold rounded-full animate-pulse">New Arrival</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Washing Machines</h3>
-          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Front-load, top-load washers and smart dryers.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Washing Machines</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">Front-load, top-load washers and smart dryers.</p>
           <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
-            <span class="text-sm font-bold text-hub-blue">Starts from $499</span>
-            <a href="shop.html?cat=washing-machines" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-sm hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            <span class="text-xs sm:text-sm md:text-base font-extrabold text-hub-blue">Starts from $499</span>
+            <a href="shop.html?cat=washing-machines" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
           </div>
         </div>
 
@@ -278,13 +259,13 @@
         <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-3">
           <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
             <img src="https://images.unsplash.com/photo-1762341123870-d706f257a12e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Air Conditioners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 text-xs font-extrabold rounded-full">Energy Saving</span>
+            <span class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 text-[11px] sm:text-xs font-extrabold rounded-full">Energy Saving</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Air Conditioners</h3>
-          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Inverter Split ACs, Window ACs, and Climate Systems.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Air Conditioners</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">Inverter Split ACs, Window ACs, and Climate Systems.</p>
           <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
-            <span class="text-sm font-bold text-hub-blue">Starts from $399</span>
-            <a href="shop.html?cat=air-conditioners" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-sm hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            <span class="text-xs sm:text-sm md:text-base font-extrabold text-hub-blue">Starts from $399</span>
+            <a href="shop.html?cat=air-conditioners" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
           </div>
         </div>
 
@@ -298,25 +279,25 @@
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div class="max-w-2xl">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">Smart Choices</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Top Brand Comparison</h2>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">Smart Choices</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Top Brand Comparison</h2>
         </div>
-        <p class="text-slate-600 dark:text-slate-400 text-base md:text-right max-w-sm">Compare efficiency, warranty terms, and service availability before making a purchase.</p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg md:text-right max-w-sm">Compare efficiency, warranty terms, and service availability before making a purchase.</p>
       </div>
 
       <div class="w-full overflow-x-auto pb-4">
         <table class="w-full min-w-[800px] border-collapse bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
           <thead>
             <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-700">
-              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Brand / Feature</th>
-              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Energy Efficiency</th>
-              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Standard Warranty</th>
-              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Compressor / Motor</th>
-              <th class="py-5 px-6 text-left text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Repair Part Availability</th>
-              <th class="py-5 px-6 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Action</th>
+              <th class="py-5 px-6 text-left text-xs sm:text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Brand / Feature</th>
+              <th class="py-5 px-6 text-left text-xs sm:text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Energy Efficiency</th>
+              <th class="py-5 px-6 text-left text-xs sm:text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Standard Warranty</th>
+              <th class="py-5 px-6 text-left text-xs sm:text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Compressor / Motor</th>
+              <th class="py-5 px-6 text-left text-xs sm:text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Repair Part Availability</th>
+              <th class="py-5 px-6 text-center text-xs sm:text-sm font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50 text-sm">
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50 text-xs sm:text-sm md:text-base">
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
               <td class="py-5 px-6 font-bold text-slate-900 dark:text-white flex items-center gap-3">
                 <span class="w-3 h-3 rounded-full bg-blue-500"></span> Samsung Smart Series
@@ -326,7 +307,7 @@
               <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years</td>
               <td class="py-5 px-6"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Same-Day Availability</span></td>
               <td class="py-5 px-6 text-center">
-                <a href="shop.html?brand=samsung" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
+                <a href="shop.html?brand=samsung" class="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
               </td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
@@ -338,7 +319,7 @@
               <td class="py-5 px-6 text-slate-600 dark:text-slate-300">10 Years</td>
               <td class="py-5 px-6"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Same-Day Availability</span></td>
               <td class="py-5 px-6 text-center">
-                <a href="shop.html?brand=lg" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
+                <a href="shop.html?brand=lg" class="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
               </td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors">
@@ -350,7 +331,7 @@
               <td class="py-5 px-6 text-slate-600 dark:text-slate-300">5 Years</td>
               <td class="py-5 px-6"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">24-48 Hours</span></td>
               <td class="py-5 px-6 text-center">
-                <a href="shop.html?brand=whirlpool" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
+                <a href="shop.html?brand=whirlpool" class="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-bold text-hub-blue bg-hub-blue/10 rounded-lg hover:bg-hub-blue hover:text-white transition-colors">View Models</a>
               </td>
             </tr>
           </tbody>
@@ -365,57 +346,57 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">Peace of Mind</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Appliance Protection & Warranty Plans</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Protect your investments against unexpected breakdowns with our Annual Maintenance Contracts (AMC).</p>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">Peace of Mind</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Appliance Protection & Warranty Plans</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">Protect your investments against unexpected breakdowns with our Annual Maintenance Contracts (AMC).</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
         
         <!-- PLAN 1 -->
         <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
-          <span class="text-slate-900 dark:text-white font-extrabold text-xl mb-2 block">Basic Shield</span>
-          <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">$49 <span class="text-lg text-slate-500 dark:text-slate-400 font-medium">/year</span></h3>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">Essential protection for single appliances.</p>
+          <span class="text-slate-900 dark:text-white font-extrabold text-lg sm:text-xl md:text-2xl mb-2 block">Basic Shield</span>
+          <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">$49 <span class="text-sm sm:text-base md:text-lg text-slate-500 dark:text-slate-400 font-medium">/year</span></h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base mb-8">Essential protection for single appliances.</p>
           
           <div class="space-y-4 mb-8">
-            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> 2 Free Maintenance Visits</div>
-            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Free Breakdown Labor</div>
-            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> 15% Discount on Parts</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> 2 Free Maintenance Visits</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Free Breakdown Labor</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> 15% Discount on Parts</div>
           </div>
           
-          <button class="w-full py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Select Basic Plan</button>
+          <button class="w-full py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-xs sm:text-sm md:text-base font-extrabold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Select Basic Plan</button>
         </div>
 
         <!-- PLAN 2 (FEATURED) -->
         <div class="bg-hub-dark rounded-3xl p-8 border border-slate-700 shadow-2xl relative transform md:-translate-y-4">
           <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-hub-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Most Popular</span>
-          <span class="text-white font-extrabold text-xl mb-2 block">Full Home Care</span>
-          <h3 class="text-4xl font-extrabold text-white mb-4">$129 <span class="text-lg text-slate-400 font-medium">/year</span></h3>
-          <p class="text-slate-300 text-sm mb-8">Covers up to 3 major appliances (AC, Fridge, Washer).</p>
+          <span class="text-white font-extrabold text-lg sm:text-xl md:text-2xl mb-2 block">Full Home Care</span>
+          <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">$129 <span class="text-sm sm:text-base md:text-lg text-slate-400 font-medium">/year</span></h3>
+          <p class="text-slate-300 text-xs sm:text-sm md:text-base mb-8">Covers up to 3 major appliances (AC, Fridge, Washer).</p>
           
           <div class="space-y-4 mb-8">
-            <div class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> Unlimited Repair Visits</div>
-            <div class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> 100% Free Parts Replacement</div>
-            <div class="flex items-center gap-3 text-sm text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> Priority 4-Hour Dispatch</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> Unlimited Repair Visits</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> 100% Free Parts Replacement</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-white font-medium"><i data-lucide="check" class="w-5 h-5 text-hub-blue"></i> Priority 4-Hour Dispatch</div>
           </div>
           
-          <button class="w-full py-3.5 rounded-xl bg-hub-blue text-white font-bold hover:bg-hub-blueDark transition-colors shadow-lg shadow-hub-blue/30">Get Premium Care</button>
+          <button class="w-full py-3.5 rounded-xl bg-hub-blue text-white text-xs sm:text-sm md:text-base font-extrabold hover:bg-hub-blueDark transition-colors shadow-lg shadow-hub-blue/30">Get Premium Care</button>
         </div>
 
         <!-- PLAN 3 -->
         <div class="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
-          <span class="text-slate-900 dark:text-white font-extrabold text-xl mb-2 block">Commercial</span>
-          <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">$299 <span class="text-lg text-slate-500 dark:text-slate-400 font-medium">/year</span></h3>
-          <p class="text-slate-600 dark:text-slate-400 text-sm mb-8">Tailored protection for restaurants and rental properties.</p>
+          <span class="text-slate-900 dark:text-white font-extrabold text-lg sm:text-xl md:text-2xl mb-2 block">Commercial</span>
+          <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">$299 <span class="text-sm sm:text-base md:text-lg text-slate-500 dark:text-slate-400 font-medium">/year</span></h3>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base mb-8">Tailored protection for restaurants and rental properties.</p>
           
           <div class="space-y-4 mb-8">
-            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Covers Unlimited Appliances</div>
-            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Dedicated Tech Manager</div>
-            <div class="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Monthly Inspections</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Covers Unlimited Appliances</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Dedicated Tech Manager</div>
+            <div class="flex items-center gap-3 text-xs sm:text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium"><i data-lucide="check" class="w-5 h-5 text-emerald-500"></i> Monthly Inspections</div>
           </div>
           
-          <button class="w-full py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Contact Commercial</button>
+          <button class="w-full py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-xs sm:text-sm md:text-base font-extrabold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Contact Commercial</button>
         </div>
 
       </div>
@@ -431,9 +412,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-hub-blue font-bold tracking-wider uppercase text-sm mb-3 block">Fast Doorstep Service</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Book an Express Repair</h2>
-        <p class="text-slate-400 text-lg">Fill out the details below. A certified technician will be assigned immediately.</p>
+        <span class="text-hub-blue font-bold tracking-wider uppercase text-xs sm:text-sm mb-3 block">Fast Doorstep Service</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4">Book an Express Repair</h2>
+        <p class="text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl">Fill out the details below. A certified technician will be assigned immediately.</p>
       </div>
 
       <form class="max-w-3xl mx-auto bg-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-700" onsubmit="handleRepairBooking(event)">
@@ -448,19 +429,19 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-bold text-slate-300">Your Full Name</label>
-            <input type="text" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+            <label class="text-xs sm:text-sm md:text-base font-bold text-slate-300">Your Full Name</label>
+            <input type="text" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
           </div>
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-bold text-slate-300">Phone Number</label>
-            <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+            <label class="text-xs sm:text-sm md:text-base font-bold text-slate-300">Phone Number</label>
+            <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-bold text-slate-300">Appliance Type</label>
-            <select required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all appearance-none">
+            <label class="text-xs sm:text-sm md:text-base font-bold text-slate-300">Appliance Type</label>
+            <select required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-200 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all appearance-none">
               <option value="">Select Appliance</option>
               <option>Refrigerator / Freezer</option>
               <option>Washing Machine / Dryer</option>
@@ -470,21 +451,21 @@
             </select>
           </div>
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-bold text-slate-300">Appliance Brand</label>
-            <input type="text" required placeholder="e.g. Samsung" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+            <label class="text-xs sm:text-sm md:text-base font-bold text-slate-300">Appliance Brand</label>
+            <input type="text" required placeholder="e.g. Samsung" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
           </div>
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-bold text-slate-300">Preferred Date</label>
-            <input type="date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all [color-scheme:dark]">
+            <label class="text-xs sm:text-sm md:text-base font-bold text-slate-300">Preferred Date</label>
+            <input type="date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all [color-scheme:dark]">
           </div>
         </div>
 
         <div class="flex flex-col gap-2 mb-6">
-          <label class="text-sm font-bold text-slate-300">Describe the Issue</label>
-          <textarea rows="3" required placeholder="e.g., Refrigerator is not cooling properly..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all resize-none"></textarea>
+          <label class="text-xs sm:text-sm md:text-base font-bold text-slate-300">Describe the Issue</label>
+          <textarea rows="3" required placeholder="e.g., Refrigerator is not cooling properly..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-200 placeholder-slate-500 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all resize-none"></textarea>
         </div>
 
-        <button type="submit" class="w-full bg-hub-blue hover:bg-hub-blueDark text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all mt-4">
+        <button type="submit" class="w-full bg-hub-blue hover:bg-hub-blueDark text-white text-sm sm:text-base md:text-lg font-bold py-3.5 sm:py-4 rounded-xl flex items-center justify-center gap-2 transition-all mt-4">
           <i data-lucide="wrench" class="w-5 h-5"></i> Confirm Repair Booking
         </button>
 
@@ -497,8 +478,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">CUSTOMER VOICE</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">Trusted by 10,000+ Appliance Owners</h2>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">CUSTOMER VOICE</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white">Trusted by 10,000+ Appliance Owners</h2>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -512,12 +493,12 @@
             <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
             <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed italic mb-8">"ApplianceHub saved my weekend! The technician arrived within 90 minutes and had my refrigerator running perfectly again."</p>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed italic mb-8">"ApplianceHub saved my weekend! The technician arrived within 90 minutes and had my refrigerator running perfectly again."</p>
           <div class="flex items-center gap-4">
             <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover">
             <div class="flex flex-col">
-              <strong class="text-slate-900 dark:text-white font-bold text-sm">Sarah Jenkins</strong>
-              <span class="text-slate-500 text-xs">Verified Customer</span>
+              <strong class="text-slate-900 dark:text-white font-bold text-xs sm:text-sm md:text-base">Sarah Jenkins</strong>
+              <span class="text-slate-500 text-xs sm:text-sm">Verified Customer</span>
             </div>
           </div>
         </div>
@@ -531,12 +512,12 @@
             <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
             <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed italic mb-8">"The AMC warranty plan is brilliant. I get regular maintenance visits for my AC and washer, totally hassle-free."</p>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed italic mb-8">"The AMC warranty plan is brilliant. I get regular maintenance visits for my AC and washer, totally hassle-free."</p>
           <div class="flex items-center gap-4">
             <img src="https://i.pravatar.cc/100?img=11" alt="David Chen" class="w-12 h-12 rounded-full object-cover">
             <div class="flex flex-col">
-              <strong class="text-slate-900 dark:text-white font-bold text-sm">David Chen</strong>
-              <span class="text-slate-500 text-xs">Verified Customer</span>
+              <strong class="text-slate-900 dark:text-white font-bold text-xs sm:text-sm md:text-base">David Chen</strong>
+              <span class="text-slate-500 text-xs sm:text-sm">Verified Customer</span>
             </div>
           </div>
         </div>
@@ -550,12 +531,12 @@
             <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
             <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
           </div>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed italic mb-8">"Prices for new appliances are very competitive, and the free installation service was top notch. Highly recommended!"</p>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed italic mb-8">"Prices for new appliances are very competitive, and the free installation service was top notch. Highly recommended!"</p>
           <div class="flex items-center gap-4">
             <img src="https://i.pravatar.cc/100?img=5" alt="Elena Rodriguez" class="w-12 h-12 rounded-full object-cover">
             <div class="flex flex-col">
-              <strong class="text-slate-900 dark:text-white font-bold text-sm">Elena Rodriguez</strong>
-              <span class="text-slate-500 text-xs">Verified Customer</span>
+              <strong class="text-slate-900 dark:text-white font-bold text-xs sm:text-sm md:text-base">Elena Rodriguez</strong>
+              <span class="text-slate-500 text-xs sm:text-sm">Verified Customer</span>
             </div>
           </div>
         </div>
@@ -568,8 +549,8 @@
   <section class="py-16 lg:py-20 bg-slate-50 dark:bg-slate-900/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase mb-4">APPLIANCE TRUST</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">Why Choose ApplianceHub?</h2>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">APPLIANCE TRUST</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white">Why Choose ApplianceHub?</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -578,32 +559,32 @@
           <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-emerald-500/10 text-emerald-500">
             <i data-lucide="truck" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Express Repairs</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Certified technicians arrive at your door within 90 minutes for emergencies.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3">Express Repairs</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm md:text-base">Certified technicians arrive at your door within 90 minutes for emergencies.</p>
         </div>
         <!-- Feature 2 -->
         <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
           <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-emerald-500/10 text-emerald-500">
             <i data-lucide="shield-check" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">100% Genuine Parts</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">We only use OEM parts with official manufacturer warranties for all repairs.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3">100% Genuine Parts</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm md:text-base">We only use OEM parts with official manufacturer warranties for all repairs.</p>
         </div>
         <!-- Feature 3 -->
         <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
           <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-amber-500/10 text-amber-500">
             <i data-lucide="users" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Expert Technicians</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Our staff is fully trained, vetted, and certified by major appliance brands.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3">Expert Technicians</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm md:text-base">Our staff is fully trained, vetted, and certified by major appliance brands.</p>
         </div>
         <!-- Feature 4 -->
         <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all text-center sm:text-left">
           <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto sm:mx-0 bg-indigo-500/10 text-indigo-500">
             <i data-lucide="lock" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Secure Checkout</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">256-bit SSL encrypted digital checkout for your peace of mind.</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3">Secure Checkout</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm md:text-base">256-bit SSL encrypted digital checkout for your peace of mind.</p>
         </div>
       </div>
     </div>
@@ -615,13 +596,13 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         <div class="space-y-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold tracking-wide uppercase">COVERAGE MAP</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">Check Service Availability In Your Area</h2>
-          <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Enter your zip code below to check instant express repair availability and estimated technician arrival times for your address.</p>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold tracking-wide uppercase">COVERAGE MAP</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">Check Service Availability In Your Area</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">Enter your zip code below to check instant express repair availability and estimated technician arrival times for your address.</p>
           
           <form class="flex flex-col sm:flex-row gap-3 pt-4" onsubmit="event.preventDefault(); alert('Coverage confirmed for your area!');">
-            <input type="text" placeholder="Enter ZIP code (e.g. 10001)" required class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
-            <button type="submit" class="inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition-all shadow-lg shadow-emerald-500/30 whitespace-nowrap">Check Coverage</button>
+            <input type="text" placeholder="Enter ZIP code (e.g. 10001)" required class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-hub-blue focus:ring-1 focus:ring-hub-blue transition-all">
+            <button type="submit" class="inline-flex items-center justify-center gap-2 px-8 py-3 w-full sm:w-auto rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm md:text-base font-bold transition-all shadow-lg shadow-emerald-500/30 whitespace-nowrap">Check Coverage</button>
           </form>
         </div>
         
@@ -638,16 +619,16 @@
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
             
-            <div class="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row items-center gap-3 text-xs font-bold text-slate-700 dark:text-slate-200 max-w-[90%]">
+            <div class="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row items-center gap-3 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 max-w-[90%]">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> 
               Serving Downtown, Midtown & Surrounding Neighborhoods
-              <span class="flex items-center gap-1.5 px-2 py-1 rounded-md bg-rose-500/10 text-rose-500 text-[10px] uppercase tracking-wider">
+              <span class="flex items-center gap-1.5 px-2 py-1 rounded-md bg-rose-500/10 text-rose-500 text-[11px] sm:text-xs uppercase tracking-wider">
                 <span class="w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
                 Live GPS
               </span>
             </div>
             
-            <div class="absolute bottom-4 right-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-200">
+            <div class="absolute bottom-4 right-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200">
               <i data-lucide="navigation" class="w-4 h-4 text-emerald-500"></i> 
               24 Technicians Live in Radius
             </div>
@@ -667,27 +648,21 @@
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-black/10 blur-3xl"></div>
         
         <div class="relative z-10">
-          <span class="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-xs font-bold tracking-wide uppercase mb-4 backdrop-blur-sm border border-white/20">Exclusive Offers</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Join The ApplianceHub Family</h2>
-          <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto">Subscribe to our newsletter for seasonal maintenance tips, early access to sales, and $50 off your first repair.</p>
+          <span class="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mb-4 backdrop-blur-sm border border-white/20">Exclusive Offers</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4">Join The ApplianceHub Family</h2>
+          <p class="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl mb-8 max-w-xl mx-auto">Subscribe to our newsletter for seasonal maintenance tips, early access to sales, and $50 off your first repair.</p>
           
           <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
-            <input type="email" placeholder="Enter your email address" required class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:bg-white/20 transition-all backdrop-blur-sm">
-            <button type="submit" class="px-8 py-3 rounded-xl bg-white text-hub-blue hover:bg-slate-50 font-bold transition-all shadow-lg whitespace-nowrap">Subscribe</button>
+            <input type="email" placeholder="Enter your email address" required class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-xs sm:text-sm md:text-base text-white placeholder-white/50 focus:outline-none focus:bg-white/20 transition-all backdrop-blur-sm">
+            <button type="submit" class="px-8 py-3 rounded-xl bg-white text-hub-blue hover:bg-slate-50 text-xs sm:text-sm md:text-base font-bold transition-all shadow-lg whitespace-nowrap">Subscribe</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-
-
-  <!-- FOOTER -->
-    <!-- FOOTER -->
-    <!-- FOOTER -->
-  <!-- FOOTER -->
-  <!-- FOOTER -->
-  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs mt-16">
+  <!-- GLOBAL FOOTER -->
+  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm md:text-base mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -698,35 +673,30 @@
             <div class="w-9 h-9 rounded-full bg-hub-blue text-white flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
               <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
             </div>
-            <span class="font-extrabold text-xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
+            <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
           </a>
-          <p class="leading-relaxed pr-4 text-slate-400 text-xs">
+          <p class="leading-relaxed pr-4 text-slate-400 text-xs sm:text-sm md:text-base">
             ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.
           </p>
           
-          <!-- OFFICIAL BRAND SOCIAL LOGOS (FACEBOOK, TWITTER/X, INSTAGRAM, YOUTUBE, LINKEDIN) -->
+          <!-- OFFICIAL BRAND SOCIAL LOGOS -->
           <div class="flex items-center gap-2.5 pt-2">
-            <!-- Facebook -->
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Facebook">
               <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
 
-            <!-- Twitter / X -->
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-slate-700 hover:border-slate-600 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Twitter / X">
               <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
 
-            <!-- Instagram -->
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 hover:border-rose-500 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Instagram">
               <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
 
-            <!-- YouTube -->
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="YouTube">
               <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
 
-            <!-- LinkedIn -->
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="LinkedIn">
               <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
             </a>
@@ -735,8 +705,8 @@
 
         <!-- COLUMN 2: QUICK NAVIGATION -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Quick Navigation</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Quick Navigation</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
             <li><a href="shop.html" class="hover:text-white transition-colors">Shop</a></li>
             <li><a href="services.html" class="hover:text-white transition-colors">Book Repair Service</a></li>
@@ -747,8 +717,8 @@
 
         <!-- COLUMN 3: SHOP CATEGORIES -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Shop Categories</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Shop Categories</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="shop.html" class="hover:text-white transition-colors">All Products</a></li>
             <li><a href="categories.html#refrigerators" class="hover:text-white transition-colors">Refrigerators</a></li>
             <li><a href="categories.html#washing-machines" class="hover:text-white transition-colors">Washing Machines</a></li>
@@ -759,20 +729,20 @@
 
         <!-- COLUMN 4: CUSTOMER SUPPORT -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Customer Support</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Customer Support</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="contact.html" class="hover:text-white transition-colors">Help & FAQ Center</a></li>
             <li><a href="track-service.html" class="hover:text-white transition-colors">Live Order Tracking</a></li>
-            <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li>
+            <!-- <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li> -->
             <li><a href="404.html" class="hover:text-white transition-colors">Returns & Refunds</a></li>
-            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Service Policy</a></li>
           </ul>
         </div>
 
       </div>
 
       <!-- BOTTOM BAR -->
-      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-400">
+      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs sm:text-sm md:text-base text-slate-400">
         <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
         <div class="flex items-center gap-1">
           <span>Developed by</span>

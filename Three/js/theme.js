@@ -47,6 +47,19 @@ observer.observe(document.documentElement, { attributes: true, attributeFilter: 
     }
 })();
 
+(function injectResponsiveStylesCSS() {
+    const alreadyLinked = [...document.querySelectorAll('link[rel="stylesheet"]')]
+        .some(l => l.href && l.href.includes('styles.css'));
+    if (!alreadyLinked) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        const depth = (window.location.pathname.match(/\//g) || []).length - 1;
+        const prefix = depth > 1 ? '../'.repeat(depth - 1) : '';
+        link.href = prefix + 'css/styles.css';
+        document.head.appendChild(link);
+    }
+})();
+
 // 3. Define the global toggle function
 window.appThemeToggle = function() {
     const htmlElement = document.documentElement;

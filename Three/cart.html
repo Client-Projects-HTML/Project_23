@@ -41,9 +41,6 @@
 <body class="bg-hub-light dark:bg-slate-900 text-hub-dark dark:text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
   <!-- HEADER -->
-    <!-- MAIN REDESIGNED NAVIGATION BAR (MANDATORY MENU: Home | Shop | Categories | Deals | Blog | Account) -->
-    <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
-    <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
   <header class="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-hub-border dark:border-slate-800 shadow-md transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
@@ -53,12 +50,12 @@
           <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5"></i>
         </div>
         <div>
-          <span class="font-extrabold text-sm sm:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          <span class="font-black text-base sm:text-xl lg:text-2xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
         </div>
       </a>
 
       <!-- 2. NAVIGATION MENU: Home | Shop | Categories | Deals | Blog | Contact -->
-      <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700 dark:text-slate-200">
+      <nav class="hidden lg:flex items-center gap-1 text-xs sm:text-sm lg:text-base font-bold text-slate-700 dark:text-slate-200">
         
         <!-- 1. HOME -->
         <div class="relative group py-2">
@@ -73,8 +70,8 @@
                 <i data-lucide="store" class="w-4 h-4"></i>
               </div>
               <div>
-                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
-                <span class="text-[10px] text-slate-400 font-normal">Hybrid store, products & booking</span>
+                <span class="block text-xs sm:text-sm font-bold text-hub-dark dark:text-white">Home V1: Sales & Repair</span>
+                <span class="text-xs text-slate-400 font-normal">Hybrid store, products & booking</span>
               </div>
             </a>
             <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1">
@@ -82,15 +79,15 @@
                 <i data-lucide="shield-alert" class="w-4 h-4"></i>
               </div>
               <div>
-                <span class="block text-xs font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
-                <span class="text-[10px] text-slate-400 font-normal">High-conversion repair focus</span>
+                <span class="block text-xs sm:text-sm font-bold text-hub-dark dark:text-white">Home V2: Emergency Repairs</span>
+                <span class="text-xs text-slate-400 font-normal">High-conversion repair focus</span>
               </div>
             </a>
           </div>
         </div>
 
         <!-- 2. SHOP -->
-        <a href="shop.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-shop" class="flex items-center gap-1.5 px-3 py-2 rounded-xl font-extrabold transition-all hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue">
+        <a href="shop.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-shop">
           Shop
         </a>
 
@@ -121,7 +118,7 @@
         <!-- CART BUTTON -->
         <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
           <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[9px] font-extrabold rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+          <span id="cartBadge" class="absolute -top-1 -right-1 w-4 h-4 bg-hub-orange text-white text-[11px] sm:text-xs font-black rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
         </a>
 
         <!-- === TOGGLES === -->
@@ -135,18 +132,18 @@
           </button>
         </div>
 
-        <!-- LOGIN BUTTON -->
-        <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
+        <!-- LOGIN BUTTON (Commented out) -->
+        <!-- <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
           <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
-        </a>
+        </a> -->
       </div>
     </div>
   </header>
 
   <!-- MAIN CART CONTENT -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 w-full pt-28 sm:pt-32 pb-16">
-    <h1 class="text-2xl font-extrabold mb-6 flex items-center gap-2">
-      <i data-lucide="shopping-cart" class="w-6 h-6 text-hub-blue"></i> Your Cart
+    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 flex items-center gap-3">
+      <i data-lucide="shopping-cart" class="w-7 h-7 sm:w-9 sm:h-9 text-hub-blue"></i> Your Cart
     </h1>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -161,9 +158,9 @@
           <div class="w-16 h-16 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto text-slate-400">
             <i data-lucide="shopping-bag" class="w-8 h-8"></i>
           </div>
-          <h2 class="text-lg font-bold">Your cart is empty</h2>
-          <p class="text-xs text-slate-400">Looks like you haven't added any products to your cart yet.</p>
-          <a href="shop.html" class="inline-block px-6 py-2.5 rounded-xl bg-hub-blue text-white text-xs font-bold shadow-md hover:bg-hub-blueDark transition-all">
+          <h2 class="text-lg sm:text-xl md:text-2xl font-bold">Your cart is empty</h2>
+          <p class="text-xs sm:text-sm md:text-base text-slate-400">Looks like you haven't added any products to your cart yet.</p>
+          <a href="shop.html" class="inline-block px-6 py-3 rounded-xl bg-hub-blue text-white text-xs sm:text-sm md:text-base font-bold shadow-md hover:bg-hub-blueDark transition-all">
             Browse Appliances
           </a>
         </div>
@@ -171,9 +168,9 @@
 
       <!-- ORDER SUMMARY SIDEBAR -->
       <div id="cartSummary" class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-hub-border dark:border-slate-700 h-fit space-y-4">
-        <h2 class="font-extrabold text-base border-b border-slate-100 dark:border-slate-700 pb-3">Order Summary</h2>
+        <h2 class="font-extrabold text-base sm:text-lg md:text-xl border-b border-slate-100 dark:border-slate-700 pb-3">Order Summary</h2>
         
-        <div class="space-y-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+        <div class="space-y-3 text-xs sm:text-sm md:text-base font-medium text-slate-500 dark:text-slate-400">
           <div class="flex justify-between">
             <span>Subtotal</span>
             <span id="subtotalVal" class="font-bold text-hub-dark dark:text-white">$0.00</span>
@@ -185,19 +182,18 @@
         </div>
 
         <div class="border-t border-slate-100 dark:border-slate-700 pt-3 flex justify-between items-center">
-          <span class="font-bold text-sm">Total</span>
-          <span id="totalVal" class="font-extrabold text-xl text-hub-blue">$0.00</span>
+          <span class="font-bold text-sm sm:text-base md:text-lg">Total</span>
+          <span id="totalVal" class="font-black text-xl sm:text-2xl md:text-3xl text-hub-blue">$0.00</span>
         </div>
 
-        <button onclick="checkout()" class="w-full py-3 rounded-2xl bg-hub-orange text-white text-xs font-bold shadow-md hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
+        <button onclick="checkout()" class="w-full py-3.5 rounded-2xl bg-hub-orange text-white text-xs sm:text-sm md:text-base font-bold shadow-md hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
           Proceed to Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
   </main>
-  <!-- FOOTER -->
-  <!-- FOOTER -->
-  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs mt-16">
+  <!-- GLOBAL FOOTER -->
+  <footer class="bg-slate-950/80 backdrop-blur-md text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm md:text-base mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -208,9 +204,9 @@
             <div class="w-9 h-9 rounded-full bg-hub-blue text-white flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
               <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
             </div>
-            <span class="font-extrabold text-xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
+            <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-white">Appliance <span class="text-hub-blue">Hub</span></span>
           </a>
-          <p class="leading-relaxed pr-4 text-slate-400 text-xs">
+          <p class="leading-relaxed pr-4 text-slate-400 text-xs sm:text-sm md:text-base">
             ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.
           </p>
           
@@ -245,8 +241,8 @@
 
         <!-- COLUMN 2: QUICK NAVIGATION -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Quick Navigation</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Quick Navigation</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
             <li><a href="shop.html" class="hover:text-white transition-colors">Shop</a></li>
             <li><a href="services.html" class="hover:text-white transition-colors">Book Repair Service</a></li>
@@ -257,8 +253,8 @@
 
         <!-- COLUMN 3: SHOP CATEGORIES -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Shop Categories</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Shop Categories</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="shop.html" class="hover:text-white transition-colors">All Products</a></li>
             <li><a href="categories.html#refrigerators" class="hover:text-white transition-colors">Refrigerators</a></li>
             <li><a href="categories.html#washing-machines" class="hover:text-white transition-colors">Washing Machines</a></li>
@@ -269,20 +265,20 @@
 
         <!-- COLUMN 4: CUSTOMER SUPPORT -->
         <div>
-          <h4 class="font-bold text-white mb-4 text-sm">Customer Support</h4>
-          <ul class="space-y-2.5 text-xs text-slate-400">
+          <h4 class="font-extrabold text-white mb-4 text-sm sm:text-base md:text-lg">Customer Support</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="contact.html" class="hover:text-white transition-colors">Help & FAQ Center</a></li>
             <li><a href="track-service.html" class="hover:text-white transition-colors">Live Order Tracking</a></li>
-            <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li>
+            <!-- <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li> -->
             <li><a href="404.html" class="hover:text-white transition-colors">Returns & Refunds</a></li>
-            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="coming-soon.html" class="hover:text-white transition-colors">Service Policy</a></li>
           </ul>
         </div>
 
       </div>
 
       <!-- BOTTOM BAR -->
-      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs text-slate-400">
+      <div class="pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left text-xs sm:text-sm md:text-base text-slate-400">
         <p>&copy; 2026 ApplianceHub Inc. All rights reserved.</p>
         <div class="flex items-center gap-1">
           <span>Developed by</span>
@@ -353,33 +349,32 @@
         const itemTotal = numericPrice * item.quantity;
         subtotal += itemTotal;
 
-        // Determine how to display the price correctly whether it was stored as string or number
         const displayPrice = typeof item.price === 'string' && item.price.includes('$') ? item.price : '$' + numericPrice.toFixed(2);
 
         return `
-          <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 border border-hub-border dark:border-slate-700 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-5 border border-hub-border dark:border-slate-700 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-4 w-full sm:w-auto">
-              <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-2xl bg-slate-100 dark:bg-slate-900 shrink-0">
+              <img src="${item.image}" alt="${item.name}" class="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-2xl bg-slate-100 dark:bg-slate-900 shrink-0">
               <div>
-                <h3 class="font-bold text-sm text-hub-dark dark:text-white">${item.name}</h3>
-                <span class="text-xs text-hub-blue font-extrabold">${displayPrice}</span>
+                <h3 class="font-extrabold text-sm sm:text-base md:text-lg text-hub-dark dark:text-white">${item.name}</h3>
+                <span class="text-xs sm:text-sm md:text-base text-hub-blue font-extrabold">${displayPrice}</span>
               </div>
             </div>
 
-            <div class="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-100 dark:border-slate-700">
+            <div class="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-100 dark:border-slate-700">
               <!-- QUANTITY CONTROLS -->
               <div class="flex items-center border border-hub-border dark:border-slate-700 rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-900">
-                <button onclick="changeQuantity('${item.id}', -1)" class="px-2.5 py-1 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs">-</button>
-                <span class="px-3 py-1 text-xs font-bold">${item.quantity}</span>
-                <button onclick="changeQuantity('${item.id}', 1)" class="px-2.5 py-1 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs">+</button>
+                <button onclick="changeQuantity('${item.id}', -1)" class="px-3 py-1.5 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm md:text-base">-</button>
+                <span class="px-3 py-1 text-xs sm:text-sm md:text-base font-bold">${item.quantity}</span>
+                <button onclick="changeQuantity('${item.id}', 1)" class="px-3 py-1.5 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm md:text-base">+</button>
               </div>
 
               <!-- ITEM TOTAL -->
-              <span class="font-extrabold text-sm min-w-[70px] text-right">$${itemTotal.toFixed(2)}</span>
+              <span class="font-black text-sm sm:text-base md:text-lg min-w-[70px] text-right text-hub-dark dark:text-white">$${itemTotal.toFixed(2)}</span>
 
               <!-- DELETE BUTTON -->
-              <button onclick="removeItem('${item.id}')" class="text-rose-500 hover:text-rose-700 p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-all" title="Remove Item">
-                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              <button onclick="removeItem('${item.id}')" class="text-rose-500 hover:text-rose-700 p-2 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-all" title="Remove Item">
+                <i data-lucide="trash-2" class="w-4 h-4 sm:w-5 sm:h-5"></i>
               </button>
             </div>
           </div>
