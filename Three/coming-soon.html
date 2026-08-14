@@ -49,28 +49,28 @@
   <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#EA580C]/15 rounded-full blur-3xl pointer-events-none"></div>
 
   <!-- STANDALONE COMING SOON CARD -->
-  <main class="w-full max-w-lg bg-white dark:bg-[#0f243a] border border-slate-200 dark:border-[#1d3d5f] rounded-[32px] p-6 sm:p-10 shadow-xl dark:shadow-2xl space-y-6 relative overflow-hidden z-10 my-auto text-center transition-colors duration-200">
+  <main class="w-full max-w-lg bg-white dark:bg-[#0f243a] border border-slate-200 dark:border-[#1d3d5f] rounded-[32px] p-4 sm:p-8 shadow-xl dark:shadow-2xl space-y-6 relative overflow-hidden z-10 my-auto text-center transition-colors duration-200">
     
     <!-- INSIDE CARD HEADER (BRAND LOGO + RTL & THEME TOGGLES) -->
-    <div class="flex items-center justify-between gap-4 pb-2">
+    <div class="flex items-center justify-between gap-2 sm:gap-4 pb-2">
       <!-- BRAND LOGO -->
-      <a href="index.html" class="inline-flex items-center gap-2.5 shrink-0 text-start">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0369A1] to-[#0284C7] text-white flex items-center justify-center font-bold text-sm shadow-md shadow-sky-600/30">
-          <i data-lucide="wrench" class="w-4 h-4"></i>
+      <a href="index.html" class="inline-flex items-center gap-2 shrink-0 text-start">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-gradient-to-tr from-[#0369A1] to-[#0284C7] text-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-md shadow-sky-600/30">
+          <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
         </div>
         <div class="leading-none">
-          <span class="font-extrabold text-sm tracking-wider uppercase text-slate-900 dark:text-white block">APPLIANCE<span class="text-[#0284C7]">HUB</span></span>
-          <span class="text-[9px] tracking-widest uppercase text-sky-600 dark:text-sky-400 font-bold block mt-0.5">SMART SERVICES & REPAIRS</span>
+          <span class="font-extrabold text-xs sm:text-sm tracking-wide uppercase text-slate-900 dark:text-white block">APPLIANCE<span class="text-[#0284C7]">HUB</span></span>
+          <span class="text-[8px] sm:text-[9px] tracking-wide uppercase text-sky-600 dark:text-sky-400 font-bold block mt-0.5">SMART SERVICES & REPAIRS</span>
         </div>
       </a>
 
       <!-- RTL & THEME TOGGLE BUTTONS -->
-      <div class="flex items-center gap-2">
-        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-900/60 hover:bg-slate-200 dark:hover:bg-slate-800 text-amber-500 dark:text-amber-400 transition-all shadow-sm" title="Toggle Dark/Light Mode">
-          <i data-lucide="sun" id="themeIcon" class="w-4 h-4"></i>
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-900/60 hover:bg-slate-200 dark:hover:bg-slate-800 text-amber-500 dark:text-amber-400 transition-all shadow-sm" title="Toggle Dark/Light Mode">
+          <i data-lucide="sun" id="themeIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
         </button>
-        <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-900/60 hover:bg-slate-200 dark:hover:bg-slate-800 text-sky-600 dark:text-[#0284C7] transition-all shadow-sm" title="Toggle Direction (LTR/RTL)">
-          <i data-lucide="globe" class="w-4 h-4"></i>
+        <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-900/60 hover:bg-slate-200 dark:hover:bg-slate-800 text-sky-600 dark:text-[#0284C7] transition-all shadow-sm" title="Toggle Direction (LTR/RTL)">
+          <i data-lucide="globe" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
         </button>
       </div>
     </div>
@@ -108,10 +108,10 @@
 
     <!-- NOTIFY FORM & ACTION -->
     <div class="space-y-4 pt-2">
-      <form onsubmit="event.preventDefault(); alert('Thank you! We will notify you upon launch.');" class="max-w-sm mx-auto">
-        <div class="rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 p-1.5 flex items-center shadow-lg">
-          <input type="email" required placeholder="Get notified when we launch..." class="flex-1 px-4 py-2 text-xs sm:text-sm text-slate-900 dark:text-white bg-transparent focus:outline-none placeholder:text-slate-400 font-medium">
-          <button type="submit" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#EA580C] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all whitespace-nowrap">
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will notify you upon launch.');" class="max-w-sm mx-auto w-full">
+        <div class="rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 p-1 sm:p-1.5 flex items-center shadow-lg w-full overflow-hidden">
+          <input type="email" required placeholder="Enter your email..." class="flex-1 min-w-0 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-slate-900 dark:text-white bg-transparent focus:outline-none placeholder:text-slate-400 font-medium truncate">
+          <button type="submit" class="shrink-0 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#EA580C] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all whitespace-nowrap">
             Notify Me
           </button>
         </div>
@@ -129,7 +129,7 @@
   </main>
 
   <!-- BOTTOM SIMPLE COPYRIGHT & CREDIT -->
-  <div class="mt-8 text-center text-xs text-slate-400 z-10 space-y-1">
+  <div class="mt-8 text-center text-xs text-slate-500 dark:text-slate-400 z-10 space-y-1">
     <p>&copy; 2026 ApplianceHub. All rights reserved.</p>
     <p>Developed by <a href="#" class="text-[#EA580C] font-semibold hover:underline">Abhivorn Technologies Pvt. Ltd.</a></p>
   </div>
