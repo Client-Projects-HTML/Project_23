@@ -130,7 +130,7 @@
         <!-- === TOGGLES === -->
         <div class="flex items-center gap-1 sm:gap-1.5">
           <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
-            <i data-lucide="globe" class="w-4 h-4"></i>
+            <i data-lucide="languages" class="w-4 h-4"></i>
           </button>
 
           <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
@@ -148,7 +148,7 @@
   </div>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-32 sm:pt-36 md:pt-40 pb-20 lg:pb-32 bg-gradient-to-br from-white via-sky-50 to-sky-100 dark:from-slate-900 dark:to-slate-800 overflow-hidden z-0">
+  <section class="relative pt-32 sm:pt-36 md:pt-40 pb-24 sm:pb-28 lg:pb-32 bg-gradient-to-br from-white via-sky-50 to-sky-100 dark:from-slate-900 dark:to-slate-800 overflow-hidden z-0">
     <!-- DOT GRID PATTERN -->
     <div class="absolute inset-0 opacity-[0.03] dark:opacity-10 pointer-events-none z-0" style="background-image: radial-gradient(#000 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
     
@@ -195,17 +195,17 @@
       </div>
 
       <!-- HERO IMAGE / QUICK STAT CARD -->
-      <div class="relative lg:h-[600px] flex items-center justify-center animate-fade-in-up animate-delay-1 -mt-8 lg:-mt-16">
+      <div class="relative lg:h-[560px] flex items-center justify-center animate-fade-in-up animate-delay-1 mt-4 lg:-mt-12 pb-4 lg:pb-0">
         <div class="relative w-full max-w-md lg:max-w-none">
           <img src="https://plus.unsplash.com/premium_photo-1661342474567-f84bb6959d9f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Appliance Repair Service" class="w-full h-auto rounded-3xl shadow-2xl object-cover">
           
-          <!-- OVERLAY CARD -->
-          <div class="absolute -bottom-6 -left-6 sm:-left-12 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-100 dark:border-slate-700 max-w-[280px] animate-float">
-            <div class="w-12 h-12 rounded-xl bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0">
-              <i data-lucide="clock" class="w-6 h-6"></i>
+          <!-- OVERLAY CARD (Responsive Positioning to prevent 360px & 768px clipping) -->
+          <div class="absolute bottom-4 left-4 right-4 sm:right-auto sm:left-4 sm:bottom-4 md:bottom-2 md:left-2 lg:-bottom-6 lg:-left-8 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3 sm:gap-4 border border-slate-100 dark:border-slate-700 max-w-[calc(100%-2rem)] sm:max-w-[280px] animate-float z-20">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="w-5 h-5 sm:w-6 sm:h-6"></i>
             </div>
-            <div class="flex flex-col text-xs sm:text-sm">
-              <span class="text-xs text-slate-500 font-medium">Service Promise</span>
+            <div class="flex flex-col text-xs sm:text-sm min-w-0">
+              <span class="text-[11px] sm:text-xs text-slate-500 font-medium">Service Promise</span>
               <strong class="text-hub-dark dark:text-white leading-tight font-extrabold text-xs sm:text-sm md:text-base">Technician arrives in under 90 minutes</strong>
             </div>
           </div>
@@ -228,44 +228,68 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- CATEGORY 1: REFRIGERATORS -->
-        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-1">
-          <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1721613877687-c9099b698faa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Refrigerators" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1 text-xs font-extrabold rounded-full text-slate-900 dark:text-white border border-slate-200/50 dark:border-slate-700/50">Top Seller</span>
+        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-1 flex flex-col h-full justify-between">
+          <div class="flex flex-col flex-1">
+            <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900 shrink-0">
+              <img src="https://images.unsplash.com/photo-1721613877687-c9099b698faa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Refrigerators" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1 text-xs font-extrabold rounded-full text-slate-900 dark:text-white border border-slate-200/50 dark:border-slate-700/50">Top Seller</span>
+            </div>
+            <h3 class="text-lg md:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 min-h-[2.25rem] md:min-h-[3.25rem] lg:min-h-[2rem] flex items-center">Refrigerators</h3>
+            <p class="text-xs md:text-xs lg:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5 min-h-[2.5rem] md:min-h-[2.75rem] lg:min-h-[2.5rem] line-clamp-2">French door, side-by-side, and bottom freezer models.</p>
           </div>
-          <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Refrigerators</h3>
-          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">French door, side-by-side, and bottom freezer models.</p>
-          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
-            <span class="text-xs sm:text-sm md:text-base font-extrabold text-hub-blue">Starts from $699</span>
-            <a href="shop.html?cat=refrigerators" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-3.5 mt-auto shrink-0">
+            <div class="flex flex-col">
+              <span class="text-[10px] md:text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Starts from</span>
+              <span class="text-sm md:text-base lg:text-lg font-black text-hub-blue">$699</span>
+            </div>
+            <a href="shop.html?cat=refrigerators" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-700 hover:bg-hub-blue hover:text-white dark:hover:bg-hub-blue border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-white font-extrabold text-xs md:text-xs lg:text-sm shadow-sm transition-all group/btn shrink-0">
+              <span>Shop</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform"></i>
+            </a>
           </div>
         </div>
 
         <!-- CATEGORY 2: WASHING MACHINES -->
-        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-2">
-          <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=600&auto=format&fit=crop" alt="Washing Machines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-hub-blue text-white px-3 py-1 text-[11px] sm:text-xs font-extrabold rounded-full animate-pulse">New Arrival</span>
+        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-2 flex flex-col h-full justify-between">
+          <div class="flex flex-col flex-1">
+            <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900 shrink-0">
+              <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=600&auto=format&fit=crop" alt="Washing Machines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-hub-blue text-white px-3 py-1 text-[11px] sm:text-xs font-extrabold rounded-full animate-pulse">New Arrival</span>
+            </div>
+            <h3 class="text-lg md:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 min-h-[2.25rem] md:min-h-[3.25rem] lg:min-h-[2rem] flex items-center">Washing Machines</h3>
+            <p class="text-xs md:text-xs lg:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5 min-h-[2.5rem] md:min-h-[2.75rem] lg:min-h-[2.5rem] line-clamp-2">Front-load, top-load washers and smart dryers.</p>
           </div>
-          <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Washing Machines</h3>
-          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">Front-load, top-load washers and smart dryers.</p>
-          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
-            <span class="text-xs sm:text-sm md:text-base font-extrabold text-hub-blue">Starts from $499</span>
-            <a href="shop.html?cat=washing-machines" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-3.5 mt-auto shrink-0">
+            <div class="flex flex-col">
+              <span class="text-[10px] md:text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Starts from</span>
+              <span class="text-sm md:text-base lg:text-lg font-black text-hub-blue">$499</span>
+            </div>
+            <a href="shop.html?cat=washing-machines" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-700 hover:bg-hub-blue hover:text-white dark:hover:bg-hub-blue border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-white font-extrabold text-xs md:text-xs lg:text-sm shadow-sm transition-all group/btn shrink-0">
+              <span>Shop</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform"></i>
+            </a>
           </div>
         </div>
 
         <!-- CATEGORY 3: AIR CONDITIONERS -->
-        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-3">
-          <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900">
-            <img src="https://images.unsplash.com/photo-1762341123870-d706f257a12e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Air Conditioners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 text-[11px] sm:text-xs font-extrabold rounded-full">Energy Saving</span>
+        <div class="group bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-4 sm:p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all animate-fade-in-up animate-delay-3 flex flex-col h-full justify-between">
+          <div class="flex flex-col flex-1">
+            <div class="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-900 shrink-0">
+              <img src="https://images.unsplash.com/photo-1762341123870-d706f257a12e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Air Conditioners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1 text-[11px] sm:text-xs font-extrabold rounded-full">Energy Saving</span>
+            </div>
+            <h3 class="text-lg md:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 min-h-[2.25rem] md:min-h-[3.25rem] lg:min-h-[2rem] flex items-center">Air Conditioners</h3>
+            <p class="text-xs md:text-xs lg:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5 min-h-[2.5rem] md:min-h-[2.75rem] lg:min-h-[2.5rem] line-clamp-2">Inverter Split ACs, Window ACs, and Climate Systems.</p>
           </div>
-          <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Air Conditioners</h3>
-          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">Inverter Split ACs, Window ACs, and Climate Systems.</p>
-          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-4 mt-auto">
-            <span class="text-xs sm:text-sm md:text-base font-extrabold text-hub-blue">Starts from $399</span>
-            <a href="shop.html?cat=air-conditioners" class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm md:text-base hover:text-hub-blue dark:hover:text-hub-blue transition-colors">Shop <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+          <div class="flex items-center justify-between border-t border-slate-200 dark:border-slate-700/50 pt-3.5 mt-auto shrink-0">
+            <div class="flex flex-col">
+              <span class="text-[10px] md:text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Starts from</span>
+              <span class="text-sm md:text-base lg:text-lg font-black text-hub-blue">$399</span>
+            </div>
+            <a href="shop.html?cat=air-conditioners" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-700 hover:bg-hub-blue hover:text-white dark:hover:bg-hub-blue border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-white font-extrabold text-xs md:text-xs lg:text-sm shadow-sm transition-all group/btn shrink-0">
+              <span>Shop</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform"></i>
+            </a>
           </div>
         </div>
 

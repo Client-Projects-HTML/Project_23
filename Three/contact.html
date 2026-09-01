@@ -151,7 +151,7 @@
         <!-- === TOGGLES === -->
         <div class="flex items-center gap-1 sm:gap-1.5">
           <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
-            <i data-lucide="globe" class="w-4 h-4"></i>
+            <i data-lucide="languages" class="w-4 h-4"></i>
           </button>
 
           <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
@@ -169,108 +169,133 @@
   </div>
 
   <!-- MAIN CONTACT SECTION -->
-  <main class="relative overflow-hidden pt-36 sm:pt-40 md:pt-48 pb-20 lg:pb-28">
+  <main class="relative overflow-hidden pt-36 sm:pt-40 md:pt-44 pb-20 lg:pb-28">
     <!-- Premium Background Effects -->
     <div class="absolute inset-0 -z-10 bg-slate-50 dark:bg-slate-950">
       <!-- Glow blobs -->
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-hub-blue/20 dark:bg-hub-blue/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-lighten animate-pulse"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-500/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-lighten animate-pulse" style="animation-delay: 2s;"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-hub-blue/20 dark:bg-hub-blue/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-lighten animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-500/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-lighten animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
-    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-24 items-start">
+    <div class="max-w-[97%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- LEFT COLUMN (TEXT + CONTACT INFO CARDS) -->
-        <div class="md:col-span-5 space-y-6 order-2 md:order-1">
-          <div class="relative">
-            <span class="text-xs sm:text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-hub-blue to-cyan-500 uppercase tracking-widest block mb-2 drop-shadow-sm">Get In Touch</span>
-            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#0B132B] dark:text-white tracking-tight mb-3 leading-tight">We'd Love To Hear About <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-hub-blue to-cyan-500">Your Project</span></h1>
-            <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm md:text-base font-medium leading-relaxed max-w-md">
-              Have a question about your appliance purchase, store hours, or service repair availability? Reach out below.
+        <div class="lg:col-span-6 space-y-6">
+          <div class="relative space-y-3">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hub-blue/10 border border-hub-blue/30 text-hub-blue dark:text-sky-400 text-xs sm:text-sm font-extrabold tracking-wide uppercase">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Get In Touch
+            </span>
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+              We'd Love To Hear About <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-hub-blue to-cyan-500">Your Project</span>
+            </h1>
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-medium">
+              Have a question about your appliance purchase, store hours, or service repair availability? Reach out below and our certified technicians will assist you promptly.
             </p>
           </div>
 
-          <div class="space-y-3.5 pt-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
             <!-- 1. Office Address Card -->
-            <div class="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 p-4 sm:p-4.5 rounded-2xl flex items-center gap-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgb(2,132,199,0.12)] transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-hub-blue/20 to-cyan-500/20 text-hub-blue flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <div class="group bg-white dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 p-4 rounded-2xl flex items-start gap-3.5 shadow-sm hover:shadow-md hover:border-hub-blue/40 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-hub-blue/10 dark:bg-hub-blue/20 text-hub-blue flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
               </div>
               <div class="min-w-0 flex-1">
-                <span class="text-xs font-bold text-[#0B132B] dark:text-white block mb-0.5">Office Address</span>
-                <span class="text-xs text-slate-500 dark:text-slate-400 block truncate">Jubilee Hills, Hyderabad, Telangana 500033</span>
+                <span class="text-xs font-extrabold text-slate-900 dark:text-white block mb-0.5">Office Address</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 block leading-relaxed">Jubilee Hills, Hyderabad, Telangana 500033</span>
               </div>
             </div>
 
             <!-- 2. Email Card -->
-            <div class="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 p-4 sm:p-4.5 rounded-2xl flex items-center gap-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgb(16,185,129,0.12)] transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-400/20 text-emerald-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <div class="group bg-white dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 p-4 rounded-2xl flex items-start gap-3.5 shadow-sm hover:shadow-md hover:border-emerald-500/40 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
               <div class="min-w-0 flex-1">
-                <span class="text-xs font-bold text-[#0B132B] dark:text-white block mb-0.5">Email</span>
-                <a href="mailto:support@appliancehub.com" class="text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-500 transition-colors block break-all">support@appliancehub.com</a>
+                <span class="text-xs font-extrabold text-slate-900 dark:text-white block mb-0.5">Email Support</span>
+                <a href="mailto:support@appliancehub.com" class="text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-500 transition-colors block break-all leading-relaxed">support@appliancehub.com</a>
               </div>
             </div>
 
             <!-- 3. Phone Card -->
-            <div class="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 p-4 sm:p-4.5 rounded-2xl flex items-center gap-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgb(2,132,199,0.12)] transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-hub-blue/20 to-cyan-500/20 text-hub-blue flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <div class="group bg-white dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 p-4 rounded-2xl flex items-start gap-3.5 shadow-sm hover:shadow-md hover:border-hub-blue/40 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-hub-blue/10 dark:bg-hub-blue/20 text-hub-blue flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <i data-lucide="phone" class="w-5 h-5"></i>
               </div>
               <div class="min-w-0 flex-1">
-                <span class="text-xs font-bold text-[#0B132B] dark:text-white block mb-0.5">Phone</span>
-                <a href="tel:18002775426" class="text-xs text-slate-500 dark:text-slate-400 hover:text-hub-blue transition-colors block truncate">+91 98765 43210 / 1-800-APPLIANCE</a>
+                <span class="text-xs font-extrabold text-slate-900 dark:text-white block mb-0.5">Helpline Phone</span>
+                <a href="tel:18002775426" class="text-xs text-slate-500 dark:text-slate-400 hover:text-hub-blue transition-colors block leading-relaxed">+91 98765 43210 / 1-800-APPLIANCE</a>
               </div>
             </div>
 
             <!-- 4. Working Hours Card -->
-            <div class="group bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 p-4 sm:p-4.5 rounded-2xl flex items-center gap-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_30px_rgb(234,88,12,0.12)] transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
-                <i data-lucide="clock" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <div class="group bg-white dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 p-4 rounded-2xl flex items-start gap-3.5 shadow-sm hover:shadow-md hover:border-amber-500/40 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                <i data-lucide="clock" class="w-5 h-5"></i>
               </div>
               <div class="min-w-0 flex-1">
-                <span class="text-xs font-bold text-[#0B132B] dark:text-white block mb-0.5">Working Hours</span>
-                <span class="text-xs text-slate-500 dark:text-slate-400 block truncate">Monâ€“Sat, 9:00 AM â€“ 7:00 PM</span>
+                <span class="text-xs font-extrabold text-slate-900 dark:text-white block mb-0.5">Operating Hours</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 block leading-relaxed">Mon–Sat: 9:00 AM – 7:00 PM</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: FORM (Positioned first on mobile, aligned on desktop) -->
-        <div class="md:col-span-7 lg:col-span-6 max-w-[480px] w-full mx-auto md:mx-0 md:mt-24 lg:mt-24 relative group order-1 md:order-2 mb-14 sm:mb-20 md:mb-12">
+        <!-- RIGHT COLUMN: FORM (Balanced & Centered Grid) -->
+        <div class="lg:col-span-6 w-full relative group">
           <!-- Ambient Glow behind form -->
-          <div class="absolute -inset-1 bg-gradient-to-r from-hub-blue to-cyan-400 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+          <div class="absolute -inset-1 bg-gradient-to-r from-hub-blue to-cyan-400 rounded-3xl blur opacity-20 dark:opacity-30 group-hover:opacity-40 transition duration-700"></div>
           
-          <div class="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-white/60 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-none">
-            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" class="space-y-4">
+          <div class="relative bg-white dark:bg-slate-900/90 backdrop-blur-2xl p-6 sm:p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl dark:shadow-slate-950/60">
+            <div class="mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white">Send Us a Direct Message</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Fill in your information and our support team will get back to you within 15 minutes.</p>
+            </div>
+
+            <!-- Custom Success Message -->
+            <div id="contactSuccess" class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 p-4 rounded-2xl flex items-center gap-3 text-xs sm:text-sm font-bold mb-5" style="display: none;">
+              <i data-lucide="check-circle" class="w-5 h-5 shrink-0"></i>
+              <span>Thank you! Your message has been sent successfully. An agent will respond shortly.</span>
+            </div>
+
+            <form onsubmit="event.preventDefault(); document.getElementById('contactSuccess').style.display = 'flex'; this.reset(); if(window.lucide) lucide.createIcons();" class="space-y-4">
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="group/input relative">
                   <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Full Name <span class="text-hub-orange">*</span></label>
-                  <input type="text" placeholder="Full Name" required class="w-full rounded-xl sm:rounded-2xl border border-slate-200/50 dark:border-slate-700/50 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 transition-all placeholder:text-slate-400 placeholder:text-[11px] shadow-inner">
+                  <input type="text" placeholder="John Doe" required class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 focus:border-hub-blue transition-all placeholder:text-slate-400">
                 </div>
                 <div class="group/input relative">
-                  <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Email <span class="text-hub-orange">*</span></label>
-                  <input type="email" placeholder="Email Address" required class="w-full rounded-xl sm:rounded-2xl border border-slate-200/50 dark:border-slate-700/50 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 transition-all placeholder:text-slate-400 placeholder:text-[11px] shadow-inner">
+                  <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Email Address <span class="text-hub-orange">*</span></label>
+                  <input type="email" placeholder="john@example.com" required class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 focus:border-hub-blue transition-all placeholder:text-slate-400">
                 </div>
               </div>
 
-              <div class="group/input relative">
-                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Phone <span class="text-hub-orange">*</span></label>
-                <input type="tel" placeholder="Phone Number" required class="w-full rounded-xl sm:rounded-2xl border border-slate-200/50 dark:border-slate-700/50 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 transition-all placeholder:text-slate-400 placeholder:text-[11px] shadow-inner">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="group/input relative">
+                  <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Phone Number <span class="text-hub-orange">*</span></label>
+                  <input type="tel" placeholder="+91 98765 43210" required class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 focus:border-hub-blue transition-all placeholder:text-slate-400">
+                </div>
+                <div class="group/input relative">
+                  <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Inquiry Type</label>
+                  <select class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 focus:border-hub-blue transition-all">
+                    <option>General Customer Support</option>
+                    <option>Appliance Sales & Delivery</option>
+                    <option>Doorstep Repair Booking</option>
+                    <option>Warranty & Spare Parts</option>
+                  </select>
+                </div>
               </div>
 
               <div class="group/input relative">
                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 transition-colors group-focus-within/input:text-hub-blue">Message <span class="text-hub-orange">*</span></label>
-                <textarea rows="3" placeholder="Write your message..." required class="w-full rounded-xl sm:rounded-2xl border border-slate-200/50 dark:border-slate-700/50 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 transition-all resize-none placeholder:text-slate-400 placeholder:text-[11px] shadow-inner"></textarea>
+                <textarea rows="4" placeholder="How can our team help you with your appliances?" required class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-hub-blue/50 focus:border-hub-blue transition-all resize-none placeholder:text-slate-400"></textarea>
               </div>
 
-              <button type="submit" class="relative w-full py-3 sm:py-3.5 mt-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-hub-blue to-cyan-500 text-white text-xs sm:text-sm font-extrabold shadow-[0_0_20px_rgba(2,132,199,0.3)] hover:shadow-[0_0_30px_rgba(2,132,199,0.5)] hover:-translate-y-0.5 overflow-hidden transition-all duration-300 group/btn">
+              <button type="submit" class="relative w-full py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-hub-blue to-cyan-500 hover:from-hub-blueDark hover:to-cyan-600 text-white text-sm font-extrabold shadow-lg shadow-hub-blue/30 hover:shadow-xl hover:shadow-hub-blue/40 hover:-translate-y-0.5 overflow-hidden transition-all duration-300 group/btn">
                 <span class="relative z-10 flex items-center justify-center gap-2">
-                  Send Message <i data-lucide="send" class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform"></i>
+                  Send Message <i data-lucide="send" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
                 </span>
-                <div class="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 z-0"></div>
               </button>
 
             </form>

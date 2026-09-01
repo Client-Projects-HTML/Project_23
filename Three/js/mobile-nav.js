@@ -67,14 +67,22 @@ document.addEventListener('DOMContentLoaded', function () {
     navClone.querySelectorAll('.group').forEach(function (g) { g.classList.remove('group'); });
 
     // Process containers with sub-menus (e.g. Home)
+    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    if (currentPath === '') currentPath = 'index.html';
+
     var navItems = Array.from(navClone.children);
     navItems.forEach(function(item) {
       var dropdownMenu = item.querySelector('div[class*="absolute"]');
       var triggerBtn = item.querySelector('a') || item.querySelector('button');
 
       if (dropdownMenu && triggerBtn) {
-        // Start COLLAPSED (hidden) by default
-        dropdownMenu.className = 'hidden mt-2 ml-4 space-y-1 border-l-2 border-hub-blue/20 dark:border-slate-700 pl-3 static shadow-none bg-transparent p-0';
+        var isHomeSection = (currentPath === 'index.html' || currentPath === 'home-v2.html');
+        // Expand if on home page variants, otherwise start collapsed
+        if (isHomeSection) {
+          dropdownMenu.className = 'block mt-2 ml-4 space-y-1 border-l-2 border-hub-blue/20 dark:border-slate-700 pl-3 static shadow-none bg-transparent p-0';
+        } else {
+          dropdownMenu.className = 'hidden mt-2 ml-4 space-y-1 border-l-2 border-hub-blue/20 dark:border-slate-700 pl-3 static shadow-none bg-transparent p-0';
+        }
         triggerBtn.className = 'flex items-center justify-between w-full p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-hub-blue transition-all cursor-pointer';
 
         // Group Icon + Span together so "Home" sits right next to the home icon!
@@ -94,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
           triggerBtn.innerHTML = '';
           triggerBtn.appendChild(labelGroup);
           if (chevron) {
+            if (isHomeSection) chevron.style.transform = 'rotate(180deg)';
             triggerBtn.appendChild(chevron);
           }
         }
@@ -130,14 +139,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Highlight Active Link & Clicked Link inside Mobile Drawer
-    var currentPath = window.location.pathname.split('/').pop() || 'index.html';
     navClone.querySelectorAll('a').forEach(function(link) {
       var href = link.getAttribute('href');
       if (!href || href === '#' || href.startsWith('javascript:')) return;
       var linkFile = href.split('/').pop();
 
-      var isMatch = (currentPath === linkFile);
-      if ((linkFile === 'index.html' || href === 'index.html') && (currentPath === 'index.html' || currentPath === 'home-v2.html' || currentPath === '')) {
+      var isMatch = false;
+      if (linkFile === 'home-v2.html' && currentPath === 'home-v2.html') {
+        isMatch = true;
+      } else if (linkFile === 'index.html' && (currentPath === 'index.html' || currentPath === '')) {
+        isMatch = true;
+      } else if (linkFile === currentPath) {
         isMatch = true;
       } else if (linkFile === 'shop.html' && currentPath === 'product-detail.html') {
         isMatch = true;
@@ -145,16 +157,21 @@ document.addEventListener('DOMContentLoaded', function () {
         isMatch = true;
       }
 
+      // If this is the parent Home toggle and we are on any home page
+      if (link.querySelector('[data-lucide="chevron-down"]') && (currentPath === 'index.html' || currentPath === 'home-v2.html')) {
+        isMatch = true;
+      }
+
       if (isMatch) {
-        link.classList.add('bg-hub-blue/10', 'text-hub-blue', 'font-extrabold');
+        link.classList.add('text-hub-blue', 'font-extrabold');
         link.classList.remove('text-slate-700', 'dark:text-slate-200');
       }
 
       link.addEventListener('click', function() {
         navClone.querySelectorAll('a').forEach(function(other) {
-          other.classList.remove('bg-hub-blue/10', 'text-hub-blue', 'font-extrabold');
+          other.classList.remove('text-hub-blue', 'font-extrabold');
         });
-        link.classList.add('bg-hub-blue/10', 'text-hub-blue', 'font-extrabold');
+        link.classList.add('text-hub-blue', 'font-extrabold');
       });
     });
 
