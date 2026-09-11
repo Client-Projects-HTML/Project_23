@@ -50,21 +50,21 @@
 
   <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
   <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
-  <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+  <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800 transition-all shadow-sm">
+    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- 1. BRAND LOGO -->
       <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
-        <div class="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
+        <div class="w-7 h-7 sm:w-8.5 sm:h-8.5 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
           <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5 rtl:-scale-x-100"></i>
         </div>
         <div>
-          <span class="font-black text-base sm:text-xl lg:text-2xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          <span class="font-black text-sm sm:text-lg lg:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
         </div>
       </a>
 
       <!-- 2. NAVIGATION MENU: Home | Shop | Categories | Deals | Blog | Contact -->
-      <nav class="hidden lg:flex items-center gap-1 text-xs sm:text-sm lg:text-base font-bold text-slate-700 dark:text-slate-200">
+      <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs xl:text-sm 2xl:text-base font-bold text-slate-700 dark:text-slate-200">
         
         <!-- 1. HOME -->
         <div class="relative group py-2">
@@ -95,28 +95,28 @@
           </div>
         </div>
 
-        <!-- 2. SHOP -->
+        <!-- 2. SHOP (ACTIVE) -->
         <a href="shop.html" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-hub-blue font-extrabold transition-all" id="nav-shop">
           Shop
         </a>
 
         <!-- 3. CATEGORIES -->
-        <a href="categories.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-categories">
+        <a href="categories.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-categories">
           Categories
         </a>
 
         <!-- 4. DEALS -->
-        <a href="deals.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-deals">
+        <a href="deals.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-deals">
           Deals
         </a>
 
         <!-- 5. BLOG -->
-        <a href="blog.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-blog">
+        <a href="blog.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-blog">
           Blog
         </a>
 
         <!-- 6. CONTACT -->
-        <a href="contact.html" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
+        <a href="contact.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
           Contact
         </a>
       </nav>
@@ -131,23 +131,23 @@
         </a>
 
         <!-- === TOGGLES === -->
-          <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
-            <i data-lucide="languages" class="w-4 h-4"></i>
-          </button>
+        <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
+          <i data-lucide="languages" class="w-4 h-4"></i>
+        </button>
 
-          <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
-            <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
-          </button>
-        </div>
+        <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
+          <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+        </button>
+
         <!-- BOOK SERVICE BUTTON -->
         <a href="services.html" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 xl:px-4 xl:py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0 hover:scale-105">
-          <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Book Service
+          <i data-lucide="wrench" class="w-3.5 h-3.5 rtl:-scale-x-100"></i> Book Service
         </a>
 
-        <!-- LOGIN BUTTON (Commented out) -->
-        <!-- <a href="login.html" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0">
-          <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Login
-        </a> -->
+        <!-- MOBILE MENU BUTTON -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" aria-label="Toggle Navigation Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
     </div>
   </header>

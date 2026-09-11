@@ -176,17 +176,21 @@
 
         <!-- QUICK ANCHOR CHIPS -->
         <div class="flex flex-wrap justify-center gap-2.5 pt-4">
-          <a href="#refrigerators" class="px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-hub-blue text-slate-300 hover:text-white text-xs font-bold border border-slate-700/80 transition-all flex items-center gap-2">
-            <i data-lucide="refrigerator" class="w-4 h-4 text-hub-blue group-hover:text-white"></i> Refrigerators
+          <a href="#refrigerators" class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/80 hover:bg-hub-blue text-slate-200 hover:text-white text-xs sm:text-sm font-bold border border-slate-700/80 hover:border-hub-blue transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-hub-blue/30">
+            <i data-lucide="refrigerator" class="w-4 h-4 text-sky-400 group-hover:text-white transition-colors"></i>
+            <span>Refrigerators</span>
           </a>
-          <a href="#washing-machines" class="px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-hub-blue text-slate-300 hover:text-white text-xs font-bold border border-slate-700/80 transition-all flex items-center gap-2">
-            <i data-lucide="washing-machine" class="w-4 h-4 text-emerald-400"></i> Washing Machines
+          <a href="#washing-machines" class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/80 hover:bg-hub-blue text-slate-200 hover:text-white text-xs sm:text-sm font-bold border border-slate-700/80 hover:border-hub-blue transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-hub-blue/30">
+            <i data-lucide="washing-machine" class="w-4 h-4 text-emerald-400 group-hover:text-white transition-colors"></i>
+            <span>Washing Machines</span>
           </a>
-          <a href="#air-conditioners" class="px-4 py-2 rounded-xl bg-slate-800/80 hover:bg-hub-blue text-slate-300 hover:text-white text-xs font-bold border border-slate-700/80 transition-all flex items-center gap-2">
-            <i data-lucide="wind" class="w-4 h-4 text-cyan-400"></i> Air Conditioners
+          <a href="#air-conditioners" class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/80 hover:bg-hub-blue text-slate-200 hover:text-white text-xs sm:text-sm font-bold border border-slate-700/80 hover:border-hub-blue transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-hub-blue/30">
+            <i data-lucide="wind" class="w-4 h-4 text-cyan-400 group-hover:text-white transition-colors"></i>
+            <span>Air Conditioners</span>
           </a>
-          <a href="#comparison" class="px-4 py-2 rounded-xl bg-hub-orange/20 hover:bg-hub-orange text-hub-orange hover:text-white text-xs font-bold border border-hub-orange/30 transition-all flex items-center gap-2">
-            <i data-lucide="sliders" class="w-4 h-4"></i> Brand Comparison Matrix
+          <a href="#comparison" class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-hub-orange/20 hover:bg-hub-orange text-amber-300 hover:text-white text-xs sm:text-sm font-bold border border-hub-orange/40 hover:border-hub-orange transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-hub-orange/30">
+            <i data-lucide="sliders" class="w-4 h-4 text-amber-400 group-hover:text-white transition-colors"></i>
+            <span>Brand Comparison Matrix</span>
           </a>
         </div>
       </div>
@@ -214,8 +218,8 @@
       <!-- FILTER SWITCH TABS -->
       <div class="flex justify-center gap-2 mb-8">
         <button onclick="switchComparisonCategory('refrigerators')" id="tab-refrigerators" class="px-4 py-2 rounded-xl text-xs font-bold bg-hub-blue text-white shadow-md shadow-hub-blue/20 transition-all">Refrigerators</button>
-        <button onclick="switchComparisonCategory('washers')" id="tab-washers" class="px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all">Washing Machines</button>
-        <button onclick="switchComparisonCategory('acs')" id="tab-acs" class="px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all">Air Conditioners</button>
+        <button onclick="switchComparisonCategory('washers')" id="tab-washers" class="px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-hub-blue dark:hover:text-white transition-all">Washing Machines</button>
+        <button onclick="switchComparisonCategory('acs')" id="tab-acs" class="px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-hub-blue dark:hover:text-white transition-all">Air Conditioners</button>
       </div>
 
       <!-- COMPARISON TABLE CONTAINER -->
@@ -498,9 +502,9 @@
       const btnAC = document.getElementById('tab-acs');
       const tbody = document.getElementById('comparisonTableBody');
 
-      btnFridge.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all";
-      btnWasher.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all";
-      btnAC.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 transition-all";
+      btnFridge.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-hub-blue dark:hover:text-white transition-all";
+      btnWasher.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-hub-blue dark:hover:text-white transition-all";
+      btnAC.className = "px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-hub-blue dark:hover:text-white transition-all";
 
       const activeClass = "px-4 py-2 rounded-xl text-xs font-bold bg-hub-blue text-white shadow-md shadow-hub-blue/20 transition-all";
 

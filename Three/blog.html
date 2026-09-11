@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <title>Blog | ApplianceHub</title>
+  <title>Blog & Appliance Care Guides | ApplianceHub</title>
 
   <!-- Google Fonts & Vanilla CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,297 +54,557 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-hub-blue selection:text-white transition-colors duration-200">
 
+  <!-- FIXED NAVIGATION HEADER -->
   <div class="fixed top-0 left-0 right-0 w-full z-50 shadow-md backdrop-blur-md bg-white/80 dark:bg-slate-900/80">
-  <!-- MAIN NAVIGATION BAR (Home | Shop | Categories | Deals | Blog | Contact) -->
-  <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800  transition-all shadow-sm">
-    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-      
-      <!-- 1. BRAND LOGO -->
-      <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0">
-        <div class="w-7 h-7 sm:w-8.5 sm:h-8.5 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
-          <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5 rtl:-scale-x-100"></i>
-        </div>
-        <div>
-          <span class="font-black text-sm sm:text-lg lg:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
-        </div>
-      </a>
-
-      <!-- 2. NAVIGATION MENU: Home | Shop | Categories | Deals | Blog | Contact -->
-      <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs xl:text-sm 2xl:text-base font-bold text-slate-700 dark:text-slate-200">
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-hub-border dark:border-slate-800 transition-all shadow-sm">
+      <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
-        <!-- 1. HOME -->
-        <div class="relative group py-2">
-          <a href="index.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-home">
-            <i data-lucide="home" class="w-4 h-4"></i>
-            <span>Home</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200"></i>
-          </a>
-          <div class="absolute top-full left-0 rtl:right-0 rtl:left-auto w-64 bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 rounded-2xl shadow-xl p-2 hidden group-hover:block transition-all duration-200 z-50 before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
-            <a href="index.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all relative z-10 block w-full cursor-pointer">
-              <div class="w-8 h-8 rounded-lg bg-hub-blue/10 text-hub-blue flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="store" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <span class="block text-xs sm:text-sm font-bold transition-colors">Home V1: Sales & Repair</span>
-                <span class="text-xs text-slate-400 font-normal pointer-events-none">Hybrid store, products & booking</span>
-              </div>
-            </a>
-            <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1 relative z-10 block w-full cursor-pointer">
-              <div class="w-8 h-8 rounded-lg bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="shield-alert" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <span class="block text-xs sm:text-sm font-bold transition-colors">Home V2: Emergency Repairs</span>
-                <span class="text-xs text-slate-400 font-normal pointer-events-none">High-conversion repair focus</span>
-              </div>
-            </a>
+        <!-- 1. BRAND LOGO -->
+        <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 shrink-0" id="nav-brand-logo">
+          <div class="w-7 h-7 sm:w-8.5 sm:h-8.5 bg-gradient-to-tr from-hub-blueDark to-hub-blue text-white rounded-lg sm:rounded-2xl flex items-center justify-center font-bold text-xs sm:text-xl shadow-md shadow-hub-blue/20">
+            <i data-lucide="wrench" class="w-3.5 h-3.5 sm:w-5 sm:h-5 rtl:-scale-x-100"></i>
           </div>
-        </div>
-
-        <!-- 2. SHOP -->
-        <a href="shop.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-shop">
-          Shop
+          <div>
+            <span class="font-black text-sm sm:text-lg lg:text-xl tracking-tight text-hub-dark dark:text-white block leading-none">Appliance<span class="text-hub-blue">Hub</span></span>
+          </div>
         </a>
 
-        <!-- 3. CATEGORIES -->
-        <a href="categories.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-categories">
-          Categories
-        </a>
+        <!-- 2. NAVIGATION MENU -->
+        <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs xl:text-sm 2xl:text-base font-bold text-slate-700 dark:text-slate-200">
+          
+          <!-- 1. HOME DROPDOWN -->
+          <div class="relative group py-2">
+            <a href="index.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-home">
+              <i data-lucide="home" class="w-4 h-4"></i>
+              <span>Home</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200"></i>
+            </a>
+            <div class="absolute top-full left-0 rtl:right-0 rtl:left-auto w-64 bg-white dark:bg-slate-800 border border-hub-border dark:border-slate-700/80 rounded-2xl shadow-xl p-2 hidden group-hover:block transition-all duration-200 z-50 before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+              <a href="index.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all relative z-10 block w-full cursor-pointer">
+                <div class="w-8 h-8 rounded-lg bg-hub-blue/10 text-hub-blue flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="store" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="block text-xs sm:text-sm font-bold transition-colors">Home V1: Sales & Repair</span>
+                  <span class="text-xs text-slate-400 font-normal pointer-events-none">Hybrid store, products & booking</span>
+                </div>
+              </a>
+              <a href="home-v2.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all mt-1 relative z-10 block w-full cursor-pointer">
+                <div class="w-8 h-8 rounded-lg bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="block text-xs sm:text-sm font-bold transition-colors">Home V2: Emergency Repairs</span>
+                  <span class="text-xs text-slate-400 font-normal pointer-events-none">High-conversion repair focus</span>
+                </div>
+              </a>
+            </div>
+          </div>
 
-        <!-- 4. DEALS -->
-        <a href="deals.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-deals">
-          Deals
-        </a>
+          <!-- 2. SHOP -->
+          <a href="shop.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-shop">
+            Shop
+          </a>
 
-        <!-- 5. BLOG -->
-        <a href="blog.html" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-hub-blue font-extrabold transition-all" id="nav-blog">
-          Blog
-        </a>
+          <!-- 3. CATEGORIES -->
+          <a href="categories.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-categories">
+            Categories
+          </a>
 
-        <!-- 6. CONTACT -->
-        <a href="contact.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
-          Contact
-        </a>
-      </nav>
+          <!-- 4. DEALS -->
+          <a href="deals.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-deals">
+            Deals
+          </a>
 
-      <!-- 3. RIGHT ACTION UTILITIES & TOGGLES -->
-      <div class="flex items-center gap-1.5 sm:gap-3">
-        
-        <!-- CART BUTTON -->
-        <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
-          <i data-lucide="shopping-cart" class="w-4 h-4 rtl:-scale-x-100"></i>
-          <span id="cartBadge" class="absolute -top-1 -right-1 rtl:-left-1 rtl:right-auto w-4 h-4 bg-hub-orange text-white text-[11px] sm:text-xs font-black rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
-        </a>
+          <!-- 5. BLOG (ACTIVE) -->
+          <a href="blog.html" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-hub-blue font-extrabold transition-all" id="nav-blog">
+            Blog
+          </a>
 
-        <!-- === TOGGLES === -->
+          <!-- 6. CONTACT -->
+          <a href="contact.html" class="px-2 py-1.5 xl:px-3 xl:py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-hub-blue transition-all" id="nav-contact">
+            Contact
+          </a>
+        </nav>
+
+        <!-- 3. UTILITIES & TOGGLES -->
+        <div class="flex items-center gap-1.5 sm:gap-3">
+          
+          <!-- CART BUTTON -->
+          <a href="cart.html" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all relative shrink-0" title="Shopping Cart">
+            <i data-lucide="shopping-cart" class="w-4 h-4 rtl:-scale-x-100"></i>
+            <span id="cartBadge" class="absolute -top-1 -right-1 rtl:-left-1 rtl:right-auto w-4 h-4 bg-hub-orange text-white text-[11px] sm:text-xs font-black rounded-full flex items-center justify-center shadow-sm" style="display: none;">0</span>
+          </a>
+
+          <!-- RTL TOGGLE -->
           <button id="rtlToggleBtn" onclick="toggleRTL()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Direction (LTR/RTL)">
             <i data-lucide="languages" class="w-4 h-4"></i>
           </button>
 
+          <!-- THEME TOGGLE -->
           <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Toggle Dark/Light Mode">
             <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
           </button>
 
-        <!-- BOOK SERVICE BUTTON -->
-        <a href="services.html" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 xl:px-4 xl:py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0 hover:scale-105">
-          <i data-lucide="wrench" class="w-3.5 h-3.5 rtl:-scale-x-100"></i> Book Service
-        </a>
+          <!-- BOOK SERVICE BUTTON -->
+          <a href="services.html" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 xl:px-4 xl:py-2 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 shrink-0 hover:scale-105">
+            <i data-lucide="wrench" class="w-3.5 h-3.5 rtl:-scale-x-100"></i> Book Service
+          </a>
+
+          <!-- MOBILE MENU BUTTON -->
+          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" aria-label="Toggle Navigation Menu">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
   </div>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center min-h-[40vh]">
+  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden flex items-center justify-center min-h-[45vh]">
     <div class="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=1920&q=80" alt="Appliance Repair Blog" class="w-full h-full object-cover object-center">
-      <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-[2px]"></div>
+      <div class="absolute inset-0 bg-slate-950/85 backdrop-blur-[3px]"></div>
     </div>
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6">
-          <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Maintenance & Tips
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+      <div class="flex flex-col items-center">
+        
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-sky-400/30 bg-sky-500/10 backdrop-blur-md text-sky-400 text-xs sm:text-sm font-bold tracking-widest uppercase mb-5">
+          <i data-lucide="book-open" class="w-4 h-4"></i> Knowledge Base & Repair Guides
         </span>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
-          Appliance <span class="text-transparent bg-clip-text bg-gradient-to-r from-hub-blue to-cyan-400">Care Guides</span>
+        
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-5">
+          Appliance Care <span class="text-transparent bg-clip-text bg-gradient-to-r from-hub-blue via-sky-400 to-cyan-300">Stories & Guides</span>
         </h1>
-        <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl text-center">
-          Expert articles on troubleshooting, maintaining your appliances, and replacing OEM parts yourself.
+        
+        <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8">
+          Expert troubleshooting manuals, energy-saving diagnostics, and OEM maintenance tips written by certified repair technicians.
         </p>
+
+        <!-- LIVE SEARCH BAR -->
+        <div class="w-full max-w-xl relative">
+          <div class="relative flex items-center">
+            <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 rtl:left-auto rtl:right-4 pointer-events-none"></i>
+            <input 
+              type="text" 
+              id="blogSearchInput" 
+              placeholder="Search troubleshooting guides, parts, error codes..." 
+              class="w-full pl-12 pr-10 rtl:pr-12 rtl:pl-10 py-3.5 bg-white/10 dark:bg-slate-900/60 backdrop-blur-xl border border-white/20 dark:border-slate-700/80 rounded-2xl text-white placeholder-slate-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-hub-blue focus:border-transparent transition-all shadow-xl"
+              oninput="filterArticles()"
+            />
+            <button 
+              id="clearSearchBtn" 
+              onclick="clearSearch()" 
+              class="absolute right-3 rtl:right-auto rtl:left-3 p-1.5 text-slate-400 hover:text-white transition-colors hidden"
+              title="Clear search"
+            >
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <main class="pt-12 pb-16">
-    <div class="max-w-[97%] mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- MAIN SECTION -->
+  <main class="pt-10 pb-20">
+    <div class="max-w-[97%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-      <!-- Blog Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- CATEGORY FILTER CHIPS -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-slate-200 dark:border-slate-800">
+        <button onclick="setCategoryFilter('all', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-hub-blue text-white shadow-sm shrink-0">
+          All Guides (6)
+        </button>
+        <button onclick="setCategoryFilter('refrigeration', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+          Refrigerators (2)
+        </button>
+        <button onclick="setCategoryFilter('laundry', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+          Laundry Care (1)
+        </button>
+        <button onclick="setCategoryFilter('hvac', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+          HVAC & AC (1)
+        </button>
+        <button onclick="setCategoryFilter('kitchen', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+          Kitchen Appliances (1)
+        </button>
+        <button onclick="setCategoryFilter('energy', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+          Energy Efficiency (1)
+        </button>
+        <button onclick="setCategoryFilter('smart', this)" class="category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0">
+          Smart Home (1)
+        </button>
+      </div>
+
+      <!-- FEATURED SPOTLIGHT CARD -->
+      <section id="featuredPostSection" class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-hub-blue to-cyan-400 rounded-3xl blur opacity-15 dark:opacity-25 group-hover:opacity-30 transition duration-700"></div>
         
-        <!-- Blog Card 1 -->
-        <a href="blog-detail.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-<<<<<<< HEAD
-          <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
-            <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80" alt="Refrigerator Maintenance" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-=======
-          <div class="w-full aspect-[16/10] shrink-0 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=800&q=80" alt="Refrigerator Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
->>>>>>> b4049a9cc11b84a9ea548d16fc59eb51fcd10c88
-          </div>
-          <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
-            <div>
-              <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-2.5">APPLIANCE MAINTENANCE</div>
-              <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
-                10 Smart Ways To Maintain Your Refrigerator For Maximum Lifespan
-              </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                Discover how keeping coils clean and maintaining proper seals can double the life of your fridge and save on energy bills.
-              </p>
-            </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span>Read Full Guide</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </div>
-          </div>
-        </a>
+        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Left Editorial Text -->
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-wider">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-emerald-500"></i> Featured Editorial
+                </span>
+                <span class="text-xs font-semibold text-slate-400 dark:text-slate-500">•</span>
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> 7 min read
+                </span>
+                <span class="text-xs font-semibold text-slate-400 dark:text-slate-500">•</span>
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-400">Sept 10, 2026</span>
+              </div>
 
-        <!-- Blog Card 2 -->
-        <a href="blog-detail-2.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-<<<<<<< HEAD
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white leading-tight hover:text-hub-blue transition-colors">
+                <a href="blog-detail.html">10 Smart Ways To Maintain Your Refrigerator For Maximum Lifespan</a>
+              </h2>
+
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Keeping condenser coils clean and verifying door gasket seals can prevent over 80% of premature compressor breakdowns. Discover pro inspection habits that cut your power consumption and add years to your appliance.
+              </p>
+
+              <!-- Bullet Highlights -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                  <span>Condenser coil vacuum routines</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                  <span>Door seal hermetic dollar-bill test</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                  <span>Optimal 37°F / 0°F temperature balance</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                  <span>Defrost drain line unclogging</span>
+                </div>
+              </div>
+
+              <!-- Author & CTA -->
+              <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-hub-blue/10 dark:bg-hub-blue/20 text-hub-blue flex items-center justify-center font-bold text-sm">
+                    MV
+                  </div>
+                  <div>
+                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block leading-tight">Marcus Vance</span>
+                    <span class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">Master Certified Appliance Tech</span>
+                  </div>
+                </div>
+
+                <a href="blog-detail.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 hover:scale-105 group/btn">
+                  <span>Read Full Guide</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100 group-hover/btn:translate-x-1 transition-transform"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Visual Image -->
+            <div class="lg:col-span-5 h-72 sm:h-80 lg:h-96 rounded-2xl overflow-hidden relative shadow-inner bg-slate-100 dark:bg-slate-800">
+              <img 
+                src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=1000&q=80" 
+                alt="Refrigerator Maintenance Master Guide" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-xs font-bold flex items-center gap-1.5 shadow-md">
+                <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i> Pro DIY Guide
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION HEADING -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pt-4">
+        <div>
+          <span class="text-xs sm:text-sm font-extrabold text-hub-blue uppercase tracking-wider block mb-1">ALL ARTICLES</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            Browse All Appliance Care Guides
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400" id="articleCountNotice">
+          Showing 6 published guides
+        </p>
+      </div>
+
+      <!-- BLOG GRID -->
+      <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: LAUNDRY -->
+        <article class="article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="laundry" data-title="weekly laundry routine guide for busy families on a budget washing machine dryer">
           <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
             <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80" alt="Laundry Routine Tips" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-=======
-          <div class="w-full aspect-[16/10] shrink-0 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=800&q=80" alt="Laundry Tips" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
->>>>>>> b4049a9cc11b84a9ea548d16fc59eb51fcd10c88
+            <span class="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-sky-400 text-[11px] font-extrabold uppercase tracking-wide">
+              Laundry Care
+            </span>
           </div>
-          <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
             <div>
-              <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-2.5">LAUNDRY TIPS</div>
-              <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
-                Weekly Laundry Routine Guide For Busy Families On A Budget
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2.5">
+                <span>5 min read</span>
+                <span>•</span>
+                <span>Sept 08, 2026</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
+                <a href="blog-detail-2.html">Weekly Laundry Routine Guide For Busy Families On A Budget</a>
               </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                Save up to  a year by optimizing your washer settings and using cold water cycles effectively.
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed font-normal">
+                Save up to $150 a year by optimizing washer cycles, preventing front-loader mildew odors, and preserving fabric elasticity with cold-water washing.
               </p>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span>Read Full Guide</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between mt-auto">
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">By Elena Rostova</span>
+              <a href="blog-detail-2.html" class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100"></i>
+              </a>
             </div>
           </div>
-        </a>
+        </article>
 
-        <!-- Blog Card 3 -->
-        <a href="blog-detail-3.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-<<<<<<< HEAD
+        <!-- CARD 2: HVAC -->
+        <article class="article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="hvac" data-title="the science behind efficient air conditioning systems hvac condenser filter cooling">
           <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
             <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=800&q=80" alt="Efficient Air Conditioning Systems" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-=======
-          <div class="w-full aspect-[16/10] shrink-0 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1527689638836-411945a2b57c?auto=format&fit=crop&w=800&q=80" alt="HVAC Secrets" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
->>>>>>> b4049a9cc11b84a9ea548d16fc59eb51fcd10c88
+            <span class="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-sky-400 text-[11px] font-extrabold uppercase tracking-wide">
+              HVAC & AC
+            </span>
           </div>
-          <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
             <div>
-              <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-2.5">HVAC SECRETS</div>
-              <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
-                The Science Behind Efficient Air Conditioning Systems
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2.5">
+                <span>6 min read</span>
+                <span>•</span>
+                <span>Sept 06, 2026</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
+                <a href="blog-detail-3.html">The Science Behind Efficient Air Conditioning Systems</a>
               </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                Why regular filter changes produce better air quality and lower your monthly cooling costs significantly.
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed font-normal">
+                Why regular MERV-8 filter replacements and condenser fin cleaning produce cleaner indoor air quality while reducing monthly electric utility spikes.
               </p>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span>Read Full Guide</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between mt-auto">
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">By David Chen</span>
+              <a href="blog-detail-3.html" class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100"></i>
+              </a>
             </div>
           </div>
-        </a>
+        </article>
 
-        <!-- Blog Card 4 -->
-        <a href="blog-detail-4.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-<<<<<<< HEAD
+        <!-- CARD 3: KITCHEN -->
+        <article class="article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="kitchen" data-title="7 microwave hacks that will change how you cook kitchen oven magnetron">
           <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
             <img src="https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80" alt="Microwave Cooking Hacks" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-=======
-          <div class="w-full aspect-[16/10] shrink-0 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Microwave Hacks" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
->>>>>>> b4049a9cc11b84a9ea548d16fc59eb51fcd10c88
+            <span class="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-sky-400 text-[11px] font-extrabold uppercase tracking-wide">
+              Kitchen Hacks
+            </span>
           </div>
-          <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
             <div>
-              <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-2.5">KITCHEN HACKS</div>
-              <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
-                7 Microwave Hacks That Will Change How You Cook
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2.5">
+                <span>4 min read</span>
+                <span>•</span>
+                <span>Sept 04, 2026</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
+                <a href="blog-detail-4.html">7 Microwave Hacks That Will Change How You Cook</a>
               </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                From steaming vegetables perfectly to frothing milk for your morning coffee, microwaves are capable of much more than reheating.
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed font-normal">
+                From 2-minute lemon steam sterilization to testing magnetron health and restoring stale bread without turning it rubbery.
               </p>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span>Read Full Guide</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between mt-auto">
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">By Chef Anthony K.</span>
+              <a href="blog-detail-4.html" class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100"></i>
+              </a>
             </div>
           </div>
-        </a>
+        </article>
 
-        <!-- Blog Card 5 -->
-        <a href="blog-detail-5.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-<<<<<<< HEAD
+        <!-- CARD 4: ENERGY -->
+        <article class="article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="energy" data-title="how to identify energy vampires in your home electricity savings standby power">
           <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
             <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Energy Saving Vampire Appliances" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-=======
-          <div class="w-full aspect-[16/10] shrink-0 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Energy Saving" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
->>>>>>> b4049a9cc11b84a9ea548d16fc59eb51fcd10c88
+            <span class="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-sky-400 text-[11px] font-extrabold uppercase tracking-wide">
+              Energy Efficiency
+            </span>
           </div>
-          <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
             <div>
-              <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-2.5">ENERGY EFFICIENCY</div>
-              <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
-                How To Identify Energy Vampires In Your Home
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2.5">
+                <span>5 min read</span>
+                <span>•</span>
+                <span>Aug 29, 2026</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
+                <a href="blog-detail-5.html">How To Identify Energy Vampires In Your Home</a>
               </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                Stop paying for electricity you aren't using. Unplugging certain appliances can make a noticeable dent in your utility bill.
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed font-normal">
+                Stop paying for phantom power you never use. Uncovering standby electrical drains and how smart power strips save up to 10% on power.
               </p>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span>Read Full Guide</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between mt-auto">
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">By Sarah Lin</span>
+              <a href="blog-detail-5.html" class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100"></i>
+              </a>
             </div>
           </div>
-        </a>
+        </article>
 
-        <!-- Blog Card 6 -->
-        <a href="blog-detail-6.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-<<<<<<< HEAD
+        <!-- CARD 5: SMART LIVING -->
+        <article class="article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="smart" data-title="integrating smart appliances with your ecosystem home automation wifi washer fridge">
           <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
             <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="Smart Home Ecosystem" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-=======
-          <div class="w-full aspect-[16/10] shrink-0 bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="Smart Home" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
->>>>>>> b4049a9cc11b84a9ea548d16fc59eb51fcd10c88
+            <span class="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-sky-400 text-[11px] font-extrabold uppercase tracking-wide">
+              Smart Living
+            </span>
           </div>
-          <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
             <div>
-              <div class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider mb-2.5">SMART LIVING</div>
-              <h3 class="text-xl font-extrabold text-hub-dark dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
-                Integrating Smart Appliances With Your Ecosystem
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2.5">
+                <span>8 min read</span>
+                <span>•</span>
+                <span>Aug 24, 2026</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
+                <a href="blog-detail-6.html">Integrating Smart Appliances With Your Ecosystem</a>
               </h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed">
-                Learn how to connect your smart washer, fridge, and oven to your voice assistant for a seamless hands-free kitchen experience.
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed font-normal">
+                Learn how to connect your smart washer, fridge, and oven to automated routines, receive real-time filter health alerts, and monitor peak-hour energy usage.
               </p>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span>Read Full Guide</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between mt-auto">
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">By Alex Rivera</span>
+              <a href="blog-detail-6.html" class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100"></i>
+              </a>
             </div>
           </div>
-        </a>
+        </article>
+
+        <!-- CARD 6: REFRIGERATION PRO TIPS -->
+        <article class="article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="refrigeration" data-title="troubleshooting refrigerator defrost cycle failure and temperature sensor issues">
+          <div class="w-full h-60 bg-slate-100 dark:bg-slate-800 relative overflow-hidden flex items-center justify-center shrink-0">
+            <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80" alt="Refrigerator Defrost Diagnostics" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3.5 left-3.5 rtl:left-auto rtl:right-3.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-sky-400 text-[11px] font-extrabold uppercase tracking-wide">
+              Refrigerators
+            </span>
+          </div>
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-2.5">
+                <span>6 min read</span>
+                <span>•</span>
+                <span>Aug 19, 2026</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-hub-blue transition-colors">
+                <a href="blog-detail.html">Troubleshooting Refrigerator Defrost System Failures</a>
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3 mb-4 leading-relaxed font-normal">
+                Is frost building up on your evaporator coils? Learn how to test the defrost bimetal thermostat, heater element, and main board with a multimeter.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between mt-auto">
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">By Marcus Vance</span>
+              <a href="blog-detail.html" class="flex items-center gap-1.5 text-xs font-bold text-hub-blue group-hover:gap-2.5 transition-all">
+                <span>Read Full Guide</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 rtl:-scale-x-100"></i>
+              </a>
+            </div>
+          </div>
+        </article>
 
       </div>
+
+      <!-- NO RESULTS NOTIFICATION (HIDDEN BY DEFAULT) -->
+      <div id="noResultsBox" class="hidden text-center py-16 px-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl">
+        <div class="w-14 h-14 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 mb-4">
+          <i data-lucide="search-x" class="w-7 h-7"></i>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">No Matching Guides Found</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto mb-6">
+          We couldn't find any articles matching your search query. Try searching for common terms like "washer", "coils", or "filters".
+        </p>
+        <button onclick="clearSearch()" class="px-5 py-2.5 bg-hub-blue text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-hub-blueDark transition-colors">
+          Reset Filter & Show All
+        </button>
+      </div>
+
+      <!-- VIP NEWSLETTER & MAINTENANCE CHECKLIST -->
+      <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950 text-white p-8 sm:p-12 lg:p-14 border border-sky-500/20 shadow-2xl">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+          
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 text-xs font-extrabold uppercase tracking-wider">
+            <i data-lucide="mail-check" class="w-4 h-4"></i> Free Monthly Maintenance Checklist
+          </span>
+
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
+            Keep Your Appliances Running Like Brand New
+          </h2>
+
+          <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+            Join 25,000+ smart homeowners who receive our monthly DIY inspection checklist, recall notifications, and exclusive subscriber discounts on genuine OEM replacement parts.
+          </p>
+
+          <form onsubmit="event.preventDefault(); document.getElementById('newsletterSuccess').style.display = 'flex'; this.style.display = 'none';" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
+            <input 
+              type="email" 
+              placeholder="Enter your email address..." 
+              required 
+              class="flex-1 px-4 py-3 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 backdrop-blur-md"
+            />
+            <button type="submit" class="px-6 py-3 rounded-2xl bg-hub-blue hover:bg-sky-400 text-white hover:text-slate-950 text-xs sm:text-sm font-black transition-all shadow-lg hover:shadow-sky-400/30 shrink-0">
+              Subscribe Free
+            </button>
+          </form>
+
+          <div id="newsletterSuccess" class="hidden items-center justify-center gap-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold max-w-md mx-auto">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+            <span>Awesome! Check your inbox for your Welcome Guide & OEM Parts discount code.</span>
+          </div>
+
+          <p class="text-[11px] text-slate-400">Zero spam. You can unsubscribe anytime with a single click.</p>
+        </div>
+      </section>
+
+      <!-- NEED IN-HOME REPAIR BANNER -->
+      <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div class="flex items-center gap-4 text-center md:text-left">
+          <div class="w-12 h-12 rounded-2xl bg-hub-orange/10 text-hub-orange flex items-center justify-center shrink-0">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white">Can't diagnose the problem on your own?</h3>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Our certified appliance repair technicians offer emergency same-day doorstep service across the city.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="tel:18002775426" class="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-hub-blue text-xs sm:text-sm font-bold transition-all flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4"></i> Call Helpline
+          </a>
+          <a href="services.html" class="px-5 py-2.5 rounded-xl bg-hub-blue hover:bg-hub-blueDark text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-hub-blue/20 flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4"></i> Book Service
+          </a>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -354,9 +614,9 @@
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         
-        <!-- COLUMN 1: BRAND & SOCIAL LOGOS -->
+        <!-- COLUMN 1: BRAND INFO -->
         <div class="space-y-4">
-          <a href="index.html" class="flex items-center gap-2.5">
+          <a href="index.html" class="flex items-center gap-2">
             <div class="w-9 h-9 rounded-full bg-hub-blue text-white flex items-center justify-center font-bold text-lg shadow-md shadow-hub-blue/20">
               <i data-lucide="shopping-bag" class="w-4.5 h-4.5"></i>
             </div>
@@ -366,7 +626,7 @@
             ApplianceHub is your trusted destination for genuine appliance sales and 24/7 doorstep repair services, delivering quality straight to your home.
           </p>
           
-          <!-- OFFICIAL BRAND SOCIAL LOGOS (FACEBOOK, TWITTER/X, INSTAGRAM, YOUTUBE, LINKEDIN) -->
+          <!-- OFFICIAL BRAND SOCIAL LOGOS -->
           <div class="flex items-center gap-2.5 pt-2">
             <!-- Facebook -->
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Facebook">
@@ -425,7 +685,6 @@
           <ul class="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-400">
             <li><a href="contact.html" class="hover:text-white transition-colors">Help & FAQ Center</a></li>
             <li><a href="track-service.html" class="hover:text-white transition-colors">Live Order Tracking</a></li>
-            <!-- <li><a href="login.html" class="hover:text-white transition-colors">Order History</a></li> -->
             <li><a href="404.html" class="hover:text-white transition-colors">Returns & Refunds</a></li>
             <li><a href="coming-soon.html" class="hover:text-white transition-colors">Service Policy</a></li>
           </ul>
@@ -445,22 +704,95 @@
     </div>
   </footer>
 
+  <!-- CLIENT-SIDE FILTER & SEARCH LOGIC -->
   <script>
-    lucide.createIcons();
+    let currentCategory = 'all';
+
+    function setCategoryFilter(category, buttonEl) {
+      currentCategory = category;
+      
+      // Update chip styling
+      document.querySelectorAll('.category-chip').forEach(btn => {
+        btn.className = 'category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0';
+      });
+      buttonEl.className = 'category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-hub-blue text-white shadow-sm shrink-0';
+      
+      filterArticles();
+    }
+
+    function filterArticles() {
+      const searchInput = document.getElementById('blogSearchInput');
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      const cards = document.querySelectorAll('.article-card');
+      const featuredSection = document.getElementById('featuredPostSection');
+      const noResultsBox = document.getElementById('noResultsBox');
+      const countNotice = document.getElementById('articleCountNotice');
+
+      // Toggle clear button
+      if (query.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardTitle = card.getAttribute('data-title').toLowerCase();
+        
+        const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+        const matchesQuery = (!query || cardTitle.includes(query));
+
+        if (matchesCategory && matchesQuery) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Hide or show featured section during active search
+      if (query.length > 0 || currentCategory !== 'all') {
+        if (featuredSection) featuredSection.style.display = 'none';
+      } else {
+        if (featuredSection) featuredSection.style.display = 'block';
+      }
+
+      // Handle empty state
+      if (visibleCount === 0) {
+        noResultsBox.classList.remove('hidden');
+        countNotice.textContent = 'No articles match your criteria';
+      } else {
+        noResultsBox.classList.add('hidden');
+        countNotice.textContent = `Showing ${visibleCount} published guide${visibleCount > 1 ? 's' : ''}`;
+      }
+    }
+
+    function clearSearch() {
+      const searchInput = document.getElementById('blogSearchInput');
+      searchInput.value = '';
+      currentCategory = 'all';
+
+      // Reset filter chips
+      const chips = document.querySelectorAll('.category-chip');
+      chips.forEach((btn, idx) => {
+        if (idx === 0) {
+          btn.className = 'category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-hub-blue text-white shadow-sm shrink-0';
+        } else {
+          btn.className = 'category-chip px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shrink-0';
+        }
+      });
+
+      filterArticles();
+    }
+
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+    if (window.lucide) lucide.createIcons();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
